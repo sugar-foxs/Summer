@@ -8,13 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.List;
 
 /**
  * Created by gch on 16-5-2.
  */
 @RunWith(SpringJUnit4ClassRunner.class)   //相当于继承了SpringJUnit4ClassRunner
-@ContextConfiguration(locations = {"classpath:springmvc-config.xml"})
+@ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
 
 public class CustomerTest {
     private CustomerService customerService;
@@ -27,23 +26,8 @@ public class CustomerTest {
     @Test
     public void insertCustomer(){
         Customer customer = new Customer();
-        customer.setCustomerId(4);
-        customer.setCustomerName("ggg");
+        customer.setCustomerName("GC");
         customerService.insertCustomer(customer);
-    }
-
-    @Test
-    public void findAllCutomers(){
-        List<Customer> customerList = customerService.findAllCustomers();
-        for(Customer customer:customerList){
-            System.out.print(customer.getCustomerId()+" ");
-            System.out.println(customer.getCustomerName());
-        }
-    }
-
-    @Test
-    public void deleteCustomer(){
-        customerService.delete(2);
     }
 
     @Test
@@ -51,6 +35,22 @@ public class CustomerTest {
         Customer customer = customerService.findCustomerById(33);
         System.out.print(customer.getCustomerId()+" "+customer.getCustomerName());
     }
+
+//    @Test
+//    public void findAllCutomers(){
+//        List<Customer> customerList = customerService.findAllCustomers();
+//        for(Customer customer:customerList){
+//            System.out.print(customer.getCustomerId()+" ");
+//            System.out.println(customer.getCustomerName());
+//        }
+//    }
+//
+//    @Test
+//    public void deleteCustomer(){
+//        customerService.delete(2);
+//    }
+//
+
 
 
 }

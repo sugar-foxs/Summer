@@ -1,47 +1,30 @@
 package com.guchunhui.serviceImp;
 
+import com.guchunhui.mapper.CustomerMapper;
 import com.guchunhui.model.Customer;
 import com.guchunhui.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-
-import java.util.List;
+import org.springframework.stereotype.Service;
 
 
 /**
  * Created by gch on 16-4-13.
  */
+@Service("customerService")
 public class CustomerServiceImp implements CustomerService {
-
-    private JdbcTemplate jdbcTemplate;
-
-    @Autowired
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
-
-    public Customer findCustomerById(int id) {
-        String sql = "select * from customer where customer_id=?";
-        return (Customer) jdbcTemplate.queryForObject(sql, new Object[] { id }, new BeanPropertyRowMapper(Customer.class));
-    }
+    private CustomerMapper customerMapper;
 
     public void insertCustomer(Customer customer) {
-        String sql="insert into customer(customer_id,customer_name) values(?,?)";
-        jdbcTemplate.update(sql,new Object[]{
-                customer.getCustomerId(),customer.getCustomerName()
-        });
+        customerMapper.insertCustomer(customer);
     }
 
-    public List<Customer> findAllCustomers() {
-        String sql = "select * from customer ";
-        return (List<Customer>) jdbcTemplate.query(sql, new BeanPropertyRowMapper(Customer.class));
-    }
-
-    public void delete(int id) {
-        String sql = "delete from customer where customer_id=?";
-        this.jdbcTemplate.update(sql,id);
+    public Customer findCustomerById(int id){
+        return customerMapper.findCustomerById(id);
     }
 
 
+    @Autowired
+    public void setCustomerMapper(CustomerMapper customerMapper) {
+        this.customerMapper = customerMapper;
+    }
 }

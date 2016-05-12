@@ -22,21 +22,21 @@ import java.util.List;
 @RequestMapping("/customer")
 public class CustomerController  {
 
-      private CustomerService customerService;
-
-      @Autowired
-      public void setCustomerService(CustomerService customerService) {
-            this.customerService = customerService;
-      }
-
-      @RequestMapping(value = "/insert")
-      public String insertCustomer(){
-            Customer customer = new Customer();
-            customer.setCustomerName("gch");
-            customer.setCustomerId(2);
-//            System.out.println("hh");
-            customerService.insertCustomer(customer);
-            return "html5";
-      }
+//      private CustomerService customerService;
+//
+//      @Autowired
+//      public void setCustomerService(CustomerService customerService) {
+//            this.customerService = customerService;
+//      }
+//
+//      @RequestMapping(value = "/insert")
+//      public String insertCustomer(){
+//            Customer customer = new Customer();
+//            customer.setCustomerName("gch");
+//            customer.setCustomerId(2);
+////            System.out.println("hh");
+//            customerService.insertCustomer(customer);
+//            return "html5";
+//      }
 
 }

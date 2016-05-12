@@ -12,34 +12,25 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.guchunhui.controller"/>
-    <context:component-scan base-package="com.guchunhui.serviceImp"/>
-
     <mvc:annotation-driven />
-
-    <!--<mvc:resources mapping="/image/**" location="/image/"/>-->
+    <context:component-scan base-package="com.guchunhui.controller"/>
 
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/jsps/" p:suffix=".jsp"/>
 
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 
-    <!-- 获取数据源 -->
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-    <property name="url" value="jdbc:mysql://localhost:3306/summer"/>
-    <property name="username" value="root"/>
-    <property name="password" value="123456"/>
+    <!--文件上传下载-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding">
+            <value>UTF-8</value>
+        </property>
+        <property name="maxUploadSize">
+            <value>32505856</value><!-- 上传文件大小限制为31M，31*1024*1024 -->
+        </property>
+        <property name="maxInMemorySize">
+            <value>4096</value>
+        </property>
     </bean>
-    <!-- 给jdbc模板注入数据源-->
-    <bean id="CustomerService" class="com.guchunhui.serviceImp.CustomerServiceImp">
-        <property name="jdbcTemplate" ref="jdbcTemplate"/>
-    </bean>
-
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-    <property name="dataSource" ref="dataSource"/>
-    </bean>
-
 
 </beans>

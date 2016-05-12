@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guchunhui.mapper.BookMapper">
+
+    <resultMap type="com.guchunhui.model.Book" id="BookResult">
+        <id property="commodityId" column="book_id"/>
+        <result property="name" column="bookname"/>
+        <result property="author" column="author"/>
+        <result property="year" column="year"/>
+        <result property="price" column="price"/>
+    </resultMap>
+
+    <insert id="insertBook" parameterType="Book" useGeneratedKeys="true" keyProperty="book_id">
+        INSERT INTO book(bookname,author,year,price) VALUE (
+        #{name},#{author},#{year},#{price}
+        )
+    </insert>
+</mapper>

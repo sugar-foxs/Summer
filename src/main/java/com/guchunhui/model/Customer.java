@@ -15,7 +15,16 @@ public class Customer implements Serializable{
 
     private String customerName;
 
-//    private List<MultipartFile> images;
+    private ShoppingCar shoppingCar;
+
+    public ShoppingCar getShoppingCar() {
+        return shoppingCar;
+    }
+
+    public void setShoppingCar(ShoppingCar shoppingCar) {
+        this.shoppingCar = shoppingCar;
+    }
+    //    private List<MultipartFile> images;
 //
 //    public List<MultipartFile> getImages() {
 //        return images;
