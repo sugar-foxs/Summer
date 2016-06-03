@@ -6,6 +6,8 @@ import com.guchunhui.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 /**
  * Created by gch on 16-4-13.
@@ -16,6 +18,14 @@ public class CustomerServiceImp implements CustomerService {
 
     public void insertCustomer(Customer customer) {
         customerMapper.insertCustomer(customer);
+    }
+
+    public List<Customer> findAllCustomers() {
+        return customerMapper.findAllCustomers();
+    }
+
+    public void deleteCustomerById(int id) {
+        customerMapper.deleteCustomerById(id);
     }
 
     public Customer findCustomerById(int id){

@@ -17,22 +17,15 @@ public class Customer implements Serializable{
 
     private ShoppingCar shoppingCar;
 
-    public ShoppingCar getShoppingCar() {
-        return shoppingCar;
+    private int shoppingcarId;
+
+    public int getShoppingcarId() {
+        return shoppingcarId;
     }
 
-    public void setShoppingCar(ShoppingCar shoppingCar) {
-        this.shoppingCar = shoppingCar;
+    public void setShoppingcarId(int shoppingcarId) {
+        this.shoppingcarId = shoppingcarId;
     }
-    //    private List<MultipartFile> images;
-//
-//    public List<MultipartFile> getImages() {
-//        return images;
-//    }
-//
-//    public void setImages(List<MultipartFile> images) {
-//        this.images = images;
-//    }
 
     public int getCustomerId() {
         return customerId;
@@ -48,5 +41,13 @@ public class Customer implements Serializable{
 
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
+    }
+
+    public ShoppingCar getShoppingCar() {
+        return shoppingCar;
+    }
+
+    public void setShoppingCar(ShoppingCar shoppingCar) {
+        this.shoppingCar = shoppingCar;
     }
 }

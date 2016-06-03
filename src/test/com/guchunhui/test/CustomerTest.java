@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
+
 
 /**
  * Created by gch on 16-5-2.
@@ -36,20 +38,20 @@ public class CustomerTest {
         System.out.print(customer.getCustomerId()+" "+customer.getCustomerName());
     }
 
-//    @Test
-//    public void findAllCutomers(){
-//        List<Customer> customerList = customerService.findAllCustomers();
-//        for(Customer customer:customerList){
-//            System.out.print(customer.getCustomerId()+" ");
-//            System.out.println(customer.getCustomerName());
-//        }
-//    }
-//
-//    @Test
-//    public void deleteCustomer(){
-//        customerService.delete(2);
-//    }
-//
+    @Test
+    public void findAllCutomers(){
+        List<Customer> customerList = customerService.findAllCustomers();
+        for(Customer customer:customerList){
+            System.out.print(customer.getCustomerId()+" ");
+            System.out.println(customer.getCustomerName());
+        }
+    }
+
+    @Test
+    public void deleteCustomer(){
+        customerService.deleteCustomerById(3);
+    }
+
 
 
 

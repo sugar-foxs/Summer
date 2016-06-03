@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guchunhui.mapper.ShoppingCarMapper">
+
+    <resultMap type="com.guchunhui.model.ShoppingCar" id="ShoppingCarResult">
+        <id property="shoppingCarId" column="shoppingcar_id"/>
+        <result property="priceSum" column="pricesum"/>
+        <result property="num" column="num"/>
+    </resultMap>
+
+
+    <select id="findShoppingCarById" resultMap="ShoppingCarResult" parameterType="int">
+        SELECT * FROM shoppingcar WHERE shoppingcar_id = #{shoppingCarId}
+    </select>
+
+
+</mapper>
