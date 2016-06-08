@@ -1,0 +1,15 @@
+.images-content{
+    position: absolute;
+    z-index: 1;
+    left: 88%;
+    top:0;
+    width: 100%;
+    color: #fff;
+    /*background: rgba(0,0,0,.7);*/
+    height: 34px;
+    line-height: 34px;
+    overflow: hidden;
+}
+a:hover{
+    text-decoration: none;
+}
