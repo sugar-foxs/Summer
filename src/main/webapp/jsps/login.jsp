@@ -19,44 +19,40 @@
 <body style="text-align: center">
 <div class="container">
     <div class="row">
-        <div class="col-xs-4 col-xs-offset-4" style="border: 1px solid red">
-            <div class="row">
-                <div class="col-xs-10 col-xs-offset-1">
-                    <h2>账户登陆</h2><br>
-                    <form class="form" name="myform" id="login" method="post" action="login.do">
-                        <div class="row" >
-                            <div class="col-xs-10 col-xs-offset-1" style="height: 44px;">
-                                <div class="col-xs-2" style="background-color:#adadad;height: 44px;">
-                                        <span style="font-size: 28px;line-height: 44px;color: white" class="glyphicon glyphicon-user"></span>
-                                </div>
-                                <div class="col-xs-10" style="height: 44px;border: 1px solid whitesmoke;">
-                                    <input type="text" placeholder="用户名" id="username" name="username" style="border: 0;width:96%;height: 44px;">
-                                </div>
-                            </div>
+        <div class="col-xs-3 col-xs-offset-4" style="border: 1px solid red">
+            <h2>账户登陆</h2><br>
+            <form class="form" name="loginForm" id="login" method="post" action="login.do">
+                <div class="row" >
+                    <div class="col-xs-10 col-xs-offset-1" style="height: 44px;">
+                        <div class="col-xs-2" style="background-color:#adadad;height: 44px;">
+                                <span style="font-size: 28px;line-height: 44px;color: white" class="glyphicon glyphicon-user"></span>
                         </div>
-                        <br>
-                        <div class="row" >
-                            <div class="col-xs-10 col-xs-offset-1" style="height: 44px;">
-                                <div class="col-xs-2" style="background-color:#adadad;height: 44px;">
-                                    <span style="font-size: 28px;line-height: 44px;color: white" class="glyphicon glyphicon-lock"></span>
-                                </div>
-                                <div class="col-xs-10" style="height: 44px;border: 1px solid whitesmoke;">
-                                    <input type="password" id="password" name="password" style="border: 0;width:96%;height: 44px;">
-                                </div>
-                            </div>
+                        <div class="col-xs-10" style="height: 44px;border: 1px solid whitesmoke;">
+                            <input type="text" placeholder="用户名" id="username" name="username" style="border: 0;width:96%;height: 44px;">
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-xs-10 col-xs-offset-1">
-                                <button type="submit" id="login-button" class="btn btn-block" style="background-color: orangered" onclick="return checkform(this.form);">
-                                    登&nbsp;&nbsp;&nbsp;&nbsp;录
-                                </button>
-                            </div>
-                        </div>
-                        <br>
-                    </form>
+                    </div>
                 </div>
-            </div>
+                <br>
+                <div class="row" >
+                    <div class="col-xs-10 col-xs-offset-1" style="height: 44px;">
+                        <div class="col-xs-2" style="background-color:#adadad;height: 44px;">
+                            <span style="font-size: 28px;line-height: 44px;color: white" class="glyphicon glyphicon-lock"></span>
+                        </div>
+                        <div class="col-xs-10" style="height: 44px;border: 1px solid whitesmoke;">
+                            <input type="password" id="password" name="password" style="border: 0;width:96%;height: 44px;">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <button type="submit" id="login-button" class="btn btn-block" style="background-color: orangered" onclick="return checkform(this.form);">
+                            登&nbsp;&nbsp;&nbsp;&nbsp;录
+                        </button>
+                    </div>
+                </div>
+                <br>
+            </form>
         </div>
     </div>
 </div>
