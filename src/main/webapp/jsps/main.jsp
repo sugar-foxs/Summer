@@ -28,8 +28,8 @@
     </script>
 </head>
 <body>
-<div class="row" style="background-color: whitesmoke;height: 36px;">
-    <div class="col-md-3 col-md-offset-1" style="top: 25%">
+<div class="row" style="background-color: whitesmoke;height: 36px;min-width: 1200px;">
+    <div class="col-xs-4 col-xs-offset-1" style="top: 25%">
         <a href="/jsps/login.jsp">
             <span style="color: darkorange">
                 亲，请登录&nbsp;
@@ -46,7 +46,7 @@
             </span>
         </a>
     </div>
-    <div class="col-md-4 col-md-offset-1">
+    <div class="col-xs-7 ">
     <%--<button id="bookstore_button" style="border: 0;height:36px;background-color:whitesmoke;"--%>
             <%--onmouseover="a_onmouseover('mybookstore','bookstore_button');" onmouseout="a_onmouseout('mybookstore','bookstore_button');">--%>
         <%--我的书城 <span class="caret"></span>--%>
@@ -89,6 +89,7 @@
                 </li>
             </ul>
         </div>
+
     </div>
 </div>
 <div class="container">
