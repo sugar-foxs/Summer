@@ -15,17 +15,15 @@ public class Customer implements Serializable{
 
     private String customerName;
 
+    private String customerPassword;
+
+    private String customerPhone;
+
+    private String customerEmail;
+
     private ShoppingCar shoppingCar;
 
     private int shoppingcarId;
-
-    public int getShoppingcarId() {
-        return shoppingcarId;
-    }
-
-    public void setShoppingcarId(int shoppingcarId) {
-        this.shoppingcarId = shoppingcarId;
-    }
 
     public int getCustomerId() {
         return customerId;
@@ -41,6 +39,38 @@ public class Customer implements Serializable{
 
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
+    }
+
+    public String getCustomerPassword() {
+        return customerPassword;
+    }
+
+    public void setCustomerPassword(String customerPassword) {
+        this.customerPassword = customerPassword;
+    }
+
+    public String getCustomerPhone() {
+        return customerPhone;
+    }
+
+    public void setCustomerPhone(String customerPhone) {
+        this.customerPhone = customerPhone;
+    }
+
+    public String getCustomerEmail() {
+        return customerEmail;
+    }
+
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
+    }
+
+    public int getShoppingcarId() {
+        return shoppingcarId;
+    }
+
+    public void setShoppingcarId(int shoppingcarId) {
+        this.shoppingcarId = shoppingcarId;
     }
 
     public ShoppingCar getShoppingCar() {

@@ -15,13 +15,14 @@
     <link href="../css/bootstrap.css" rel="stylesheet" />
     <script src="../js/jquery-1.9.1.js" type="text/javascript"></script>
     <script src="../js/bootstrap.js"></script>
+    <script src="../js/jquery.validate.min.js"></script>
 </head>
 <body style="text-align: center">
 <div class="container">
     <div class="row">
         <div class="col-xs-3 col-xs-offset-4" style="border: 1px solid red">
             <h2>账户登陆</h2><br>
-            <form class="form" name="loginForm" id="login" method="post" action="login.do">
+            <form class="loginForm" name="loginForm" id="login" method="post" action="login.do">
                 <div class="row" >
                     <div class="col-xs-10 col-xs-offset-1" style="height: 44px;">
                         <div class="col-xs-2" style="background-color:#adadad;height: 44px;">
@@ -45,8 +46,13 @@
                 </div>
                 <br>
                 <div class="row">
+                    <div class="col-xs-3 col-xs-offset-1">
+                        <label><input type="checkbox">记住密码</label>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-xs-10 col-xs-offset-1">
-                        <button type="submit" id="login-button" class="btn btn-block" style="background-color: orangered" onclick="return checkform(this.form);">
+                        <button type="submit" id="login-button" class="btn btn-block" style="background-color: orangered">
                             登&nbsp;&nbsp;&nbsp;&nbsp;录
                         </button>
                     </div>
