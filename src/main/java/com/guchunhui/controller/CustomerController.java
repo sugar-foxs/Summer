@@ -53,7 +53,7 @@ public class CustomerController  {
       List<Customer> findAllCustomers(){
             List<Customer> customerList = customerService.findAllCustomers();
             for(Customer customer : customerList){
-                  int shoppingcarId = customer.getShoppingcarId();
+                  int shoppingcarId = customer.getShoppingCarId();
                   ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(shoppingcarId);
                   customer.setShoppingCar(shoppingCar);
             }
@@ -65,7 +65,7 @@ public class CustomerController  {
       Customer findCustomerById(HttpServletRequest request){
             String id = request.getParameter("Customerid");
             Customer customer = customerService.findCustomerById(Integer.parseInt(id));
-            int shoppingcarId = customer.getShoppingcarId();
+            int shoppingcarId = customer.getShoppingCarId();
             ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(shoppingcarId);
             customer.setShoppingCar(shoppingCar);
             return customer;

@@ -21,4 +21,12 @@ public class ShoppingCarServiceImp implements ShoppingCarService {
     public ShoppingCar findShoppingCarById(int id) {
         return shoppingCarMapper.findShoppingCarById(id);
     }
+
+    public void insertShoppingCar(ShoppingCar shoppingCar) {
+        shoppingCarMapper.insertShoppingCar(shoppingCar);
+    }
+
+    public void deleteShoppingCarById(int id) {
+        shoppingCarMapper.deleteShoppingCarById(id);
+    }
 }

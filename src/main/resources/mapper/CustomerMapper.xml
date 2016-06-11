@@ -15,8 +15,8 @@
     </resultMap>
 
     <insert id="insertCustomer" parameterType="Customer" useGeneratedKeys="true" keyProperty="customer_id">
-        INSERT INTO customer(customer_name,customer_password) VALUE (
-        #{customerName},#{customerPassword}
+        INSERT INTO customer(customer_id,customer_name,customer_password,phone,email,shoppingcar_id,shoppinglist_id) VALUE (
+        #{customerId},#{customerName},#{customerPassword},#{customerPhone},#{customerEmail},#{shoppingCarId},#{shoppingListId}
         )
     </insert>
 

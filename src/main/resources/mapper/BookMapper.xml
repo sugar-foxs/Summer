@@ -5,16 +5,37 @@
 <mapper namespace="com.guchunhui.mapper.BookMapper">
 
     <resultMap type="com.guchunhui.model.Book" id="BookResult">
-        <id property="commodityId" column="book_id"/>
-        <result property="name" column="bookname"/>
+        <id property="bookId" column="book_id"/>
+        <result property="bookName" column="book_name"/>
         <result property="author" column="author"/>
         <result property="year" column="year"/>
         <result property="price" column="price"/>
     </resultMap>
 
     <insert id="insertBook" parameterType="Book" useGeneratedKeys="true" keyProperty="book_id">
-        INSERT INTO book(bookname,author,year,price) VALUE (
-        #{name},#{author},#{year},#{price}
+        INSERT INTO book(book_name,author,year,price) VALUE (
+        #{bookName},#{author},#{year},#{price}
         )
     </insert>
+
+    <select id="findBookById" resultMap="BookResult" parameterType="int">
+        SELECT * FROM book WHERE book_id = #{bookId}
+    </select>
+
+    <select id="findBookByName" resultMap="BookResult" parameterType="String">
+        SELECT * FROM book WHERE book_name = #{bookName}
+    </select>
+
+    <select id="findAllBooks" resultMap="BookResult">
+        SELECT * FROM book
+    </select>
+
+    <delete id="deleteBookById" parameterType="int">
+        DELETE FROM book WHERE  book_id = #{bookId}
+    </delete>
+
+    <delete id="deleteBookByName" parameterType="String">
+        DELETE FROM book WHERE  book_name = #{bookName}
+    </delete>
+
 </mapper>

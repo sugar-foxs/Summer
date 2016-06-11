@@ -8,10 +8,10 @@ import java.io.Serializable;
 public class Book  implements Serializable{
     private static final long serialVersionUID = 854276895268L;
     private int bookId;
-    private double price;
     private String bookName;
     private String author;
     private String year;
+    private double price;
 
     public int getBookId() {
         return bookId;

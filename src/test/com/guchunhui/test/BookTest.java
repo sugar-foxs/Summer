@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
+
 /**
  * Created by gch on 16-5-10.
  */
@@ -23,13 +25,57 @@ public class BookTest {
 
     @Test
     public void insertBook(){
-        Book book = new Book("tomcat","gu","2015",80);
-//        book.setCommodityId(2);
-//        book.setName("hhhh");
-//        book.setAuthor("gu");
-//        book.setYear("2015");
-//        book.setPrice(5);
+        Book book = new Book();
+        book.setBookName("java");
+        book.setAuthor("gu");
+        book.setYear("2015");
+        book.setPrice(5.2);
         bookService.insertBook(book);
     }
 
+    @Test
+    public void findBookById(){
+        Book book = bookService.findBookById(1);
+        System.out.println(
+            book.getBookName()+" "+
+            book.getAuthor()+" "+
+            book.getYear()+" "+
+            book.getPrice()
+        );
+    }
+
+    @Test
+    public void findBookByName(){
+        Book book = bookService.findBookByName("java");
+        System.out.println(
+                book.getBookName()+" "+
+                        book.getAuthor()+" "+
+                        book.getYear()+" "+
+                        book.getPrice()
+        );
+    }
+
+    @Test
+    public void findAllBooks(){
+        List<Book> books = bookService.findAllBooks();
+        for(Book book : books){
+            System.out.println(
+                    book.getBookName()+" "+
+                            book.getAuthor()+" "+
+                            book.getYear()+" "+
+                            book.getPrice()
+            );
+        }
+
+    }
+
+    @Test
+    public void deleteBookById(){
+        bookService.deleteBookById(2);
+    }
+
+    @Test
+    public void deleteBookByName(){
+        bookService.deleteBookByName("java");
+    }
 }

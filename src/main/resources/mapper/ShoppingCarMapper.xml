@@ -8,12 +8,23 @@
         <id property="shoppingCarId" column="shoppingcar_id"/>
         <result property="priceSum" column="pricesum"/>
         <result property="num" column="num"/>
+        <result property="booksIds" column="books_ids"/>
     </resultMap>
 
+
+    <insert id="insertShoppingCar" parameterType="ShoppingCar" useGeneratedKeys="true" keyProperty="shoppingcar_id">
+        INSERT INTO shoppingcar(shoppingcar_id,pricesum,num,books_ids) VALUE (
+        #{shoppingCarId},#{priceSum},#{num},#{booksIds}
+        )
+    </insert>
 
     <select id="findShoppingCarById" resultMap="ShoppingCarResult" parameterType="int">
         SELECT * FROM shoppingcar WHERE shoppingcar_id = #{shoppingCarId}
     </select>
+
+    <delete id="deleteShoppingCarById" parameterType="int">
+        DELETE FROM shoppingcar WHERE  shoppingcar_id = #{shoppingCarId}
+    </delete>
 
 
 </mapper>

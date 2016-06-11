@@ -22,8 +22,20 @@ public class ShoppingCarTest {
     }
 
     @Test
-    public void findAllShoppingCarById(){
+    public void findShoppingCarById(){
         ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(1);
-        System.out.println(shoppingCar.getShoppingCarId()+" "+shoppingCar.getPriceSum()+" "+shoppingCar.getNum());
+        System.out.println(shoppingCar.getShoppingCarId()+" "+shoppingCar.getPriceSum()+" "+shoppingCar.getNum()+" "+shoppingCar.getBooksIds());
+    }
+
+    @Test
+    public void insertShoppingCar(){
+        ShoppingCar shoppingCar = new ShoppingCar();
+        shoppingCar.setShoppingCarId(2);
+        shoppingCarService.insertShoppingCar(shoppingCar);
+    }
+
+    @Test
+    public void deleteShoppingCarById(){
+        shoppingCarService.deleteShoppingCarById(2);
     }
 }

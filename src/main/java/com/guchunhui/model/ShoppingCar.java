@@ -13,6 +13,15 @@ public class ShoppingCar implements Serializable{
     private int priceSum;
     private int num;
     private List<Book> books;
+    private String booksIds;
+
+    public String getBooksIds() {
+        return booksIds;
+    }
+
+    public void setBooksIds(String booksIds) {
+        this.booksIds = booksIds;
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -57,6 +66,8 @@ public class ShoppingCar implements Serializable{
                 ", priceSum='" + priceSum  +
                 ", num='" + num +
                 ", books='" + books +
+                ", booksIds='" + booksIds+ '\'' +
+
                 '}';
     }
 }
