@@ -28,14 +28,15 @@ public class CustomerTest {
     @Test
     public void insertCustomer(){
         Customer customer = new Customer();
-        customer.setCustomerName("GC");
+        customer.setCustomerName("GCH");
+        customer.setCustomerPassword("123456");
         customerService.insertCustomer(customer);
     }
 
     @Test
     public void findCustomerById(){
-        Customer customer = customerService.findCustomerById(33);
-        System.out.print(customer.getCustomerId()+" "+customer.getCustomerName());
+        Customer customer = customerService.findCustomerById(1);
+        System.out.print(customer.getCustomerId()+" "+customer.getCustomerName()+" "+customer.getCustomerPhone());
     }
 
     @Test
@@ -43,13 +44,13 @@ public class CustomerTest {
         List<Customer> customerList = customerService.findAllCustomers();
         for(Customer customer:customerList){
             System.out.print(customer.getCustomerId()+" ");
-            System.out.println(customer.getCustomerName());
+            System.out.println(customer.getCustomerName()+" "+customer.getCustomerPassword());
         }
     }
 
     @Test
     public void deleteCustomer(){
-        customerService.deleteCustomerById(3);
+        customerService.deleteCustomerById(2);
     }
 
 

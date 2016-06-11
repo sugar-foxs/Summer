@@ -7,13 +7,16 @@
     <resultMap type="com.guchunhui.model.Customer" id="CustomerResult">
         <id property="customerId" column="customer_id"/>
         <result property="customerName" column="customer_name"/>
-        <result property="shoppingcarId" column="shoppingcar_id"/>
-
+        <result property="customerPassword" column="customer_password"/>
+        <result property="customerPhone" column="phone"/>
+        <result property="customerEmail" column="email"/>
+        <result property="shoppingCarId" column="shoppingcar_id"/>
+        <result property="shoppingListId" column="shoppinglist_id"/>
     </resultMap>
 
     <insert id="insertCustomer" parameterType="Customer" useGeneratedKeys="true" keyProperty="customer_id">
-        INSERT INTO customer(customer_name) VALUE (
-        #{customerName}
+        INSERT INTO customer(customer_name,customer_password) VALUE (
+        #{customerName},#{customerPassword}
         )
     </insert>
 

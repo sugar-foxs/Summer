@@ -22,8 +22,9 @@
     <div class="row">
         <div class="col-xs-3 col-xs-offset-4" style="border: 1px solid red">
             <h2>账户登陆</h2><br>
-            <form class="loginForm" name="loginForm" id="login" method="post" action="login.do">
-                <div class="row" >
+            <form class="loginForm" name="loginForm" id="login" method="post" action="/customer/login.do">
+                <span style="color: red">${error}</span>
+                <div class="row">
                     <div class="col-xs-10 col-xs-offset-1" style="height: 44px;">
                         <div class="col-xs-2" style="background-color:#adadad;height: 44px;">
                                 <span style="font-size: 28px;line-height: 44px;color: white" class="glyphicon glyphicon-user"></span>

@@ -1,14 +1,22 @@
 package com.guchunhui.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by gch on 16-5-9.
  */
-public class ShoppingCar {
-    int shoppingCarId;
-    int priceSum;
-    int num;
+public class ShoppingCar implements Serializable{
+    private static final long serialVersionUID = 9999858983295L;
+    private int shoppingCarId;
+    private int priceSum;
+    private int num;
+    private List<Book> books;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     public int getShoppingCarId() {
         return shoppingCarId;
@@ -33,5 +41,22 @@ public class ShoppingCar {
     public void setNum(int num) {
         this.num = num;
     }
-    //    ArrayList<Commodity> commodities;
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
+
+    @Override
+    public String toString() {
+        return "ShoppingCar{" +
+                "shoppingCarId=" + shoppingCarId +
+                ", priceSum='" + priceSum  +
+                ", num='" + num +
+                ", books='" + books +
+                '}';
+    }
 }

@@ -27,21 +27,41 @@
         }
     </script>
 </head>
-<body>
+<body style="vertical-align: middle">
 <div class="row" style="background-color: whitesmoke;height: 36px;min-width: 1200px;">
-    <div class="col-xs-4 col-xs-offset-1" style="top: 25%">
-        <a href="/jsps/login.jsp">
-            <span style="color: darkorange">
-                亲，请登录&nbsp;
-            </span>
-        </a>
+    <div class="col-xs-4 col-xs-offset-1">
+        <c:choose>
+            <c:when test="${customer.customerName==null}">
+                <a href="/jsps/login.jsp">
+                    <span style="color: darkorange">
+                        亲，请登录&nbsp;
+                    </span>
+                </a>
+                <a href="#">
+                    <span style="color: #999999" onmouseover="this.style.color='darkorange'" onmouseout="this.style.color='#999999'">
+                    免费注册&nbsp;&nbsp;
+                    </span>
+                </a>
+            </c:when>
+            <c:otherwise>
+                <div class="dropdown" style="float: left">
+                    <button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
+                            data-toggle="dropdown">
+                            ${customer.customerName}<span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu1" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">帅爆了</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">帅的清新脱俗</a>
+                        </li>
+                    </ul>
+                </div>
+            </c:otherwise>
+        </c:choose>
         <a href="#">
-            <span style="color: #999999" onmouseover="this.style.color='darkorange'" onmouseout="this.style.color='#999999'">
-            免费注册&nbsp;&nbsp;
-            </span>
-        </a>
-        <a href="#">
-            <span style="color: #999999" onmouseover="this.style.color='darkorange'" onmouseout="this.style.color='#999999'">
+            <span style="color: #999999;" onmouseover="this.style.color='darkorange'" onmouseout="this.style.color='#999999'">
                 手机逛书城
             </span>
         </a>
