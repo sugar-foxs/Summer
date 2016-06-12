@@ -29,4 +29,8 @@ public class ShoppingCarServiceImp implements ShoppingCarService {
     public void deleteShoppingCarById(int id) {
         shoppingCarMapper.deleteShoppingCarById(id);
     }
+
+    public void updateShoppingCar(ShoppingCar shoppingCar) {
+        shoppingCarMapper.updateShoppingCar(shoppingCar);
+    }
 }

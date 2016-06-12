@@ -9,5 +9,6 @@ public interface ShoppingCarMapper {
     public ShoppingCar findShoppingCarById(int id);
     public void insertShoppingCar(ShoppingCar shoppingCar);
     public void deleteShoppingCarById(int id);
+    public void updateShoppingCar(ShoppingCar shoppingCar);
 
 }

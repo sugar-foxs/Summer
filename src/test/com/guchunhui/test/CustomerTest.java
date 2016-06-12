@@ -31,10 +31,10 @@ public class CustomerTest {
     @Test
     public void insertCustomer(){
         Customer customer = new Customer();
-        customer.setCustomerName("gch");
-        customer.setCustomerPassword("123");
-        customer.setCustomerPhone("132333");
-        customer.setCustomerEmail("123333@qq.com");
+        customer.setCustomerName("cxh");
+        customer.setCustomerPassword("123456");
+        customer.setCustomerPhone("18251825790");
+        customer.setCustomerEmail("2290584780@qq.com");
         customerUtilService.insertNewCustomer(customer);
     }
 
@@ -45,8 +45,8 @@ public class CustomerTest {
                 +"姓名："+customer.getCustomerName()+" "
                 +"电话："+customer.getCustomerPhone()+" "
                 +"邮箱："+customer.getCustomerEmail()+" "
-                +"购物车商品总价："+customer.getShoppingCar().getPriceSum()+" "
-                +"购物车商品总数："+customer.getShoppingCar().getNum()
+//                +"购物车商品总价："+customer.getShoppingCar().getPriceSum()+" "
+//                +"购物车商品总数："+customer.getShoppingCar().getNum()
         );
     }
 
@@ -58,8 +58,8 @@ public class CustomerTest {
                     +"姓名："+customer.getCustomerName()+" "
                     +"电话："+customer.getCustomerPhone()+" "
                     +"邮箱："+customer.getCustomerEmail()+" "
-                    +"购物车商品总价："+customer.getShoppingCar().getPriceSum()+" "
-                    +"购物车商品总数："+customer.getShoppingCar().getNum()
+//                    +"购物车商品总价："+customer.getShoppingCar().getPriceSum()+" "
+//                    +"购物车商品总数："+customer.getShoppingCar().getNum()
             );
         }
     }

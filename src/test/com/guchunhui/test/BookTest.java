@@ -26,16 +26,16 @@ public class BookTest {
     @Test
     public void insertBook(){
         Book book = new Book();
-        book.setBookName("java");
+        book.setBookName("http");
         book.setAuthor("gu");
         book.setYear("2015");
-        book.setPrice(5.2);
+        book.setPrice(8.2);
         bookService.insertBook(book);
     }
 
     @Test
     public void findBookById(){
-        Book book = bookService.findBookById(1);
+        Book book = bookService.findBookById(4);
         System.out.println(
             book.getBookName()+" "+
             book.getAuthor()+" "+
@@ -48,10 +48,10 @@ public class BookTest {
     public void findBookByName(){
         Book book = bookService.findBookByName("java");
         System.out.println(
-                book.getBookName()+" "+
-                        book.getAuthor()+" "+
-                        book.getYear()+" "+
-                        book.getPrice()
+            book.getBookName()+" "+
+            book.getAuthor()+" "+
+            book.getYear()+" "+
+            book.getPrice()
         );
     }
 
@@ -60,13 +60,12 @@ public class BookTest {
         List<Book> books = bookService.findAllBooks();
         for(Book book : books){
             System.out.println(
-                    book.getBookName()+" "+
-                            book.getAuthor()+" "+
-                            book.getYear()+" "+
-                            book.getPrice()
+                book.getBookName()+" "+
+                book.getAuthor()+" "+
+                book.getYear()+" "+
+                book.getPrice()
             );
         }
-
     }
 
     @Test

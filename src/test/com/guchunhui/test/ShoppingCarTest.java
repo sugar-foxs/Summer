@@ -1,12 +1,16 @@
 package com.guchunhui.test;
 
+import com.guchunhui.model.Book;
 import com.guchunhui.model.ShoppingCar;
 import com.guchunhui.service.ShoppingCarService;
+import com.guchunhui.utils.ShoppingCarUtilService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.List;
 
 /**
  * Created by gch on 16-6-2.
@@ -15,6 +19,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
 public class ShoppingCarTest {
     private ShoppingCarService shoppingCarService;
+    private ShoppingCarUtilService shoppingCarUtilService;
+
+    @Autowired
+    public void setShoppingCarUtilService(ShoppingCarUtilService shoppingCarUtilService) {
+        this.shoppingCarUtilService = shoppingCarUtilService;
+    }
 
     @Autowired
     public void setShoppingCarService(ShoppingCarService shoppingCarService) {
@@ -23,8 +33,11 @@ public class ShoppingCarTest {
 
     @Test
     public void findShoppingCarById(){
-        ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(1);
-        System.out.println(shoppingCar.getShoppingCarId()+" "+shoppingCar.getPriceSum()+" "+shoppingCar.getNum()+" "+shoppingCar.getBooksIds());
+        ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(1);
+        List<Book> bookList = shoppingCar.getBooks();
+        for(Book book : bookList){
+            System.out.println(book.getBookName());
+        }
     }
 
     @Test
@@ -36,6 +49,13 @@ public class ShoppingCarTest {
 
     @Test
     public void deleteShoppingCarById(){
-        shoppingCarService.deleteShoppingCarById(2);
+        shoppingCarService.deleteShoppingCarById(3);
+    }
+
+    @Test
+    public void updateShoppingCar(){
+        ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(1);
+        shoppingCar.setBooksIds("5;");
+        shoppingCarService.updateShoppingCar(shoppingCar);
     }
 }

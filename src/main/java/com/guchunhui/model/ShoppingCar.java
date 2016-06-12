@@ -10,8 +10,8 @@ import java.util.List;
 public class ShoppingCar implements Serializable{
     private static final long serialVersionUID = 9999858983295L;
     private int shoppingCarId;
-    private int priceSum;
-    private int num;
+//    private int priceSum;
+//    private int num;
     private List<Book> books;
     private String booksIds;
 
@@ -35,21 +35,21 @@ public class ShoppingCar implements Serializable{
         this.shoppingCarId = shoppingCarId;
     }
 
-    public int getPriceSum() {
-        return priceSum;
-    }
-
-    public void setPriceSum(int priceSum) {
-        this.priceSum = priceSum;
-    }
-
-    public int getNum() {
-        return num;
-    }
-
-    public void setNum(int num) {
-        this.num = num;
-    }
+//    public int getPriceSum() {
+//        return priceSum;
+//    }
+//
+//    public void setPriceSum(int priceSum) {
+//        this.priceSum = priceSum;
+//    }
+//
+//    public int getNum() {
+//        return num;
+//    }
+//
+//    public void setNum(int num) {
+//        this.num = num;
+//    }
 
     public List<Book> getBooks() {
         return books;
@@ -63,8 +63,8 @@ public class ShoppingCar implements Serializable{
     public String toString() {
         return "ShoppingCar{" +
                 "shoppingCarId=" + shoppingCarId +
-                ", priceSum='" + priceSum  +
-                ", num='" + num +
+//                ", priceSum='" + priceSum  +
+//                ", num='" + num +
                 ", books='" + books +
                 ", booksIds='" + booksIds+ '\'' +
 

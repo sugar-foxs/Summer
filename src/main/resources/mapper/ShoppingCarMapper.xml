@@ -6,15 +6,13 @@
 
     <resultMap type="com.guchunhui.model.ShoppingCar" id="ShoppingCarResult">
         <id property="shoppingCarId" column="shoppingcar_id"/>
-        <result property="priceSum" column="pricesum"/>
-        <result property="num" column="num"/>
         <result property="booksIds" column="books_ids"/>
     </resultMap>
 
 
     <insert id="insertShoppingCar" parameterType="ShoppingCar" useGeneratedKeys="true" keyProperty="shoppingcar_id">
-        INSERT INTO shoppingcar(shoppingcar_id,pricesum,num,books_ids) VALUE (
-        #{shoppingCarId},#{priceSum},#{num},#{booksIds}
+        INSERT INTO shoppingcar(shoppingcar_id,books_ids) VALUE (
+        #{shoppingCarId},#{booksIds}
         )
     </insert>
 
@@ -26,5 +24,8 @@
         DELETE FROM shoppingcar WHERE  shoppingcar_id = #{shoppingCarId}
     </delete>
 
+    <update id="updateShoppingCar" parameterType="ShoppingCar" >
+        UPDATE shoppingcar SET books_ids = #{booksIds} WHERE shoppingcar_id = #{shoppingCarId}
+    </update>
 
 </mapper>

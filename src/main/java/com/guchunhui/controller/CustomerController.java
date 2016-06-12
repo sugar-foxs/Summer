@@ -4,6 +4,7 @@ import com.guchunhui.model.Customer;
 import com.guchunhui.model.ShoppingCar;
 import com.guchunhui.service.CustomerService;
 import com.guchunhui.service.ShoppingCarService;
+import com.guchunhui.utils.CustomerUtilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,14 +26,16 @@ import java.util.List;
 @RequestMapping("/customer")
 public class CustomerController  {
 
+      private CustomerUtilService customerUtilService;
+
       private CustomerService customerService;
 
-      private ShoppingCarService shoppingCarService;
 
       @Autowired
-      public void setShoppingCarService(ShoppingCarService shoppingCarService) {
-            this.shoppingCarService = shoppingCarService;
+      public void setCustomerUtilService(CustomerUtilService customerUtilService) {
+            this.customerUtilService = customerUtilService;
       }
+
 
       @Autowired
       public void setCustomerService(CustomerService customerService) {
@@ -43,20 +46,17 @@ public class CustomerController  {
       public @ResponseBody
       void insertCustomer(){
             Customer customer = new Customer();
-            customer.setCustomerName("gch");
-            customer.setCustomerId(2);
+            customer.setCustomerName("cxh");
+            customer.setCustomerPassword("123456");
+            customer.setCustomerPhone("18251825790");
+            customer.setCustomerEmail("2290584780@qq.com");
             customerService.insertCustomer(customer);
       }
 
       @RequestMapping(value = "/findall")
       public @ResponseBody
       List<Customer> findAllCustomers(){
-            List<Customer> customerList = customerService.findAllCustomers();
-            for(Customer customer : customerList){
-                  int shoppingcarId = customer.getShoppingCarId();
-                  ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(shoppingcarId);
-                  customer.setShoppingCar(shoppingCar);
-            }
+            List<Customer> customerList = customerUtilService.findAllCustomers();
             return customerList;
       }
 
@@ -64,10 +64,7 @@ public class CustomerController  {
       public @ResponseBody
       Customer findCustomerById(HttpServletRequest request){
             String id = request.getParameter("Customerid");
-            Customer customer = customerService.findCustomerById(Integer.parseInt(id));
-            int shoppingcarId = customer.getShoppingCarId();
-            ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(shoppingcarId);
-            customer.setShoppingCar(shoppingCar);
+            Customer customer = customerUtilService.findCustomerById(Integer.parseInt(id));
             return customer;
       }
 
@@ -75,7 +72,7 @@ public class CustomerController  {
       public String login(HttpServletRequest request,Model model){
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            List<Customer> customerList = customerService.findAllCustomers();
+            List<Customer> customerList = customerUtilService.findAllCustomers();
             Boolean have = false;
             int id=0;
             if(username.length() == 0){

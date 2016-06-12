@@ -7,6 +7,7 @@ import com.guchunhui.service.ShoppingCarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,6 +17,12 @@ import java.util.List;
 public class CustomerUtilService {
     private CustomerService customerService;
     private ShoppingCarService shoppingCarService;
+    private ShoppingCarUtilService shoppingCarUtilService;
+
+    @Autowired
+    public void setShoppingCarUtilService(ShoppingCarUtilService shoppingCarUtilService) {
+        this.shoppingCarUtilService = shoppingCarUtilService;
+    }
 
     @Autowired
     public void setCustomerService(CustomerService customerService) {
@@ -40,7 +47,7 @@ public class CustomerUtilService {
 
     public Customer findCustomerById(int id){
         Customer customer = customerService.findCustomerById(id);
-        ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(customer.getShoppingCarId());
+        ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(customer.getShoppingCarId());
         customer.setShoppingCar(shoppingCar);
         return customer;
     }
@@ -48,7 +55,7 @@ public class CustomerUtilService {
     public List<Customer> findAllCustomers(){
         List<Customer> customerList = customerService.findAllCustomers();
         for(Customer customer : customerList){
-            ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(customer.getShoppingCarId());
+            ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(customer.getShoppingCarId());
             customer.setShoppingCar(shoppingCar);
         }
         return customerList;

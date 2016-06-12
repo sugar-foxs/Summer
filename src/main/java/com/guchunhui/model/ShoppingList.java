@@ -8,8 +8,11 @@ import java.util.List;
  */
 public class ShoppingList implements Serializable{
     private static final long serialVersionUID = 565436536098L;
+
     private Long shoppingListId;
     private List<Book> books;
+    private String booksIds;
+
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -31,11 +34,20 @@ public class ShoppingList implements Serializable{
         this.books = books;
     }
 
+    public String getBooksIds() {
+        return booksIds;
+    }
+
+    public void setBooksIds(String booksIds) {
+        this.booksIds = booksIds;
+    }
+
     @Override
     public String toString() {
         return "ShoppingList{" +
                 "shoppingListId=" + shoppingListId +
                 ", books='" + books +
+                ", booksIds='" + booksIds +'\'' +
                 '}';
     }
 }
