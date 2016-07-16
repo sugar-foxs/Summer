@@ -35,34 +35,34 @@ public class CustomerUtilService {
     }
 
     public void insertNewCustomer(Customer customer){
-        List<Customer> customers = customerService.findAllCustomers();
-        int id = customers.get(customers.size()-1).getCustomerId()+1;
-        customer.setCustomerId(id);
-        customer.setShoppingCarId(id);
+//        List<Customer> customers = customerService.findAllCustomers();
+//        long id = customers.get(customers.size()-1).getCustomerId()+1;
+//        customer.setCustomerId(id);
+//        customer.setShoppingCarId(id);
         customerService.insertCustomer(customer);
-        ShoppingCar shoppingCar = new ShoppingCar();
-        shoppingCar.setShoppingCarId(id);
-        shoppingCarService.insertShoppingCar(shoppingCar);
+//        ShoppingCar shoppingCar = new ShoppingCar();
+//        shoppingCar.setShoppingCarId(id);
+//        shoppingCarService.insertShoppingCar(shoppingCar);
     }
 
-    public Customer findCustomerById(int id){
+    public Customer findCustomerById(long id){
         Customer customer = customerService.findCustomerById(id);
-        ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(customer.getShoppingCarId());
-        customer.setShoppingCar(shoppingCar);
+//        ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(customer.getShoppingCarId());
+//        customer.setShoppingCar(shoppingCar);
         return customer;
     }
 
     public List<Customer> findAllCustomers(){
         List<Customer> customerList = customerService.findAllCustomers();
-        for(Customer customer : customerList){
-            ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(customer.getShoppingCarId());
-            customer.setShoppingCar(shoppingCar);
-        }
+//        for(Customer customer : customerList){
+//            ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(customer.getShoppingCarId());
+//            customer.setShoppingCar(shoppingCar);
+//        }
         return customerList;
     }
 
-    public void deleteCustomerById(int id){
+    public void deleteCustomerById(long id){
         customerService.deleteCustomerById(id);
-        shoppingCarService.deleteShoppingCarById(id);
+//        shoppingCarService.deleteShoppingCarById(id);
     }
 }

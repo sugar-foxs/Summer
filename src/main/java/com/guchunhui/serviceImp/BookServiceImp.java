@@ -26,7 +26,7 @@ public class BookServiceImp implements BookService {
         bookMapper.insertBook(book);
     }
 
-    public Book findBookById(int id) {
+    public Book findBookById(long id) {
         return bookMapper.findBookById(id);
     }
 
@@ -38,7 +38,7 @@ public class BookServiceImp implements BookService {
         return bookMapper.findAllBooks();
     }
 
-    public void deleteBookById(int id) {
+    public void deleteBookById(long id) {
         bookMapper.deleteBookById(id);
     }
 

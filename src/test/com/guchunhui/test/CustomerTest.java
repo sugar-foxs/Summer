@@ -45,8 +45,6 @@ public class CustomerTest {
                 +"姓名："+customer.getCustomerName()+" "
                 +"电话："+customer.getCustomerPhone()+" "
                 +"邮箱："+customer.getCustomerEmail()+" "
-//                +"购物车商品总价："+customer.getShoppingCar().getPriceSum()+" "
-//                +"购物车商品总数："+customer.getShoppingCar().getNum()
         );
     }
 
@@ -58,8 +56,6 @@ public class CustomerTest {
                     +"姓名："+customer.getCustomerName()+" "
                     +"电话："+customer.getCustomerPhone()+" "
                     +"邮箱："+customer.getCustomerEmail()+" "
-//                    +"购物车商品总价："+customer.getShoppingCar().getPriceSum()+" "
-//                    +"购物车商品总数："+customer.getShoppingCar().getNum()
             );
         }
     }

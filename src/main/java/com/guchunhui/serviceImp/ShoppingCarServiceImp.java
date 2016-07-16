@@ -18,7 +18,7 @@ public class ShoppingCarServiceImp implements ShoppingCarService {
         this.shoppingCarMapper = shoppingCarMapper;
     }
 
-    public ShoppingCar findShoppingCarById(int id) {
+    public ShoppingCar findShoppingCarById(long id) {
         return shoppingCarMapper.findShoppingCarById(id);
     }
 
@@ -26,7 +26,7 @@ public class ShoppingCarServiceImp implements ShoppingCarService {
         shoppingCarMapper.insertShoppingCar(shoppingCar);
     }
 
-    public void deleteShoppingCarById(int id) {
+    public void deleteShoppingCarById(long id) {
         shoppingCarMapper.deleteShoppingCarById(id);
     }
 

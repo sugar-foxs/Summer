@@ -12,6 +12,33 @@ public class Book  implements Serializable{
     private String author;
     private String year;
     private double price;
+    private String description;
+    private String cover;
+    private int species;
+
+    public int getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(int species) {
+        this.species = species;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public int getBookId() {
         return bookId;
@@ -61,10 +88,12 @@ public class Book  implements Serializable{
     public String toString() {
         return "Book{" +
                 "bookId=" + bookId +
-                "price=" + price +
-                ", bookName='" + bookName +'\''+
-                ", author='" + author +'\''+
-                ", year='" + year +'\''+
+                ", bookName='" + bookName + '\'' +
+                ", author='" + author + '\'' +
+                ", year='" + year + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", cover='" + cover + '\'' +
                 '}';
     }
 }

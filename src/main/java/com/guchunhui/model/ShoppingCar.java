@@ -9,9 +9,7 @@ import java.util.List;
  */
 public class ShoppingCar implements Serializable{
     private static final long serialVersionUID = 9999858983295L;
-    private int shoppingCarId;
-//    private int priceSum;
-//    private int num;
+    private long shoppingCarId;
     private List<Book> books;
     private String booksIds;
 
@@ -27,29 +25,13 @@ public class ShoppingCar implements Serializable{
         return serialVersionUID;
     }
 
-    public int getShoppingCarId() {
+    public long getShoppingCarId() {
         return shoppingCarId;
     }
 
-    public void setShoppingCarId(int shoppingCarId) {
+    public void setShoppingCarId(long shoppingCarId) {
         this.shoppingCarId = shoppingCarId;
     }
-
-//    public int getPriceSum() {
-//        return priceSum;
-//    }
-//
-//    public void setPriceSum(int priceSum) {
-//        this.priceSum = priceSum;
-//    }
-//
-//    public int getNum() {
-//        return num;
-//    }
-//
-//    public void setNum(int num) {
-//        this.num = num;
-//    }
 
     public List<Book> getBooks() {
         return books;
@@ -63,11 +45,8 @@ public class ShoppingCar implements Serializable{
     public String toString() {
         return "ShoppingCar{" +
                 "shoppingCarId=" + shoppingCarId +
-//                ", priceSum='" + priceSum  +
-//                ", num='" + num +
-                ", books='" + books +
-                ", booksIds='" + booksIds+ '\'' +
-
+                ", books=" + books +
+                ", booksIds='" + booksIds + '\'' +
                 '}';
     }
 }

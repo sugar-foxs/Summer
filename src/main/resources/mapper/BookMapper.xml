@@ -10,15 +10,19 @@
         <result property="author" column="author"/>
         <result property="year" column="year"/>
         <result property="price" column="price"/>
+        <result property="description" column="description"/>
+        <result property="cover" column="cover"/>
+        <result property="species" column="species"/>
+
     </resultMap>
 
     <insert id="insertBook" parameterType="Book" useGeneratedKeys="true" keyProperty="book_id">
-        INSERT INTO book(book_name,author,year,price) VALUE (
-        #{bookName},#{author},#{year},#{price}
+        INSERT INTO book(book_name,author,year,price,description,cover,species) VALUE (
+        #{bookName},#{author},#{year},#{price},#{description},#{cover},#{species}
         )
     </insert>
 
-    <select id="findBookById" resultMap="BookResult" parameterType="int">
+    <select id="findBookById" resultMap="BookResult" parameterType="long">
         SELECT * FROM book WHERE book_id = #{bookId}
     </select>
 
@@ -30,7 +34,7 @@
         SELECT * FROM book
     </select>
 
-    <delete id="deleteBookById" parameterType="int">
+    <delete id="deleteBookById" parameterType="long">
         DELETE FROM book WHERE  book_id = #{bookId}
     </delete>
 

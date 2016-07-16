@@ -10,21 +10,19 @@
         <result property="customerPassword" column="customer_password"/>
         <result property="customerPhone" column="phone"/>
         <result property="customerEmail" column="email"/>
-        <result property="shoppingCarId" column="shoppingcar_id"/>
-        <result property="shoppingListId" column="shoppinglist_id"/>
     </resultMap>
 
     <insert id="insertCustomer" parameterType="Customer" useGeneratedKeys="true" keyProperty="customer_id">
-        INSERT INTO customer(customer_id,customer_name,customer_password,phone,email,shoppingcar_id,shoppinglist_id) VALUE (
-        #{customerId},#{customerName},#{customerPassword},#{customerPhone},#{customerEmail},#{shoppingCarId},#{shoppingListId}
+        INSERT INTO customer(customer_id,customer_name,customer_password,phone,email) VALUE (
+        #{customerId},#{customerName},#{customerPassword},#{customerPhone},#{customerEmail}
         )
     </insert>
 
-    <select id="findCustomerById" resultMap="CustomerResult" parameterType="int">
+    <select id="findCustomerById" resultMap="CustomerResult" parameterType="long">
         SELECT * FROM customer WHERE customer_id = #{customerId}
     </select>
 
-    <delete id="deleteCustomerById" parameterType="int">
+    <delete id="deleteCustomerById" parameterType="long">
         DELETE FROM customer WHERE  customer_id = #{customerId}
     </delete>
 

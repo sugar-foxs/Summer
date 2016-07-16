@@ -74,7 +74,7 @@ public class CustomerController  {
             String password = request.getParameter("password");
             List<Customer> customerList = customerUtilService.findAllCustomers();
             Boolean have = false;
-            int id=0;
+            long id=0;
             if(username.length() == 0){
                   model.addAttribute("error","用户名为空");
             }else{

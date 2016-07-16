@@ -16,11 +16,11 @@
         )
     </insert>
 
-    <select id="findShoppingCarById" resultMap="ShoppingCarResult" parameterType="int">
+    <select id="findShoppingCarById" resultMap="ShoppingCarResult" parameterType="long">
         SELECT * FROM shoppingcar WHERE shoppingcar_id = #{shoppingCarId}
     </select>
 
-    <delete id="deleteShoppingCarById" parameterType="int">
+    <delete id="deleteShoppingCarById" parameterType="long">
         DELETE FROM shoppingcar WHERE  shoppingcar_id = #{shoppingCarId}
     </delete>
 

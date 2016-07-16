@@ -31,12 +31,12 @@ public class CustomerServiceImp implements CustomerService {
         return customerMapper.findAllCustomers();
     }
 
-    public void deleteCustomerById(int id) {
+    public void deleteCustomerById(long id) {
         customerMapper.deleteCustomerById(id);
 //        shoppingCarMapper.deleteShoppingCarById(id);
     }
 
-    public Customer findCustomerById(int id){
+    public Customer findCustomerById(long id){
         return customerMapper.findCustomerById(id);
     }
 

@@ -33,7 +33,7 @@ public class ShoppingCarTest {
 
     @Test
     public void findShoppingCarById(){
-        ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(1);
+        ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(3);
         List<Book> bookList = shoppingCar.getBooks();
         for(Book book : bookList){
             System.out.println(book.getBookName());
@@ -49,13 +49,24 @@ public class ShoppingCarTest {
 
     @Test
     public void deleteShoppingCarById(){
-        shoppingCarService.deleteShoppingCarById(3);
+        shoppingCarService.deleteShoppingCarById(2);
     }
 
     @Test
     public void updateShoppingCar(){
-        ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(1);
-        shoppingCar.setBooksIds("5;");
+        ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(2);
+        shoppingCar.setBooksIds("1;");
         shoppingCarService.updateShoppingCar(shoppingCar);
+    }
+
+
+    @Test
+    public void addbooktocar(){
+        shoppingCarUtilService.addBookIntoCar(3,1);
+    }
+
+    @Test
+    public void deleteBookFromCar(){
+        shoppingCarUtilService.deleteBookFromCar(3,1);
     }
 }

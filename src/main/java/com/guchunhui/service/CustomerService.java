@@ -8,8 +8,8 @@ import java.util.List;
  * Created by gch on 16-4-13.
  */
 public interface CustomerService {
-    public Customer findCustomerById(int id);
-    public List<Customer> findAllCustomers();
-    public void insertCustomer(Customer customer);
-    public void deleteCustomerById(int id);
+     Customer findCustomerById(long id);
+     List<Customer> findAllCustomers();
+     void insertCustomer(Customer customer);
+     void deleteCustomerById(long id);
 }

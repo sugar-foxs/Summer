@@ -30,12 +30,15 @@ public class BookTest {
         book.setAuthor("gu");
         book.setYear("2015");
         book.setPrice(8.2);
+        book.setDescription("etre");
+        book.setCover("gfg.jpg");
+        book.setSpecies(1);
         bookService.insertBook(book);
     }
 
     @Test
     public void findBookById(){
-        Book book = bookService.findBookById(4);
+        Book book = bookService.findBookById(1);
         System.out.println(
             book.getBookName()+" "+
             book.getAuthor()+" "+
@@ -70,7 +73,7 @@ public class BookTest {
 
     @Test
     public void deleteBookById(){
-        bookService.deleteBookById(2);
+        bookService.deleteBookById(3);
     }
 
     @Test

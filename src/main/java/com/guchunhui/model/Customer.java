@@ -12,7 +12,7 @@ public class Customer implements Serializable{
 
     private static final long serialVersionUID = 75892437892L;
 
-    private int customerId;         //唯一id号
+    private long customerId;         //唯一id号
 
     private String customerName;    //消费者姓名
 
@@ -22,11 +22,11 @@ public class Customer implements Serializable{
 
     private String customerEmail;     //邮箱
 
-    private int shoppingCarId;         //购物车号
+//    private long shoppingCarId;         //购物车号
+
+//    private long shoppingListId;        //购物清单号
 
     private ShoppingCar shoppingCar;   //购物车
-
-    private int shoppingListId;        //购物清单号
 
     private ShoppingList shoppingList; //购物清单
 
@@ -34,13 +34,7 @@ public class Customer implements Serializable{
         return serialVersionUID;
     }
 
-    public int getCustomerId() {
-        return customerId;
-    }
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
 
     public String getCustomerName() {
         return customerName;
@@ -74,14 +68,6 @@ public class Customer implements Serializable{
         this.customerEmail = customerEmail;
     }
 
-    public int getShoppingCarId() {
-        return shoppingCarId;
-    }
-
-    public void setShoppingCarId(int shoppingCarId) {
-        this.shoppingCarId = shoppingCarId;
-    }
-
     public ShoppingList getShoppingList() {
         return shoppingList;
     }
@@ -90,13 +76,29 @@ public class Customer implements Serializable{
         this.shoppingList = shoppingList;
     }
 
-    public int getShoppingListId() {
-        return shoppingListId;
+    public long getCustomerId() {
+        return customerId;
     }
 
-    public void setShoppingListId(int shoppingListId) {
-        this.shoppingListId = shoppingListId;
+    public void setCustomerId(long customerId) {
+        this.customerId = customerId;
     }
+
+//    public long getShoppingCarId() {
+//        return shoppingCarId;
+//    }
+//
+//    public void setShoppingCarId(long shoppingCarId) {
+//        this.shoppingCarId = shoppingCarId;
+//    }
+//
+//    public long getShoppingListId() {
+//        return shoppingListId;
+//    }
+//
+//    public void setShoppingListId(long shoppingListId) {
+//        this.shoppingListId = shoppingListId;
+//    }
 
     public ShoppingCar getShoppingCar() {
         return shoppingCar;
@@ -114,10 +116,8 @@ public class Customer implements Serializable{
                 ", customerPassword='" + customerPassword + '\'' +
                 ", customerPhone='" + customerPhone + '\'' +
                 ", customerEmail='" + customerEmail + '\'' +
-                ", shoppingCarId='" + shoppingCarId +
-                ", shoppingCar='" + shoppingCar +
-                ", shoppingListId='" + shoppingListId +
-                ", shoppingList='" + shoppingList +
+                ", shoppingCar=" + shoppingCar +
+                ", shoppingList=" + shoppingList +
                 '}';
     }
 }
