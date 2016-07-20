@@ -34,10 +34,9 @@ public class CustomerController  {
       @Resource
       private CustomerService customerService;
 
-
+      @ResponseBody
       @RequestMapping(value = "/insert")
-      public @ResponseBody
-      void insertCustomer(){
+      public void insertCustomer(){
             Customer customer = new Customer();
             customer.setCustomerName("cxh");
             customer.setCustomerPassword("123456");
@@ -52,9 +51,9 @@ public class CustomerController  {
             return customerList;
       }
 
+      @ResponseBody
       @RequestMapping(value = "/findcustomerbyid")
-      public @ResponseBody
-      Customer findCustomerById(HttpServletRequest request){
+      public Customer findCustomerById(HttpServletRequest request){
             String id = request.getParameter("customerid");
             Customer customer = customerUtilService.findCustomerById(Integer.parseInt(id));
             return customer;
