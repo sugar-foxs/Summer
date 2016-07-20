@@ -12,13 +12,9 @@ import org.springframework.stereotype.Service;
  */
 @Service("customerCarAndListService")
 public class CustomerCarAndListServiceImp implements CustomerCarAndListService {
-    private CustomerCarAndListMapper customerCarAndListMapper;
 
     @Autowired
-    public void setCustomerCarAndListMapper(CustomerCarAndListMapper customerCarAndListMapper) {
-        this.customerCarAndListMapper = customerCarAndListMapper;
-    }
-
+    private CustomerCarAndListMapper customerCarAndListMapper;
 
     public void insertCustomerCarAndList(CustomerCarAndList customerCarAndList) {
         customerCarAndListMapper.insertCustomerCarAndList(customerCarAndList);

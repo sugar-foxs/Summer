@@ -16,15 +16,13 @@ import java.util.List;
  */
 @Service("customerService")
 public class CustomerServiceImp implements CustomerService {
+
+    @Autowired
     private CustomerMapper customerMapper;
 
-    private ShoppingCarMapper shoppingCarMapper;
 
     public void insertCustomer(Customer customer) {
         customerMapper.insertCustomer(customer);
-//        ShoppingCar shoppingCar = new ShoppingCar();
-//        shoppingCar.setShoppingCarId(customer.getShoppingCarId());
-//        shoppingCarMapper.insertShoppingCar(shoppingCar);
     }
 
     public List<Customer> findAllCustomers() {
@@ -33,21 +31,11 @@ public class CustomerServiceImp implements CustomerService {
 
     public void deleteCustomerById(long id) {
         customerMapper.deleteCustomerById(id);
-//        shoppingCarMapper.deleteShoppingCarById(id);
     }
+
+
 
     public Customer findCustomerById(long id){
         return customerMapper.findCustomerById(id);
-    }
-
-
-    @Autowired
-    public void setShoppingCarMapper(ShoppingCarMapper shoppingCarMapper) {
-        this.shoppingCarMapper = shoppingCarMapper;
-    }
-
-    @Autowired
-    public void setCustomerMapper(CustomerMapper customerMapper) {
-        this.customerMapper = customerMapper;
     }
 }

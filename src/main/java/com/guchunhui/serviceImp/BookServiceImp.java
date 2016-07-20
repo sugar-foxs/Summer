@@ -15,12 +15,8 @@ import java.util.List;
 @Service("bookService")
 public class BookServiceImp implements BookService {
 
-    private BookMapper bookMapper;
-
     @Autowired
-    public void setBookMapper(BookMapper bookMapper) {
-        this.bookMapper = bookMapper;
-    }
+    private BookMapper bookMapper;
 
     public void insertBook(Book book) {
         bookMapper.insertBook(book);

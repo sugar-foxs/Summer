@@ -11,12 +11,9 @@ import org.springframework.stereotype.Service;
  */
 @Service("shoppingCarService")
 public class ShoppingCarServiceImp implements ShoppingCarService {
-    private ShoppingCarMapper shoppingCarMapper;
 
     @Autowired
-    public void setShoppingCarMapper(ShoppingCarMapper shoppingCarMapper) {
-        this.shoppingCarMapper = shoppingCarMapper;
-    }
+    private ShoppingCarMapper shoppingCarMapper;
 
     public ShoppingCar findShoppingCarById(long id) {
         return shoppingCarMapper.findShoppingCarById(id);
