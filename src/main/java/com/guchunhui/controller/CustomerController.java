@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.alibaba.fastjson.JSON;
 
 /**
  * Created by gch on 16-4-13.
@@ -26,21 +28,12 @@ import java.util.List;
 @RequestMapping("/customer")
 public class CustomerController  {
 
+      @Resource
       private CustomerUtilService customerUtilService;
 
+      @Resource
       private CustomerService customerService;
 
-
-      @Autowired
-      public void setCustomerUtilService(CustomerUtilService customerUtilService) {
-            this.customerUtilService = customerUtilService;
-      }
-
-
-      @Autowired
-      public void setCustomerService(CustomerService customerService) {
-            this.customerService = customerService;
-      }
 
       @RequestMapping(value = "/insert")
       public @ResponseBody
@@ -52,10 +45,9 @@ public class CustomerController  {
             customer.setCustomerEmail("2290584780@qq.com");
             customerService.insertCustomer(customer);
       }
-
+      @ResponseBody
       @RequestMapping(value = "/findall")
-      public @ResponseBody
-      List<Customer> findAllCustomers(){
+      public List<Customer> findAllCustomers(){
             List<Customer> customerList = customerUtilService.findAllCustomers();
             return customerList;
       }
@@ -68,6 +60,7 @@ public class CustomerController  {
             return customer;
       }
 
+      @ResponseBody
       @RequestMapping(value = "/login")
       public String login(HttpServletRequest request,Model model){
             String username = request.getParameter("username");
