@@ -55,7 +55,7 @@ public class CustomerController  {
       @RequestMapping(value = "/findcustomerbyid")
       public @ResponseBody
       Customer findCustomerById(HttpServletRequest request){
-            String id = request.getParameter("Customerid");
+            String id = request.getParameter("customerid");
             Customer customer = customerUtilService.findCustomerById(Integer.parseInt(id));
             return customer;
       }
