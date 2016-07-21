@@ -1,9 +1,6 @@
 package com.guchunhui.test;
 
 import com.guchunhui.model.Customer;
-import com.guchunhui.model.ShoppingCar;
-import com.guchunhui.service.CustomerService;
-import com.guchunhui.service.ShoppingCarService;
 import com.guchunhui.utils.CustomerUtilService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,50 +10,40 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 
-
 /**
- * Created by gch on 16-5-2.
+ * Created by gch on 16-7-21.
  */
 @RunWith(SpringJUnit4ClassRunner.class)   //相当于继承了SpringJUnit4ClassRunner
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
-
-public class CustomerTest {
-    @Autowired
-    private CustomerService customerService;
+public class CustomerUtilTest {
     @Autowired
     private CustomerUtilService customerUtilService;
-
 
     @Test
     public void insertCustomer(){
         Customer customer = new Customer();
-        customer.setCustomerName("cxh");
-        customer.setCustomerPassword("123456");
+        customer.setCustomerName("hhh");
+        customer.setCustomerPassword("123");
         customer.setCustomerPhone("18251825790");
         customer.setCustomerEmail("2290584780@qq.com");
-        customerService.insertCustomer(customer);
+        customerUtilService.insertNewCustomer(customer);
     }
 
     @Test
     public void findCustomerById(){
-        Customer customer = customerService.findCustomerById(2);
-        System.out.print(customer);
-    }
-
-    @Test
-    public void findAllCustomers(){
-        List<Customer> customerList = customerService.findAllCustomers();
-        for(Customer customer:customerList){
-            System.out.println(customer);
-        }
+        System.out.print(customerUtilService.findCustomerById(1));
     }
 
     @Test
     public void deleteCustomerById(){
-        customerUtilService.deleteCustomerById(3);
+        customerUtilService.deleteCustomerById(5);
     }
 
-
-
-
+    @Test
+    public void findAllCustomers(){
+        List<Customer> customerList = customerUtilService.findAllCustomers();
+        for(Customer customer : customerList){
+            System.out.println(customer);
+        }
+    }
 }

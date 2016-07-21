@@ -1,25 +1,15 @@
 package com.guchunhui.controller;
 
 import com.guchunhui.model.Customer;
-import com.guchunhui.model.ShoppingCar;
 import com.guchunhui.service.CustomerService;
-import com.guchunhui.service.ShoppingCarService;
 import com.guchunhui.utils.CustomerUtilService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import com.alibaba.fastjson.JSON;
 
 /**
  * Created by gch on 16-4-13.
@@ -37,12 +27,12 @@ public class CustomerController  {
       @ResponseBody
       @RequestMapping(value = "/insert")
       public void insertCustomer(){
-            Customer customer = new Customer();
-            customer.setCustomerName("cxh");
-            customer.setCustomerPassword("123456");
-            customer.setCustomerPhone("18251825790");
-            customer.setCustomerEmail("2290584780@qq.com");
-            customerService.insertCustomer(customer);
+//            Customer customer = new Customer();
+//            customer.setCustomerName("cxh");
+//            customer.setCustomerPassword("123456");
+//            customer.setCustomerPhone("18251825790");
+//            customer.setCustomerEmail("2290584780@qq.com");
+//            customerService.insertCustomer(customer);
       }
       @ResponseBody
       @RequestMapping(value = "/findall")

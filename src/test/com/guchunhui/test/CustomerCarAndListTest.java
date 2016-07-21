@@ -25,7 +25,6 @@ public class CustomerCarAndListTest {
     @Test
     public void insert(){
         CustomerCarAndList customerCarAndList = new CustomerCarAndList();
-        customerCarAndList.setCustomerId(2);
         customerCarAndList.setShoppingCarId(2);
         customerCarAndList.setShoppingListId(2);
         customerCarAndListService.insertCustomerCarAndList(customerCarAndList);

@@ -18,55 +18,34 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)   //相当于继承了SpringJUnit4ClassRunner
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
 public class ShoppingCarTest {
+
+    @Autowired
     private ShoppingCarService shoppingCarService;
-    private ShoppingCarUtilService shoppingCarUtilService;
-
-    @Autowired
-    public void setShoppingCarUtilService(ShoppingCarUtilService shoppingCarUtilService) {
-        this.shoppingCarUtilService = shoppingCarUtilService;
-    }
-
-    @Autowired
-    public void setShoppingCarService(ShoppingCarService shoppingCarService) {
-        this.shoppingCarService = shoppingCarService;
-    }
 
     @Test
     public void findShoppingCarById(){
-        ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(3);
-        List<Book> bookList = shoppingCar.getBooks();
-        for(Book book : bookList){
-            System.out.println(book.getBookName());
-        }
+        ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(2);
+        System.out.print(shoppingCar);
     }
 
     @Test
     public void insertShoppingCar(){
         ShoppingCar shoppingCar = new ShoppingCar();
-        shoppingCar.setShoppingCarId(2);
+        shoppingCar.setShoppingCarId(4);
         shoppingCarService.insertShoppingCar(shoppingCar);
     }
 
     @Test
     public void deleteShoppingCarById(){
-        shoppingCarService.deleteShoppingCarById(2);
+        shoppingCarService.deleteShoppingCarById(4);
     }
 
     @Test
     public void updateShoppingCar(){
         ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(2);
-        shoppingCar.setBooksIds("1;");
+        shoppingCar.setBooksIds("1;2;");
         shoppingCarService.updateShoppingCar(shoppingCar);
     }
 
 
-    @Test
-    public void addbooktocar(){
-        shoppingCarUtilService.addBookIntoCar(3,1);
-    }
-
-    @Test
-    public void deleteBookFromCar(){
-        shoppingCarUtilService.deleteBookFromCar(3,1);
-    }
 }

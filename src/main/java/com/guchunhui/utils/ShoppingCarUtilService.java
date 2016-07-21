@@ -37,7 +37,7 @@ public class ShoppingCarUtilService {
         ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(id);
         String booksIds = shoppingCar.getBooksIds();
         List<Book> bookList = null;
-        if(!booksIds.equals("")){
+        if(!(booksIds == null || booksIds.equals(""))){
             String[] booksIdsArr = booksIds.split(";");
             bookList = new ArrayList<Book>();
             for(String bookId : booksIdsArr){
@@ -53,7 +53,7 @@ public class ShoppingCarUtilService {
      * 清空购物车
      * @param id
      */
-    public void cleanShoppingCarbyId(long id){
+    public void cleanShoppingCarById(long id){
         ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(id);
         String booksIds = shoppingCar.getBooksIds();
         if(!booksIds.equals("")){

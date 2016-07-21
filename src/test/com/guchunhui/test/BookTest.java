@@ -16,17 +16,14 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)   //相当于继承了SpringJUnit4ClassRunner
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
 public class BookTest {
-    private BookService bookService;
 
     @Autowired
-    public void setBookService(BookService bookService) {
-        this.bookService = bookService;
-    }
+    private BookService bookService;
 
     @Test
     public void insertBook(){
         Book book = new Book();
-        book.setBookName("http");
+        book.setBookName("fastjson");
         book.setAuthor("gu");
         book.setYear("2015");
         book.setPrice(8.2);
@@ -38,46 +35,31 @@ public class BookTest {
 
     @Test
     public void findBookById(){
-        Book book = bookService.findBookById(1);
-        System.out.println(
-            book.getBookName()+" "+
-            book.getAuthor()+" "+
-            book.getYear()+" "+
-            book.getPrice()
-        );
+        Book book = bookService.findBookById(2);
+        System.out.println(book);
     }
 
     @Test
     public void findBookByName(){
-        Book book = bookService.findBookByName("java");
-        System.out.println(
-            book.getBookName()+" "+
-            book.getAuthor()+" "+
-            book.getYear()+" "+
-            book.getPrice()
-        );
+        Book book = bookService.findBookByName("love");
+        System.out.println(book);
     }
 
     @Test
     public void findAllBooks(){
         List<Book> books = bookService.findAllBooks();
         for(Book book : books){
-            System.out.println(
-                book.getBookName()+" "+
-                book.getAuthor()+" "+
-                book.getYear()+" "+
-                book.getPrice()
-            );
+            System.out.println(book);
         }
     }
 
     @Test
     public void deleteBookById(){
-        bookService.deleteBookById(3);
+        bookService.deleteBookById(5);
     }
 
     @Test
     public void deleteBookByName(){
-        bookService.deleteBookByName("java");
+        bookService.deleteBookByName("fastjson");
     }
 }
