@@ -53,6 +53,6 @@
     </filter-mapping>
 
     <welcome-file-list>
-        <welcome-file>/jsps/main.jsp</welcome-file>
+        <welcome-file>/jsps/taobao.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

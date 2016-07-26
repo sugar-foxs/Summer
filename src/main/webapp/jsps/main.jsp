@@ -9,23 +9,9 @@
     <script src="../js/jquery-1.9.1.js"></script>
     <script src="../js/bootstrap.js"></script>
     <link href="../css/main.css" rel="stylesheet" />
-    <script type="text/javascript">
-        function a_onmouseover(id,id2)
-        {
-            var bookStoreDiv = document.getElementById(id);
-            bookStoreDiv.style.display="block";
-            var button = document.getElementById(id2);
-            button.style.backgroundColor="white";
-        }
 
-        function a_onmouseout(id,id2)
-        {
-            var bookStoreDiv = document.getElementById(id);
-            bookStoreDiv.style.display="none";
-            var button = document.getElementById(id2);
-            button.style.backgroundColor="whitesmoke";
-        }
-    </script>
+    <script src="../js/main.js"></script>
+
 </head>
 <body style="vertical-align: middle">
 <div class="row" style="background-color: whitesmoke;height: 36px;min-width: 1200px;">
@@ -51,10 +37,10 @@
                     </button>
                     <ul class="dropdown-menu" role="menu1" aria-labelledby="dropdownMenu1">
                         <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="#">帅爆了</a>
+                            <a role="menuitem" tabindex="-1" href="#">choubuyaolian</a>
                         </li>
                         <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="#">帅的清新脱俗</a>
+                            <a role="menuitem" tabindex="-1" href="#">shabi</a>
                         </li>
                     </ul>
                 </div>
