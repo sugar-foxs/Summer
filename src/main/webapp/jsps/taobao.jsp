@@ -17,43 +17,43 @@
     <body>
     <div class="nav">
     	<div class="nav-body">
-			<c:choose>
-				<c:when test="${customer.customerName==null}">
-					<div class="zuoce">
-						<ul>
-							<li><a href="/jsps/login.jsp">亲，请登录</a></li>
-							<li><a href="#">免费注册</a></li>
-							<li><a href="#">手机逛淘宝</a></li>
-						</ul>
-					</div>
-					<%--<a href="/jsps/login.jsp">--%>
-                    <%--<span style="color: darkorange">--%>
-                        <%--亲，请登录&nbsp;--%>
-                    <%--</span>--%>
-					<%--</a>--%>
-					<%--<a href="#">--%>
-                    <%--<span style="color: #999999" onmouseover="this.style.color='darkorange'" onmouseout="this.style.color='#999999'">--%>
-                    <%--免费注册&nbsp;&nbsp;--%>
-                    <%--</span>--%>
-					<%--</a>--%>
-				</c:when>
-				<c:otherwise>
-					<div class="dropdown" style="float: left">
-						<button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
-								data-toggle="dropdown">
-								${customer.customerName}<span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu" role="menu1" aria-labelledby="dropdownMenu1">
-							<li role="presentation">
-								<a role="menuitem" tabindex="-1" href="#">choubuyaolian</a>
-							</li>
-							<li role="presentation">
-								<a role="menuitem" tabindex="-1" href="#">shabi</a>
-							</li>
-						</ul>
-					</div>
-				</c:otherwise>
-			</c:choose>
+			<%--<c:choose>--%>
+				<%--<c:when test="${customer.customerName==null}">--%>
+					<%--<div class="zuoce">--%>
+						<%--<ul>--%>
+							<%--<li><a href="/jsps/login.jsp">亲，请登录</a></li>--%>
+							<%--<li><a href="#">免费注册</a></li>--%>
+							<%--<li><a href="#">手机逛淘宝</a></li>--%>
+						<%--</ul>--%>
+					<%--</div>--%>
+					<%--&lt;%&ndash;<a href="/jsps/login.jsp">&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<span style="color: darkorange">&ndash;%&gt;--%>
+                        <%--&lt;%&ndash;亲，请登录&nbsp;&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;</span>&ndash;%&gt;--%>
+					<%--&lt;%&ndash;</a>&ndash;%&gt;--%>
+					<%--&lt;%&ndash;<a href="#">&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<span style="color: #999999" onmouseover="this.style.color='darkorange'" onmouseout="this.style.color='#999999'">&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;免费注册&nbsp;&nbsp;&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;</span>&ndash;%&gt;--%>
+					<%--&lt;%&ndash;</a>&ndash;%&gt;--%>
+				<%--</c:when>--%>
+				<%--<c:otherwise>--%>
+					<%--<div class="dropdown" style="float: left">--%>
+						<%--<button type="button" class="btn dropdown-toggle" id="dropdownMenu1"--%>
+								<%--data-toggle="dropdown">--%>
+								<%--${customer.customerName}<span class="caret"></span>--%>
+						<%--</button>--%>
+						<%--<ul class="dropdown-menu" role="menu1" aria-labelledby="dropdownMenu1">--%>
+							<%--<li role="presentation">--%>
+								<%--<a role="menuitem" tabindex="-1" href="#">choubuyaolian</a>--%>
+							<%--</li>--%>
+							<%--<li role="presentation">--%>
+								<%--<a role="menuitem" tabindex="-1" href="#">shabi</a>--%>
+							<%--</li>--%>
+						<%--</ul>--%>
+					<%--</div>--%>
+				<%--</c:otherwise>--%>
+			<%--</c:choose>--%>
 
     	</div>
     		<div >
