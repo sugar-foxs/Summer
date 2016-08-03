@@ -1,0 +1,244 @@
+/*
+* @Author: cxh
+* @Date:   2016-08-01 20:43:44
+* @Last Modified by:   cxh
+* @Last Modified time: 2016-08-02 17:25:35
+*/
+  		*{
+        	margin: 0;
+        	padding: 0;
+        }
+        a{
+        	text-decoration: none;
+        }
+		.header{
+				width: 1140px;
+				margin-left: 210px;
+			}
+		.header1{
+			margin: 10px;
+			line-height: 5px;
+			font-size: 14px;
+			color:#306BAE;
+		}
+		
+		.header2{
+			
+		}
+		.header3{
+			
+			height: 51px;
+			font-size: 14px;
+			background-color: red;
+		}
+		.header4{
+			font-size: 14px;
+			padding-top: 8px;
+			height: 25px;
+			
+		}
+		.header5{
+			padding: 5px;
+		}
+		.main{
+			border: 1px solid red;
+			margin: 0 20px 0 15px;
+			width: 1100px;
+			margin-left: 210px;
+		}
+		.leftmenu{
+			border: 1px solid green;
+			width: 230px;
+			float: left;
+			padding: 8px;
+		}
+		.guide{
+			width: 223px;
+			height: 200px;
+		}
+		.guidetop{
+			font-size: 15px;
+			background-color: rgba(212,75,49,.3);
+			padding: 6px;
+		}
+
+		.guide li{
+			font-size: 13px;
+			margin: 2px;
+			padding: 2px 0 2px 8px;
+		}
+		.classify{
+			width: 220px;
+			height: 1000px;
+			border: 1px solid yellow;
+		}
+		.classifytop{
+			font-size: 15px;
+			padding: 6px;
+			background-color: rgb(212,75,49);
+		}
+		.classifybody li{
+			font-size: 15px;
+			list-style: none;
+			margin-top: 24px;
+		}
+		.one ul{
+			font-size: 13px;
+			margin-top: 6px;
+		}
+		.newbook{
+			width: 224px;
+			height: 470px;
+		}
+		.newbooktop{
+			background-color: rgb(233,238,242);
+			padding: 4px;
+		}
+		.two{
+			font-size: 13px;
+			height: 43px;
+			border: 1px dashed rgb(204,204,204);
+		}
+		.bargin{
+			width: 220px;
+			height: 365px;
+		}
+		.bargintop{
+			height: 23px;
+			background-color: rgb(233,238,242);
+			padding-left: 12px;
+		}
+		.barginbutton{
+			border: 1px solid  rgb(233,238,242);
+		}
+		.three{
+			font-size: 14px;
+			border: 1px dashed  rgb(233,238,242);
+			height: 30px;
+			padding-left: 8px;
+		}
+		.rightmenu{
+			border: 1px solid green;
+			width: 820px;
+			float: right;
+			
+		}
+		.flash{
+			border: 1px solid black;
+			width:540px;
+			height:210px;
+			float: left;
+		}
+		.blackboard{
+			border: 1px solid yellow;
+			float: right;
+		}
+		.blacktop{
+			font-size: 14px;
+			background-color: rgb(233,238,242);
+			border: 1px solid rgb(233,238,242);
+		}
+		.message li{
+			margin: 4px;
+		}
+		.assure{
+			border: 1px solid green;
+		}
+		.place{
+			clear: both;
+			width: 820px;
+			height: 36px;
+			border: 1px solid rgb(253,215,157);
+		}
+		.count{
+			margin: 10px 0 4px 6px;
+		}
+		.hotsale{
+			width: 820px;
+			height: 322px;
+			border: 1px solid black;
+		}
+		.saletop{
+			font-size: 16px;
+			margin: 6px 0 6px 0px;
+			padding:  6px 0 6px 12px;
+			background-color: rgb(200,200,200);
+		}
+		.most{
+			margin: 8px;
+			float: left;
+		}
+		.middleright{
+			border: 3px solid green;
+			float: right;
+			width: 606px;
+			margin-top: 6px;
+		}
+		.second{
+			border: 1px solid blue;
+			float: left;
+			width: 380px;
+		}
+		.mdrt{
+			float: right;
+			border: 3px solid black;
+			width: 230px;
+		}
+		.middle{
+			float: left;
+
+		}
+		.right{
+			float: right;
+		}
+
+		.left{
+			border: 1px solid black;
+			width: 100px;
+			float: left;
+			margin-left: 12px;
+		}
+		
+		
+		.ranklist{
+			
+			border: 2px solid black;
+			width: 200px;
+			float: right;
+		}
+		.ranktop{
+			background-color: rgb(233,238,242);
+			padding: 2px 0 3px 18px;
+			font-size: 14px;
+		}
+		.rank li{
+			font-size: 14px;
+			padding: 2px 0px 3px 0px;
+			border: 1px dashed rgb(233,238,242);	
+		}
+		
+		.sort{
+			border: 4px solid black;
+			margin-top: 10px;
+		}
+		.atop{
+			background-color: rgb(255,251,251);
+			padding-left: 48px;
+			font-size: 15px;
+		}
+		.abut{
+			height: 500px;
+			border: 4px solid black; 
+		}
+		.aa{
+			float: left;
+			margin: 50px;
+		}
+		.bb{
+			float: right;
+			margin-top: 50px;
+		}
+		.footer{
+			border: 1px solid blue;
+			clear: both;
+		}
