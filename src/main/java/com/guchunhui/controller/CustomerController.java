@@ -49,6 +49,14 @@ public class CustomerController  {
       }
 
       @ResponseBody
+      @RequestMapping(value = "/delete")
+      public String deleteCustomer(HttpServletRequest request){
+            String id = request.getParameter("id");
+            customerUtilService.deleteCustomerById(Long.parseLong(id));
+            return "delete successfully";
+      }
+
+      @ResponseBody
       @RequestMapping(value = "/findcustomerbyid")
       public Customer findCustomerById(HttpServletRequest request){
             String id = request.getParameter("customerid");
