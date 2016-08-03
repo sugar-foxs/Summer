@@ -5,9 +5,9 @@
 		<meta http-equiv="content-type" content="text/html charset=utf-8" >
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>首页</title>
-		<link href="../css/bootstrap.css" rel="stylesheet" />
-		<script src="../js/jquery-1.9.1.js"></script>
-		<script src="../js/bootstrap.js"></script>
+		<%--<link href="../css/bootstrap.css" rel="stylesheet" />--%>
+		<%--<script src="../js/jquery-1.9.1.js"></script>--%>
+		<%--<script src="../js/bootstrap.js"></script>--%>
 
 		<link href="../css/taobao.css" rel="stylesheet" />
 		<script src="../js/taobao.js"></script>
@@ -16,47 +16,7 @@
     </head>
     <body>
     <div class="nav">
-    	<div class="nav-body">
-			<%--<c:choose>--%>
-				<%--<c:when test="${customer.customerName==null}">--%>
-					<%--<div class="zuoce">--%>
-						<%--<ul>--%>
-							<%--<li><a href="/jsps/login.jsp">亲，请登录</a></li>--%>
-							<%--<li><a href="#">免费注册</a></li>--%>
-							<%--<li><a href="#">手机逛淘宝</a></li>--%>
-						<%--</ul>--%>
-					<%--</div>--%>
-					<%--&lt;%&ndash;<a href="/jsps/login.jsp">&ndash;%&gt;--%>
-                    <%--&lt;%&ndash;<span style="color: darkorange">&ndash;%&gt;--%>
-                        <%--&lt;%&ndash;亲，请登录&nbsp;&ndash;%&gt;--%>
-                    <%--&lt;%&ndash;</span>&ndash;%&gt;--%>
-					<%--&lt;%&ndash;</a>&ndash;%&gt;--%>
-					<%--&lt;%&ndash;<a href="#">&ndash;%&gt;--%>
-                    <%--&lt;%&ndash;<span style="color: #999999" onmouseover="this.style.color='darkorange'" onmouseout="this.style.color='#999999'">&ndash;%&gt;--%>
-                    <%--&lt;%&ndash;免费注册&nbsp;&nbsp;&ndash;%&gt;--%>
-                    <%--&lt;%&ndash;</span>&ndash;%&gt;--%>
-					<%--&lt;%&ndash;</a>&ndash;%&gt;--%>
-				<%--</c:when>--%>
-				<%--<c:otherwise>--%>
-					<%--<div class="dropdown" style="float: left">--%>
-						<%--<button type="button" class="btn dropdown-toggle" id="dropdownMenu1"--%>
-								<%--data-toggle="dropdown">--%>
-								<%--${customer.customerName}<span class="caret"></span>--%>
-						<%--</button>--%>
-						<%--<ul class="dropdown-menu" role="menu1" aria-labelledby="dropdownMenu1">--%>
-							<%--<li role="presentation">--%>
-								<%--<a role="menuitem" tabindex="-1" href="#">choubuyaolian</a>--%>
-							<%--</li>--%>
-							<%--<li role="presentation">--%>
-								<%--<a role="menuitem" tabindex="-1" href="#">shabi</a>--%>
-							<%--</li>--%>
-						<%--</ul>--%>
-					<%--</div>--%>
-				<%--</c:otherwise>--%>
-			<%--</c:choose>--%>
-
-    	</div>
-    		<div >
+		<div >
     		<ul>
     		<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)"><a href="mytaobao">我的淘宝</a>
 				<ul>
