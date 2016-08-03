@@ -5,10 +5,6 @@
 		<meta http-equiv="content-type" content="text/html charset=utf-8" >
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>首页</title>
-		<%--<link href="../css/bootstrap.css" rel="stylesheet" />--%>
-		<%--<script src="../js/jquery-1.9.1.js"></script>--%>
-		<%--<script src="../js/bootstrap.js"></script>--%>
-
 		<link href="../css/taobao.css" rel="stylesheet" />
 		<script src="../js/taobao.js"></script>
 
