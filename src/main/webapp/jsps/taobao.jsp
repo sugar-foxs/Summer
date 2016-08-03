@@ -7,14 +7,13 @@
 		<title>首页</title>
 		<link href="../css/taobao.css" rel="stylesheet" />
 		<script src="../js/taobao.js"></script>
-
-
     </head>
     <body>
     <div class="nav">
-		<div >
+		<div>
     		<ul>
-    		<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)"><a href="mytaobao">我的淘宝</a>
+    		<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
+				<a href="mytaobao">我的淘宝</a>
 				<ul>
 					<li><a href="#">已买到的宝贝</a></li>
 					<li><a href="#">我的足迹</a></li>
@@ -22,14 +21,16 @@
 		   	</li>
 
     		<li><a href="shoppingcar.html">购物车</a></li>
-    		<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)"><a href="favorite">收藏夹</a>
+    		<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
+				<a href="favorite">收藏夹</a>
     		<ul>
     			<li><a href="#">收藏的宝贝</a></li>
     			<li><a href="#">收藏的店铺</a></li>
     		</ul>
     		</li>
     		<li><a href="classify.html">商品分类</a></li>
-    		<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)"><a href="seller">卖家中心</a>
+    		<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
+				<a href="seller">卖家中心</a>
 				<ul>
 					<li><a href="#">免费开店</a></li>
 					<li><a href="#">已卖出的宝贝</a></li>
@@ -39,7 +40,8 @@
 					<li><a href="#">体检中心</a></li>
 				</ul>
     		</li>
-    		<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)"><a href="service">联系客服</a>
+    		<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
+				<a href="service">联系客服</a>
 				<ul>
 					<li><a href="#">买家客服</a></li>
 					<li><a href="#">卖家客服</a></li>
@@ -70,7 +72,12 @@
     							<dl>
     								<dt><a href="#">电子书</a></dt>
     								<dd>
-    									<a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a>
+    									<a href="#">免费</a><a href="#">小说</a>
+										<a href="#">励志与成功</a>
+										<a href="#">婚恋/两性</a>
+										<a href="#">文学</a>
+										<a href="#">经管</a>
+										<a href="#">畅读VIP</a>
     								</dd>
     							</dl>
     						</div>
