@@ -12,13 +12,15 @@
         <result property="price" column="price"/>
         <result property="description" column="description"/>
         <result property="cover" column="cover"/>
-        <result property="species" column="species"/>
+        <result property="fatherClass" column="fatherclass"/>
+        <result property="sonClass" column="sonclass"/>
+
 
     </resultMap>
 
     <insert id="insertBook" parameterType="Book" useGeneratedKeys="true" keyProperty="book_id">
-        INSERT INTO book(book_name,author,year,price,description,cover,species) VALUE (
-        #{bookName},#{author},#{year},#{price},#{description},#{cover},#{species}
+        INSERT INTO book(book_name,author,year,price,description,cover,fatherclass,sonclass) VALUE (
+        #{bookName},#{author},#{year},#{price},#{description},#{cover},#{fatherClass},#{sonClass}
         )
     </insert>
 
@@ -26,12 +28,23 @@
         SELECT * FROM book WHERE book_id = #{bookId}
     </select>
 
-    <select id="findBookByName" resultMap="BookResult" parameterType="String">
+    <select id="findBooksByName" resultMap="BookResult" parameterType="String">
         SELECT * FROM book WHERE book_name = #{bookName}
     </select>
 
     <select id="findAllBooks" resultMap="BookResult">
         SELECT * FROM book
+    </select>
+
+    <select id="findBooksByClass" resultMap="BookResult" parameterType="com.guchunhui.queryCondition.BookQuery">
+        SELECT * FROM book WHERE TRUE
+        <if test="father != null">
+            AND fatherclass = #{father}
+        </if>
+        <if test="son != null and 0!=son">
+            AND sonclass = #{son}
+        </if>
+        ORDER BY sonclass
     </select>
 
     <delete id="deleteBookById" parameterType="long">

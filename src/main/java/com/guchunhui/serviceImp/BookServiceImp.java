@@ -2,6 +2,7 @@ package com.guchunhui.serviceImp;
 
 import com.guchunhui.mapper.BookMapper;
 import com.guchunhui.model.Book;
+import com.guchunhui.queryCondition.BookQuery;
 import com.guchunhui.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -26,12 +27,16 @@ public class BookServiceImp implements BookService {
         return bookMapper.findBookById(id);
     }
 
-    public Book findBookByName(String name) {
-        return bookMapper.findBookByName(name);
+    public List<Book> findBooksByName(String name) {
+        return bookMapper.findBooksByName(name);
     }
 
     public List<Book> findAllBooks() {
         return bookMapper.findAllBooks();
+    }
+
+    public List<Book> findBooksByClass(BookQuery bookQuery) {
+        return bookMapper.findBooksByClass(bookQuery);
     }
 
     public void deleteBookById(long id) {

@@ -7,57 +7,26 @@ import java.io.Serializable;
  */
 public class Book  implements Serializable{
     private static final long serialVersionUID = 854276895268L;
-    private int bookId;
+    private long bookId;
     private String bookName;
     private String author;
     private String year;
     private double price;
     private String description;
     private String cover;
-    private int species;
-
-    public int getSpecies() {
-        return species;
-    }
-
-    public void setSpecies(int species) {
-        this.species = species;
-    }
-
-    public String getCover() {
-        return cover;
-    }
-
-    public void setCover(String cover) {
-        this.cover = cover;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getBookId() {
-        return bookId;
-    }
-
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
-    }
+    private int fatherClass;
+    private int sonClass;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
 
-    public double getPrice() {
-        return price;
+    public long getBookId() {
+        return bookId;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setBookId(long bookId) {
+        this.bookId = bookId;
     }
 
     public String getBookName() {
@@ -84,6 +53,46 @@ public class Book  implements Serializable{
         this.year = year;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
+
+    public int getFatherClass() {
+        return fatherClass;
+    }
+
+    public void setFatherClass(int fatherClass) {
+        this.fatherClass = fatherClass;
+    }
+
+    public int getSonClass() {
+        return sonClass;
+    }
+
+    public void setSonClass(int sonClass) {
+        this.sonClass = sonClass;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -94,6 +103,8 @@ public class Book  implements Serializable{
                 ", price=" + price +
                 ", description='" + description + '\'' +
                 ", cover='" + cover + '\'' +
+                ", fatherClass=" + fatherClass +
+                ", sonClass=" + sonClass +
                 '}';
     }
 }

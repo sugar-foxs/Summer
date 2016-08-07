@@ -1,6 +1,7 @@
 package com.guchunhui.mapper;
 
 import com.guchunhui.model.Book;
+import com.guchunhui.queryCondition.BookQuery;
 
 import java.util.List;
 
@@ -10,8 +11,9 @@ import java.util.List;
 public interface BookMapper {
      void insertBook(Book book);
      Book findBookById(long id);
-     Book findBookByName(String name);
+     List<Book> findBooksByName(String name);
      List<Book> findAllBooks();
+     List<Book> findBooksByClass(BookQuery bookQuery);
      void deleteBookById(long id);
      void deleteBookByName(String name);
 

@@ -1,7 +1,9 @@
 package com.guchunhui.test;
 
 import com.guchunhui.model.Book;
+import com.guchunhui.queryCondition.BookQuery;
 import com.guchunhui.service.BookService;
+import com.guchunhui.utils.BookUtilService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,34 +22,51 @@ public class BookTest {
     @Autowired
     private BookService bookService;
 
+    @Autowired
+    private BookUtilService bookUtilService;
+
     @Test
     public void insertBook(){
-        Book book = new Book();
-        book.setBookName("fastjson");
-        book.setAuthor("gu");
-        book.setYear("2015");
-        book.setPrice(8.2);
-        book.setDescription("etre");
-        book.setCover("gfg.jpg");
-        book.setSpecies(1);
-        bookService.insertBook(book);
+        for(int i=0;i<5;i++){
+            Book book = new Book();
+            book.setBookName("javascript");
+            book.setAuthor("cxh");
+            book.setYear("2012");
+            book.setPrice(18.8);
+            book.setDescription("etre");
+            book.setCover("gfg.jpg");
+            book.setFatherClass(2);
+            book.setSonClass(1);
+            bookService.insertBook(book);
+        }
+
     }
 
     @Test
     public void findBookById(){
-        Book book = bookService.findBookById(2);
+        Book book = bookService.findBookById(4);
         System.out.println(book);
     }
 
     @Test
-    public void findBookByName(){
-        Book book = bookService.findBookByName("love");
-        System.out.println(book);
+    public void findBooksByName(){
+        List<Book> books = bookService.findBooksByName("json");
+        for(Book book : books){
+            System.out.println(book);
+        }
     }
 
     @Test
     public void findAllBooks(){
         List<Book> books = bookService.findAllBooks();
+        for(Book book : books){
+            System.out.println(book);
+        }
+    }
+
+    @Test
+    public void findBooksByClass(){
+        List<Book> books = bookUtilService.findKindBooks(1,1);
         for(Book book : books){
             System.out.println(book);
         }
@@ -60,6 +79,6 @@ public class BookTest {
 
     @Test
     public void deleteBookByName(){
-        bookService.deleteBookByName("fastjson");
+        bookService.deleteBookByName("json");
     }
 }
