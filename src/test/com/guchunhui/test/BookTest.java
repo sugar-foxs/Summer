@@ -50,9 +50,7 @@ public class BookTest {
 
     @Test
     public void findBooksByName(){
-//        Book book = new Book();
-//        book.setBookName("jso");
-        List<Book> books = bookService.findBooksByMessage("ea");
+        List<Book> books = bookService.findBooksByMessage("java");
         for(Book abook : books){
             System.out.println(abook);
             System.out.println(abook.getBookName());
