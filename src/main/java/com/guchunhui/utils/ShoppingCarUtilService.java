@@ -80,15 +80,37 @@ public class ShoppingCarUtilService {
     }
 
     /**
-     * 删除购物车里的某个商品
+     * 删除购物车里的某个商品,删掉一个
      */
     public void deleteBookFromCar(long bookid , long shoppingcarid){
         ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(shoppingcarid);
         String booksIds = shoppingCar.getBooksIds();
         if(!(booksIds == null || booksIds.equals(""))){
             int i = booksIds.indexOf(String.valueOf(bookid));
-            booksIds = booksIds.substring(0,i)+booksIds.substring(i+2);
+            if(i != -1){
+                booksIds = booksIds.substring(0,i)+booksIds.substring(i+2);
+                shoppingCar.setBooksIds(booksIds);
+            }
+
+        }
+        shoppingCarService.updateShoppingCar(shoppingCar);
+    }
+
+    /**
+     * 删除购物车里的某个商品,个数变为0
+     */
+    public void deleteThisBookFromCar(long bookid , long shoppingcarid){
+        ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(shoppingcarid);
+        String booksIds = shoppingCar.getBooksIds();
+        if(!(booksIds == null || booksIds.equals(""))){
+            int i=0;
+            while(i != -1){
+                i = booksIds.indexOf(String.valueOf(bookid));
+                if(i != -1)
+                booksIds = booksIds.substring(0,i)+booksIds.substring(i+2);
+            }
             shoppingCar.setBooksIds(booksIds);
+
         }
         shoppingCarService.updateShoppingCar(shoppingCar);
     }

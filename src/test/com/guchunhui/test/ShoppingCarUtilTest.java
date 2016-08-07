@@ -25,12 +25,17 @@ public class ShoppingCarUtilTest {
 
     @Test
     public void addBookToCar(){
-        shoppingCarUtilService.addBookIntoCar(3,1);
+        shoppingCarUtilService.addBookIntoCar(3,6);
     }
 
     @Test
     public void deleteBookFromCar(){
-        shoppingCarUtilService.deleteBookFromCar(2,1);
+        shoppingCarUtilService.deleteBookFromCar(1,1);
+    }
+
+    @Test
+    public void deleteThisBookFromCar(){
+        shoppingCarUtilService.deleteThisBookFromCar(4,1);
     }
 
     @Test
