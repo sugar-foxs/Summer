@@ -22,9 +22,7 @@ public class Customer implements Serializable{
 
     private String customerEmail;     //邮箱
 
-//    private long shoppingCarId;         //购物车号
 
-//    private long shoppingListId;        //购物清单号
 
     private ShoppingCar shoppingCar;   //购物车
 
@@ -83,22 +81,6 @@ public class Customer implements Serializable{
     public void setCustomerId(long customerId) {
         this.customerId = customerId;
     }
-
-//    public long getShoppingCarId() {
-//        return shoppingCarId;
-//    }
-//
-//    public void setShoppingCarId(long shoppingCarId) {
-//        this.shoppingCarId = shoppingCarId;
-//    }
-//
-//    public long getShoppingListId() {
-//        return shoppingListId;
-//    }
-//
-//    public void setShoppingListId(long shoppingListId) {
-//        this.shoppingListId = shoppingListId;
-//    }
 
     public ShoppingCar getShoppingCar() {
         return shoppingCar;

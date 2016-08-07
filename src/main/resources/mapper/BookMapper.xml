@@ -28,8 +28,28 @@
         SELECT * FROM book WHERE book_id = #{bookId}
     </select>
 
-    <select id="findBooksByName" resultMap="BookResult" parameterType="String">
-        SELECT * FROM book WHERE book_name = #{bookName}
+    <!--<select id="findBooksByName" resultMap="BookResult" parameterType="Book">-->
+        <!--SELECT * FROM book WHERE TRUE-->
+        <!--<if test="bookName != null">-->
+            <!--AND book_name like #{bookName}-->
+        <!--</if>-->
+    <!--</select>-->
+
+    <select id="findBooksByMessage" resultMap="BookResult" parameterType="String">
+        <bind name="pattern" value="'%' + _parameter + '%'" />
+        SELECT * FROM book WHERE
+        <if test="_parameter != null">
+        book_name like #{pattern}
+        </if>
+        <if test="_parameter != null">
+            OR author like #{pattern}
+        </if>
+        <if test="_parameter != null">
+            OR description like #{pattern}
+        </if>
+        <if test="_parameter != null">
+            OR year like #{pattern}
+        </if>
     </select>
 
     <select id="findAllBooks" resultMap="BookResult">

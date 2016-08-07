@@ -11,7 +11,8 @@ import java.util.List;
 public interface BookMapper {
      void insertBook(Book book);
      Book findBookById(long id);
-     List<Book> findBooksByName(String name);
+     List<Book> findBooksByMessage(String name);
+
      List<Book> findAllBooks();
      List<Book> findBooksByClass(BookQuery bookQuery);
      void deleteBookById(long id);

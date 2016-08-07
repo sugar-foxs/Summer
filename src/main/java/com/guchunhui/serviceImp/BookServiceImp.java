@@ -27,8 +27,8 @@ public class BookServiceImp implements BookService {
         return bookMapper.findBookById(id);
     }
 
-    public List<Book> findBooksByName(String name) {
-        return bookMapper.findBooksByName(name);
+    public List<Book> findBooksByMessage(String name) {
+        return bookMapper.findBooksByMessage(name);
     }
 
     public List<Book> findAllBooks() {

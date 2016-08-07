@@ -50,9 +50,12 @@ public class BookTest {
 
     @Test
     public void findBooksByName(){
-        List<Book> books = bookService.findBooksByName("json");
-        for(Book book : books){
-            System.out.println(book);
+//        Book book = new Book();
+//        book.setBookName("jso");
+        List<Book> books = bookService.findBooksByMessage("ea");
+        for(Book abook : books){
+            System.out.println(abook);
+            System.out.println(abook.getBookName());
         }
     }
 
