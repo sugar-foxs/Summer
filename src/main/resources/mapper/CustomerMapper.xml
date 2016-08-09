@@ -10,11 +10,13 @@
         <result property="customerPassword" column="customer_password"/>
         <result property="customerPhone" column="phone"/>
         <result property="customerEmail" column="email"/>
+        <result property="customerAddress" column="address"/>
+
     </resultMap>
 
     <insert id="insertCustomer" parameterType="Customer" useGeneratedKeys="true" keyProperty="customer_id">
-        INSERT INTO customer(customer_id,customer_name,customer_password,phone,email) VALUE (
-        #{customerId},#{customerName},#{customerPassword},#{customerPhone},#{customerEmail}
+        INSERT INTO customer(customer_name,customer_password,phone,email,address) VALUE (
+        #{customerName},#{customerPassword},#{customerPhone},#{customerEmail},#{customerAddress}
         )
     </insert>
 

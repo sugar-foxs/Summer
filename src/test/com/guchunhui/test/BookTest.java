@@ -19,11 +19,19 @@ import java.util.List;
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
 public class BookTest {
 
-    @Autowired
-    private BookService bookService;
 
+    private BookService bookService;
     @Autowired
+    public void setBookService(BookService bookService) {
+        this.bookService = bookService;
+    }
+
+
     private BookUtilService bookUtilService;
+    @Autowired
+    public void setBookUtilService(BookUtilService bookUtilService) {
+        this.bookUtilService = bookUtilService;
+    }
 
     @Test
     public void insertBook(){
@@ -44,7 +52,7 @@ public class BookTest {
 
     @Test
     public void findBookById(){
-        Book book = bookService.findBookById(4);
+        Book book = bookService.findBookById(3);
         System.out.println(book);
     }
 
@@ -67,7 +75,7 @@ public class BookTest {
 
     @Test
     public void findBooksByClass(){
-        List<Book> books = bookUtilService.findKindBooks(1,1);
+        List<Book> books = bookUtilService.findKindBooks(2);
         for(Book book : books){
             System.out.println(book);
         }

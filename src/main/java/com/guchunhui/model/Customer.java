@@ -22,17 +22,26 @@ public class Customer implements Serializable{
 
     private String customerEmail;     //邮箱
 
+    private String customerAddress;   //地址
 
+    public Customer() {
+    }
 
-    private ShoppingCar shoppingCar;   //购物车
-
-    private ShoppingList shoppingList; //购物清单
+    public Customer(long customerId) {
+        this.customerId = customerId;
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
 
+    public long getCustomerId() {
+        return customerId;
+    }
 
+    public void setCustomerId(long customerId) {
+        this.customerId = customerId;
+    }
 
     public String getCustomerName() {
         return customerName;
@@ -66,28 +75,12 @@ public class Customer implements Serializable{
         this.customerEmail = customerEmail;
     }
 
-    public ShoppingList getShoppingList() {
-        return shoppingList;
+    public String getCustomerAddress() {
+        return customerAddress;
     }
 
-    public void setShoppingList(ShoppingList shoppingList) {
-        this.shoppingList = shoppingList;
-    }
-
-    public long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(long customerId) {
-        this.customerId = customerId;
-    }
-
-    public ShoppingCar getShoppingCar() {
-        return shoppingCar;
-    }
-
-    public void setShoppingCar(ShoppingCar shoppingCar) {
-        this.shoppingCar = shoppingCar;
+    public void setCustomerAddress(String customerAddress) {
+        this.customerAddress = customerAddress;
     }
 
     @Override
@@ -98,9 +91,7 @@ public class Customer implements Serializable{
                 ", customerPassword='" + customerPassword + '\'' +
                 ", customerPhone='" + customerPhone + '\'' +
                 ", customerEmail='" + customerEmail + '\'' +
-                ", shoppingCar=" + shoppingCar +
-                ", shoppingList=" + shoppingList +
+                ", address='" + customerAddress + '\'' +
                 '}';
     }
-
 }

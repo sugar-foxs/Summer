@@ -4,28 +4,44 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.guchunhui.mapper.ShoppingCarMapper">
 
+    <resultMap type="com.guchunhui.model.Customer" id="CustomerResult">
+        <id property="customerId" column="customer_id"/>
+        <result property="customerName" column="customer_name"/>
+        <result property="customerPassword" column="customer_password"/>
+        <result property="customerPhone" column="phone"/>
+        <result property="customerEmail" column="email"/>
+        <result property="customerAddress" column="address"/>
+
+    </resultMap>
+
+    <select id="findCustomerById" resultMap="CustomerResult" parameterType="long">
+        SELECT * FROM customer WHERE customer_id = #{customerId}
+    </select>
+
     <resultMap type="com.guchunhui.model.ShoppingCar" id="ShoppingCarResult">
         <id property="shoppingCarId" column="shoppingcar_id"/>
         <result property="booksIds" column="books_ids"/>
+        <association property="customer" column="customer_id" select="findCustomerById"/>
+
     </resultMap>
 
 
     <insert id="insertShoppingCar" parameterType="ShoppingCar" useGeneratedKeys="true" keyProperty="shoppingcar_id">
-        INSERT INTO shoppingcar(shoppingcar_id,books_ids) VALUE (
-        #{shoppingCarId},#{booksIds}
+        INSERT INTO shoppingcar(shoppingcar_id,books_ids,customer_id) VALUE (
+        #{shoppingCarId},#{booksIds},#{customer.customerId}
         )
     </insert>
 
     <select id="findShoppingCarById" resultMap="ShoppingCarResult" parameterType="long">
-        SELECT * FROM shoppingcar WHERE shoppingcar_id = #{shoppingCarId}
+        SELECT * FROM shoppingcar WHERE customer_id = #{customer.customerId}
     </select>
 
     <delete id="deleteShoppingCarById" parameterType="long">
-        DELETE FROM shoppingcar WHERE  shoppingcar_id = #{shoppingCarId}
+        DELETE FROM shoppingcar WHERE  customer_id = #{customer.customerId}
     </delete>
 
     <update id="updateShoppingCar" parameterType="ShoppingCar" >
-        UPDATE shoppingcar SET books_ids = #{booksIds} WHERE shoppingcar_id = #{shoppingCarId}
+        UPDATE shoppingcar SET books_ids = #{booksIds} WHERE customer_id = #{customer.customerId}
     </update>
 
 </mapper>

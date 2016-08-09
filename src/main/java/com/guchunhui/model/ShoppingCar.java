@@ -12,6 +12,7 @@ public class ShoppingCar implements Serializable{
     private long shoppingCarId;
     private List<Book> books;
     private String booksIds;
+    private Customer customer;
 
     public String getBooksIds() {
         return booksIds;
@@ -41,12 +42,21 @@ public class ShoppingCar implements Serializable{
         this.books = books;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
     @Override
     public String toString() {
         return "ShoppingCar{" +
                 "shoppingCarId=" + shoppingCarId +
                 ", books=" + books +
                 ", booksIds='" + booksIds + '\'' +
+                ", customer=" + customer +
                 '}';
     }
 }
