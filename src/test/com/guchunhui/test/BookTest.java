@@ -75,7 +75,7 @@ public class BookTest {
 
     @Test
     public void findBooksByClass(){
-        List<Book> books = bookUtilService.findKindBooks(2);
+        List<Book> books = bookUtilService.findKindBooks(2,1);
         for(Book book : books){
             System.out.println(book);
         }

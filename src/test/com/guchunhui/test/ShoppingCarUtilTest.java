@@ -25,7 +25,7 @@ public class ShoppingCarUtilTest {
 
     @Test
     public void addBookToCar(){
-        shoppingCarUtilService.addBookIntoCar(3,6);
+        shoppingCarUtilService.addBookIntoCar(1,2,1);
     }
 
     @Test
@@ -35,12 +35,12 @@ public class ShoppingCarUtilTest {
 
     @Test
     public void deleteThisBookFromCar(){
-        shoppingCarUtilService.deleteThisBookFromCar(4,1);
+        shoppingCarUtilService.deleteThisBookFromCar(2,1);
     }
 
     @Test
     public void findShoppingCarById(){
-        ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(3);
+        ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(4);
         System.out.print(shoppingCar);
     }
 

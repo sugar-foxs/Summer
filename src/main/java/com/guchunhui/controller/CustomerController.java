@@ -2,20 +2,16 @@ package com.guchunhui.controller;
 
 import com.guchunhui.model.Customer;
 import com.guchunhui.service.CustomerService;
-import com.guchunhui.utils.CustomerUtilService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.List;
 
 /**
@@ -25,8 +21,6 @@ import java.util.List;
 @RequestMapping("/customer")
 public class CustomerController  {
 
-      @Resource
-      private CustomerUtilService customerUtilService;
 
       @Resource
       private CustomerService customerService;
@@ -44,7 +38,7 @@ public class CustomerController  {
       @ResponseBody
       @RequestMapping(value = "/findall")
       public List<Customer> findAllCustomers(){
-            List<Customer> customerList = customerUtilService.findAllCustomers();
+            List<Customer> customerList = customerService.findAllCustomers();
             return customerList;
       }
 
@@ -52,7 +46,7 @@ public class CustomerController  {
       @RequestMapping(value = "/delete")
       public String deleteCustomer(HttpServletRequest request){
             String id = request.getParameter("id");
-            customerUtilService.deleteCustomerById(Long.parseLong(id));
+            customerService.deleteCustomerById(Long.parseLong(id));
             return "delete successfully";
       }
 
@@ -60,7 +54,7 @@ public class CustomerController  {
       @RequestMapping(value = "/findcustomerbyid")
       public Customer findCustomerById(HttpServletRequest request){
             String id = request.getParameter("customerid");
-            Customer customer = customerUtilService.findCustomerById(Integer.parseInt(id));
+            Customer customer = customerService.findCustomerById(Integer.parseInt(id));
             return customer;
       }
 
@@ -70,7 +64,7 @@ public class CustomerController  {
       public ModelAndView login(HttpServletRequest request,HttpServletResponse response,Model model) throws UnsupportedEncodingException {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            List<Customer> customerList = customerUtilService.findAllCustomers();
+            List<Customer> customerList = customerService.findAllCustomers();
             if(username.length() == 0){
                   model.addAttribute("error","用户名为空");
                   return new ModelAndView("login");

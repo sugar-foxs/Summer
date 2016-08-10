@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guchunhui.mapper.ShoppingListMapper">
+
+    <resultMap type="com.guchunhui.model.Customer" id="CustomerResult">
+        <id property="customerId" column="customer_id"/>
+        <result property="customerName" column="customer_name"/>
+        <result property="customerPassword" column="customer_password"/>
+        <result property="customerPhone" column="phone"/>
+        <result property="customerEmail" column="email"/>
+        <result property="customerAddress" column="address"/>
+    </resultMap>
+
+    <select id="findCustomerById" resultMap="CustomerResult" parameterType="long">
+        SELECT * FROM customer WHERE customer_id = #{customerId}
+    </select>
+
+    <resultMap type="com.guchunhui.model.ShoppingList" id="ShoppingListResult">
+        <id property="shoppingListId" column="shoppinglist_id"/>
+        <result property="shoppingListName" column="shoppinglist_name"/>
+        <result property="bookIds" column="books_ids"/>
+        <result property="mobile" column="mobile"/>
+        <result property="address" column="address"/>
+        <result property="totalPrice" column="totalprice"/>
+        <result property="paymentWay" column="paymentWay"/>
+        <result property="orderState" column="orderState"/>
+        <result property="createTime" column="createTime"/>
+        <association property="customer" column="customer_id" select="findCustomerById"/>
+    </resultMap>
+
+    <insert id="insertShoppingList" parameterType="ShoppingList" useGeneratedKeys="true" keyProperty="shoppingcar_id">
+        INSERT INTO shoppinglist(shoppinglist_name,books_ids,mobile,address,totalprice,paymentWay,orderState,createTime,customer_id) VALUE (
+        #{shoppingListName},#{bookIds},#{mobile},#{address},#{totalPrice},#{paymentWay},#{orderState},#{createTime},#{customer.customerId}
+        )
+    </insert>
+
+    <select id="findAllShoppingListById" parameterType="long" resultMap="ShoppingListResult">
+        SELECT * FROM shoppinglist WHERE customer_id = #{customer.customerId}
+    </select>
+
+    <select id="findShoppingListsByState" resultMap="ShoppingListResult" parameterType="com.guchunhui.queryCondition.ShoppingListQuery">
+        SELECT * FROM shoppinglist WHERE TRUE
+        <if test="customerId != null">
+            AND customer_id = #{customerId}
+        </if>
+        <if test="orderState != null and '' != orderState ">
+            AND orderState = #{orderState}
+        </if>
+        ORDER BY orderState
+    </select>
+
+    <delete id="deleteShoppingListById" parameterType="long">
+        DELETE FROM shoppinglist WHERE  customer_id = #{customer.customerId}
+    </delete>
+
+
+</mapper>

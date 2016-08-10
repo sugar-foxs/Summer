@@ -30,11 +30,11 @@ public class ShoppingCarUtilService {
 
     /**
      *
-     * @param id
+     * @param customerId
      * @return
      */
-    public ShoppingCar findShoppingCarById(long id){
-        ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(id);
+    public ShoppingCar findShoppingCarById(long customerId){
+        ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(customerId);
         String booksIds = shoppingCar.getBooksIds();
         List<Book> bookList = null;
         if(!(booksIds == null || booksIds.equals(""))){
@@ -64,17 +64,21 @@ public class ShoppingCarUtilService {
 
     /**
      * 往购物车里增加商品
-     * @param bookid
-     * @param shoppingcarid
+     * @param bookId
+     * @param account,商品个数
+     * @param customerId
      */
-    public void addBookIntoCar(long bookid,long shoppingcarid){
-        ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(shoppingcarid);
+    public void addBookIntoCar(long bookId,int account,long customerId){
+        ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(customerId);
         String booksIds = shoppingCar.getBooksIds();
         if(booksIds == null || booksIds.equals("")){
-            shoppingCar.setBooksIds(String.valueOf(bookid)+";");
+            shoppingCar.setBooksIds(String.valueOf(bookId)+";");
         }else{
-            String newbookids = booksIds.concat(String.valueOf(bookid)+";");
-            shoppingCar.setBooksIds(newbookids);
+            String newBookIds = booksIds;
+            for(int i=0;i<account;i++){
+                newBookIds = newBookIds.concat(String.valueOf(bookId)+";");
+            }
+            shoppingCar.setBooksIds(newBookIds);
         }
         shoppingCarService.updateShoppingCar(shoppingCar);
     }
@@ -82,11 +86,11 @@ public class ShoppingCarUtilService {
     /**
      * 删除购物车里的某个商品,删掉一个
      */
-    public void deleteBookFromCar(long bookid , long shoppingcarid){
-        ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(shoppingcarid);
+    public void deleteBookFromCar(long bookId , long customerId){
+        ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(customerId);
         String booksIds = shoppingCar.getBooksIds();
         if(!(booksIds == null || booksIds.equals(""))){
-            int i = booksIds.indexOf(String.valueOf(bookid));
+            int i = booksIds.indexOf(String.valueOf(bookId));
             if(i != -1){
                 booksIds = booksIds.substring(0,i)+booksIds.substring(i+2);
                 shoppingCar.setBooksIds(booksIds);
@@ -99,13 +103,13 @@ public class ShoppingCarUtilService {
     /**
      * 删除购物车里的某个商品,个数变为0
      */
-    public void deleteThisBookFromCar(long bookid , long shoppingcarid){
-        ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(shoppingcarid);
+    public void deleteThisBookFromCar(long bookId , long customerId){
+        ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(customerId);
         String booksIds = shoppingCar.getBooksIds();
         if(!(booksIds == null || booksIds.equals(""))){
             int i=0;
             while(i != -1){
-                i = booksIds.indexOf(String.valueOf(bookid));
+                i = booksIds.indexOf(String.valueOf(bookId));
                 if(i != -1)
                 booksIds = booksIds.substring(0,i)+booksIds.substring(i+2);
             }

@@ -1,10 +1,7 @@
 package com.guchunhui.test;
 
 import com.guchunhui.model.Customer;
-import com.guchunhui.model.ShoppingCar;
 import com.guchunhui.service.CustomerService;
-import com.guchunhui.service.ShoppingCarService;
-import com.guchunhui.utils.CustomerUtilService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +20,7 @@ import java.util.List;
 public class CustomerTest {
     @Autowired
     private CustomerService customerService;
-    @Autowired
-    private CustomerUtilService customerUtilService;
+
 
 
     @Test
@@ -53,7 +49,7 @@ public class CustomerTest {
 
     @Test
     public void deleteCustomerById(){
-        customerUtilService.deleteCustomerById(3);
+        customerService.deleteCustomerById(3);
     }
 
 

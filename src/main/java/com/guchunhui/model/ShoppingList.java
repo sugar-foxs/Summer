@@ -15,7 +15,7 @@ public class ShoppingList implements Serializable{
     private String mobile;          //联系方式
     private String address;         //送货地址
     private float totalPrice;       //总价
-    private Date creratTime;        //创建日期
+    private Date createTime;        //创建日期
     private String paymentWay;      //支付方式
     private String orderState;      //订单状态
     private String bookIds;
@@ -67,12 +67,12 @@ public class ShoppingList implements Serializable{
         this.totalPrice = totalPrice;
     }
 
-    public Date getCreratTime() {
-        return creratTime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreratTime(Date creratTime) {
-        this.creratTime = creratTime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public String getPaymentWay() {
@@ -123,7 +123,7 @@ public class ShoppingList implements Serializable{
                 ", mobile='" + mobile + '\'' +
                 ", address='" + address + '\'' +
                 ", totalPrice=" + totalPrice +
-                ", creratTime=" + creratTime +
+                ", creratTime=" + createTime +
                 ", paymentWay='" + paymentWay + '\'' +
                 ", orderState='" + orderState + '\'' +
                 ", bookIds='" + bookIds + '\'' +
