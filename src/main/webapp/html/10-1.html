@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用browser对象获取浏览器信息</title>
+    <script type="text/javascript" src="../js/jquery-3.0.0.min.js"></script>
+    <style type="text/css">
+        body{font-size: 13px}
+        div{margin: 5px;padding: 10px;border: solid 1px #666;
+        background-color: #eee;width: 300px}
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            var arrStu={"张三":"60","李四":"70","王二":"80"}
+            var strContent="<li class='title'>姓名：分数</li>";
+            $.each(arrStu,function (Name,Value) {
+                strContent+="<li>"+Name+Value+"</li>";
+            })
+            $("ul").append(strContent);
+        })
+    </script>
+</head>
+<body>
+<ul></ul>
+</body>
+</html>

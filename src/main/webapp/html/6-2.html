@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getJson函数获取数据</title>
+    <script type="text/javascript" src="../js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#Button1").click(function () {
+                $.getJSON("/customer/findall.do",function (data) {
+                $("#divTip").empty();
+                var strHTML="";
+                $.each(data,function (InfoIndex,Info) {
+                    strHTML+="邮箱："+Info["customerEmail"]+"<br>";
+                    strHTML+="账户："+Info["customerId"]+"<br>";
+                    strHTML+="用户名："+Info["customerName"]+"<br>";
+                    strHTML+="用户密码："+Info["customerPassword"]+"<br>";
+                    strHTML+="用户电话："+Info["customerPhone"]+"<br>";
+                     })
+                    $("#divTip").html(strHTML);
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="divFrame">
+        <div class="divTitle">
+            <input type="button" class="btn" id="Button1" onclick="GetSendData()" value="获取数据"/>
+        </div>
+        <div class="divContent">
+            <div id="divTip"></div>
+        </div>
+    </div>
+</body>
+</html>

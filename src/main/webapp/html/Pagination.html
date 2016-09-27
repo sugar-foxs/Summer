@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据分页插件</title>
+    <link href="../css/jqpagination.css" rel="stylesheet" type="text/css">
+    <script src="../js/jquery-3.0.0.min.js" type="text/javascript"></script>
+    <script src="../js/jqpagination.js" type="text/javascript" ></script>
+    <script type="text/javascript">
+        function psCallback(pi,jq) {
+            //获取指定页码中的内容
+            var newcxt=$('#Result ul:eq('+pi+')').clone();
+            //向内容区添加指定页码打内容
+            $('#Content').empty().append(newcxt);
+            return false;
+        }
+        function isCallback(pi,jq) {
+            //隐藏图片区域的图片
+            $('#Picture img:visible').hide();
+            //显示图片区域中指定页码的图片
+            $('#Picture img:eq('+pi+')').show();
+        }
+        function initPagination(){
+            //获取全部记录数据
+            var SumNum=$('#Result ul').length;
+            //记录显示区绑定数据分页插件
+            $(".divpage").jqPagination(SumNum,{
+                num_edge_entries:1,
+                callback:psCallback,
+                item_per_page:1
+            });
+            SumNum=$('#Picture img').length;
+            $(".divimg").jqPagination(SumNum,{
+                callback:isCallback,
+                items_per_page:1
+            });
+        }
+        function showPic(){
+            $("#ImgLst").toggle();
+        }
+        $(function () {
+            initPagination();
+        });
+    </script>
+</head>
+<body>
+<div id="Iframe">
+    <div class="divpage"></div>
+    <br style="clear:both"/>
+    <ul>
+        <li class="li">
+            <span>订单号</span>
+            <span>姓名</span>
+            <span>性别</span>
+            <span>总金额</span>
+            <span>详细</span>
+        </li>
+    </ul>
+    <div id="Content">
+        <span class="spntip">正在加载数据</span>
+    </div>
+    <div class="divpage"></div>
+    <div id="Result">
+        <ul>
+            <li>
+                <span>10101</span>
+                <span>张小虎</span>
+                <span>男</span>
+                <span>465.98</span>
+                <span>
+                    <a href="javascript:showPic()">查看</a>
+                </span>
+            </li>
+            <li>
+                <span>10102</span>
+                <span>刘海</span>
+                <span>女</span>
+                <span>600.12</span>
+                <span>
+                    <a href="javascript:showPic()">查看</a>
+                </span>
+            </li>
+            <li>
+                <span>10103</span>
+                <span>李玉海</span>
+                <span>男</span>
+                <span>830.12</span>
+                <span>
+                    <a href="javascript:showPic()">查看</a>
+                </span>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <span>10201</span>
+                <span>张三百</span>
+                <span>男</span>
+                <span>565.98</span>
+                <span>
+                    <a href="javascript:showPic()">查看</a>
+                </span>
+            </li>
+            <li>
+                <span>10202</span>
+                <span>接小海</span>
+                <span>男</span>
+                <span>900.12</span>
+                <span>
+                    <a href="javascript:showPic()">查看</a>
+                </span>
+            </li>
+            <li>
+                <span>10203</span>
+                <span>李明明</span>
+                <span>女</span>
+                <span>630.12</span>
+                <span>
+                    <a href="javascript:showPic()">查看</a>
+                </span>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <span>10301</span>
+                <span>陈虎</span>
+                <span>男</span>
+                <span>765.98</span>
+                <span>
+                    <a href="javascript:showPic()">查看</a>
+                </span>
+            </li>
+            <li>
+                <span>10302</span>
+                <span>周名海</span>
+                <span>女</span>
+                <span>802.12</span>
+                <span>
+                    <a href="javascript:showPic()">查看</a>
+                </span>
+            </li>
+            <li>
+                <span>10303</span>
+                <span>胡小明</span>
+                <span>男</span>
+                <span>630.12</span>
+                <span>
+                    <a href="javascript:showPic()">查看</a>
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div id="ImgLst">
+        <div id="Picture" class="pic">
+            <img src="../img/44.jpg">
+            <img src="../img/44.jpg">
+            <img src="../img/44.jpg">
+            <img src="../img/44.jpg">
+        </div>
+        <div class="diving"></div>
+    </div>
+</div>
+</body>
+</html>

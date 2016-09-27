@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用工具提示插件显示列表项打图片</title>
+    <link href="../css/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script>
+        var arrImg=new Array("../img/11.jpg","../img/22.jpg","../img/33.jpg");
+        $(function () {
+            $(".spanL").each(function (index) {
+                $(this).attr("title","<img src='"+arrImg[index]+"'>");
+                $(this).tooltip(
+                        {position:{my:"left+100"}}
+                );
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="frame">
+    <div class="title">本人部分作品集</div>
+    <div class="content">
+        <ul>
+            <li>
+                <span class="spanT">书名</span>
+                <span><b>出版时间</b></span>
+            </li>
+            <li>
+                <span class="spanL">
+                    <a href="javascript:">
+                        jQuery权威指南
+                    </a>
+                </span>
+                <span>2011.5</span>
+                <br><br>
+            </li>
+            <li>
+                <span class="spanL">
+                    <a href="javascript:">
+                        HTML5 实战
+                    </a>
+                </span>
+                <span>2012.1</span>
+                <br><br>
+            </li>
+            <li>
+                <span class="spanL">
+                    <a href="javascript:">
+                        jQuery Mobile权威指南
+                    </a>
+                </span>
+                <span>2012.8</span>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
