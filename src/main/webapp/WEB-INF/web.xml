@@ -53,6 +53,6 @@
     </filter-mapping>
 
     <welcome-file-list>
-        <welcome-file>/html/div.html</welcome-file>
+        <welcome-file>/html/6-2.html</welcome-file>
     </welcome-file-list>
 </web-app>

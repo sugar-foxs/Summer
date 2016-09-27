@@ -16,6 +16,12 @@ public class BookUtilService {
     @Autowired
     private BookService bookService;
 
+    /**
+     *
+     * @param father
+     * @param son
+     * @return
+     */
     public List<Book> findKindBooks(int father,int son){
         BookQuery bookQuery = new BookQuery();
         bookQuery.setFather(father);

@@ -2,6 +2,7 @@ package com.guchunhui.controller;
 
 import com.guchunhui.model.Customer;
 import com.guchunhui.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,7 @@ import java.util.List;
 public class CustomerController  {
 
 
-      @Resource
+      @Autowired
       private CustomerService customerService;
 
       @ResponseBody

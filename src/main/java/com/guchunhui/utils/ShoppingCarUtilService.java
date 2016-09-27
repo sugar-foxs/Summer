@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by gch on 16-6-12.
  */
-@Service("shoppingCArUtilService")
+@Service("shoppingCarUtilService")
 public class ShoppingCarUtilService {
     private ShoppingCarService shoppingCarService;
     private BookService bookService;
