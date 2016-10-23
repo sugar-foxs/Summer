@@ -17,19 +17,24 @@ public class ShoppingListServiceImp implements ShoppingListService{
 
     @Autowired
     private ShoppingListMapper shoppingListMapper;
+
+    //提交订单
     public void insertShoppingList(ShoppingList shoppingList) {
         shoppingListMapper.insertShoppingList(shoppingList);
     }
 
+    //查询全部订单
     public List<ShoppingList> findAllShoppingListById(long customerId) {
         return shoppingListMapper.findAllShoppingListById(customerId);
     }
 
+    //根据订单状态查询,0:待付款  1：待发货  2：待收货 3:待评价（交易成功的）
     public List<ShoppingList> findShoppingListsByState(ShoppingListQuery shoppingListQuery) {
         return shoppingListMapper.findShoppingListsByState(shoppingListQuery);
     }
 
 
+    //取消订单
     public void deleteShoppingListById(long customerId) {
         shoppingListMapper.deleteShoppingListById(customerId);
     }

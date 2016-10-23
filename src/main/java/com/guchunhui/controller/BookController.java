@@ -23,9 +23,9 @@ public class BookController {
     @ResponseBody
     @RequestMapping(value = "/findbook")
     public List<Book> findBookByClass(HttpServletRequest request){
-        String fatherclass = request.getParameter("father");
+        String fatherClass = request.getParameter("father");
         String son = request.getParameter("son");
-        return bookUtilService.findKindBooks(Integer.parseInt(fatherclass),Integer.parseInt(son));
+        return bookUtilService.findKindBooks(Integer.parseInt(fatherClass),Integer.parseInt(son));
     }
     @ResponseBody
     @RequestMapping(value = "/findfather")
@@ -33,4 +33,6 @@ public class BookController {
         String father=request.getParameter("father");
         return bookUtilService.findKindBooks(Integer.parseInt(father));
     }
+
+
 }
