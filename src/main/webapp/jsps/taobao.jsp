@@ -29,6 +29,7 @@
     		</ul>
     		</li>
     		<li><a href="classify.html">商品分类</a></li>
+
     		<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
 				<a href="seller">卖家中心</a>
 				<ul>
@@ -40,14 +41,15 @@
 					<li><a href="#">体检中心</a></li>
 				</ul>
     		</li>
+
     		<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
 				<a href="service">联系客服</a>
 				<ul>
 					<li><a href="#">买家客服</a></li>
 					<li><a href="#">卖家客服</a></li>
 				</ul>
-				
     		</li>
+
     		<li><a href="navigation">网站导航</a></li>
     		</ul>
     		</div>
@@ -56,8 +58,11 @@
     	<div class="box">
     		<div class="header">
     			<div class="logo">
-    				<img src="/img/taobao.jpg" height="100" width="200">
+    				<img src="../img/taobao.jpg" height="100" width="200">
     			</div>
+				<b>Hello:<%=request.getAttribute("username") %></b><br/>
+				<a href="../jsps/customerEdit.jsp">查询所有用户</a>
+				<a href="../jsps/findCustomer.jsp">通过id查找用户<br/>
     			<div class="search">
     				<input type="text" class="txt" placeholder="请输入关键字">
     				<input type="button" class="btn" value="搜索">
@@ -66,7 +71,7 @@
     				<div class="toptitle">
     				主题市场
     				</div>
-    				<li><a href="#">图书、音像、数字商品</a></li>
+    				<li><a href="../jsps/jtemplate.jsp">图书、音像、数字商品</a></li>
     					<div class="submenu" id='div1'>
     						<div class="leftdiv">
     							<dl>

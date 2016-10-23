@@ -17,9 +17,10 @@ import java.util.List;
 @Service("customerService")
 public class CustomerServiceImp implements CustomerService {
 
-    @Autowired
+
     private CustomerMapper customerMapper;
 
+    public Customer findCustomerByName(String customerName) { return customerMapper.findCustomerByName(customerName); }
 
     public void insertCustomer(Customer customer) {
         customerMapper.insertCustomer(customer);
@@ -29,13 +30,18 @@ public class CustomerServiceImp implements CustomerService {
         return customerMapper.findAllCustomers();
     }
 
-    public void deleteCustomerById(long id) {
-        customerMapper.deleteCustomerById(id);
+    public void deleteCustomerById(long costomerId) {
+        customerMapper.deleteCustomerById(costomerId);
     }
 
+    public Customer findCustomerById(long costomerId){
+        return customerMapper.findCustomerById(costomerId);
+    }
 
+    public CustomerMapper getCustomerMapper(){return customerMapper;}
 
-    public Customer findCustomerById(long id){
-        return customerMapper.findCustomerById(id);
+    @Autowired
+    public void setCustomerMapper(CustomerMapper customerMapper) {
+        this.customerMapper = customerMapper;
     }
 }

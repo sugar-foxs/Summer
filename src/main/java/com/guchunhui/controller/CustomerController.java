@@ -1,7 +1,10 @@
 package com.guchunhui.controller;
 
+import com.alibaba.druid.support.logging.Log;
+import com.alibaba.druid.support.logging.LogFactory;
 import com.guchunhui.model.Customer;
 import com.guchunhui.service.CustomerService;
+import com.guchunhui.utils.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,32 +25,77 @@ import java.util.List;
 @RequestMapping("/customer")
 public class CustomerController  {
 
+      private AuthenticationService authenticationService;
 
       @Autowired
-      private CustomerService customerService;
-
-      @ResponseBody
-      @RequestMapping(value = "/insert")
-      public void insertCustomer(){
-//            Customer customer = new Customer();
-//            customer.setCustomerName("cxh");
-//            customer.setCustomerPassword("123456");
-//            customer.setCustomerPhone("18251825790");
-//            customer.setCustomerEmail("2290584780@qq.com");
-//            customerService.insertCustomer(customer);
+      public void setCustomerValidatorService(AuthenticationService authenticationService){
+            this.authenticationService=authenticationService;
       }
+
+      private static final Log logger= LogFactory.getLog(CustomerController.class);
+
+
       @ResponseBody
       @RequestMapping(value = "/findall")
       public List<Customer> findAllCustomers(){
-            List<Customer> customerList = customerService.findAllCustomers();
+            List<Customer> customerList = authenticationService.findAllCustomers();
             return customerList;
       }
+
+
+
+
+      @RequestMapping(value="/register")
+      public String insertCustomer(HttpServletRequest request, Model model) {
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            String phone = request.getParameter("phone");
+            String address = request.getParameter("address");
+            String email = request.getParameter("email");
+            String id = request.getParameter("id");
+
+            if (!username.equals("") && !password.equals("")) {
+                  Customer customer = new Customer();
+                  customer.setCustomerName(username);
+                  customer.setCustomerPassword(password);
+                  customer.setCustomerPhone(phone);
+                  customer.setCustomerAddress(address);
+                  customer.setCustomerEmail(email);
+                  customer.setCustomerId(Long.parseLong(id));
+
+                  List<Customer> customerList = authenticationService.findAllCustomers();
+                  Boolean have = false;
+                  if(customerList!=null){
+                        for (Customer customers:customerList){
+                              if(customers.getCustomerName().equals(customer.getCustomerName())){
+                                    have=true;
+                                    break;
+                              }
+                        }
+                  }
+                  if(!have){
+                        authenticationService.insertCustomer(customer);
+                        return "login";
+                  }else{
+                        model.addAttribute("error","用户名已存在");
+                        return "register";
+                  }
+            }else{
+                  model.addAttribute("error2","请输入用户名和密码");
+                  return "register";
+            }
+
+      }
+
+
+//                  List<Customer> customerList = authenticationService.findAllCustomers();
+
 
       @ResponseBody
       @RequestMapping(value = "/delete")
       public String deleteCustomer(HttpServletRequest request){
-            String id = request.getParameter("id");
-            customerService.deleteCustomerById(Long.parseLong(id));
+            String id = request.getParameter("customerId");
+            authenticationService.deleteCustomerById(Long.parseLong(id));
             return "delete successfully";
       }
 
@@ -55,7 +103,7 @@ public class CustomerController  {
       @RequestMapping(value = "/findcustomerbyid")
       public Customer findCustomerById(HttpServletRequest request){
             String id = request.getParameter("customerid");
-            Customer customer = customerService.findCustomerById(Integer.parseInt(id));
+            Customer customer = authenticationService.findCustomerById(Integer.parseInt(id));
             return customer;
       }
 
@@ -65,7 +113,9 @@ public class CustomerController  {
       public ModelAndView login(HttpServletRequest request,HttpServletResponse response,Model model) throws UnsupportedEncodingException {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            List<Customer> customerList = customerService.findAllCustomers();
+            request.setAttribute("username",username);
+            request.setAttribute("password",password);
+            List<Customer> customerList = authenticationService.findAllCustomers();
             if(username.length() == 0){
                   model.addAttribute("error","用户名为空");
                   return new ModelAndView("login");

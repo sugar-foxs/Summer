@@ -9,7 +9,6 @@
     <script src="../js/jquery-1.9.1.js"></script>
     <script src="../js/bootstrap.js"></script>
     <link href="../css/main.css" rel="stylesheet" />
-
     <script src="../js/main.js"></script>
 
 </head>
@@ -18,7 +17,7 @@
     <div class="col-xs-4 col-xs-offset-1">
         <c:choose>
             <c:when test="${customer.customerName==null}">
-                <a href="/jsps/login.jsp">
+                <a href="../jsps/login.jsp">
                     <span style="color: darkorange">
                         亲，请登录&nbsp;
                     </span>
@@ -37,10 +36,10 @@
                     </button>
                     <ul class="dropdown-menu" role="menu1" aria-labelledby="dropdownMenu1">
                         <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="#">choubuyaolian</a>
+                            <a role="menuitem" tabindex="-1" href="#"></a>
                         </li>
                         <li role="presentation">
-                            <a role="menuitem" tabindex="-1" href="#">shabi</a>
+                            <a role="menuitem" tabindex="-1" href="#"></a>
                         </li>
                     </ul>
                 </div>

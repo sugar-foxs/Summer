@@ -1,17 +1,9 @@
 package com.guchunhui.model;
 
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.Serializable;
-import java.util.List;
-
 /**
- * Created by gch on 16-4-13.
+ * Created by xin on 16-10-22.
  */
-public class Customer implements Serializable{
-
-    private static final long serialVersionUID = 75892437892L;
-
+public class CustomerForm {
     private long customerId;         //唯一id号
 
     private String customerName;    //消费者姓名
@@ -23,17 +15,6 @@ public class Customer implements Serializable{
     private String customerEmail;     //邮箱
 
     private String customerAddress;   //地址
-
-//    public Customer() {
-//    }
-
-//    public Customer(long customerId) {
-//        this.customerId = customerId;
-//    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     public long getCustomerId() {
         return customerId;
@@ -83,15 +64,4 @@ public class Customer implements Serializable{
         this.customerAddress = customerAddress;
     }
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "customerId=" + customerId +
-                ", customerName='" + customerName + '\'' +
-                ", customerPassword='" + customerPassword + '\'' +
-                ", customerPhone='" + customerPhone + '\'' +
-                ", customerEmail='" + customerEmail + '\'' +
-                ", address='" + customerAddress + '\'' +
-                '}';
-    }
 }

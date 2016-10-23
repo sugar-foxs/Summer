@@ -32,7 +32,7 @@ public class ShoppingCarTest {
     @Test
     public void insertShoppingCar(){
         ShoppingCar shoppingCar = new ShoppingCar();
-        shoppingCar.setCustomer(new Customer(6));
+        shoppingCar.setCustomer(new Customer());
         shoppingCarService.insertShoppingCar(shoppingCar);
     }
 

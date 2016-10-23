@@ -9,7 +9,8 @@ import java.util.List;
  */
 public interface CustomerMapper {
      void insertCustomer(Customer customer);
-     Customer findCustomerById(long id);
-     void deleteCustomerById(long id);
-     List<Customer> findAllCustomers();
+     Customer findCustomerById(long customerId);
+     Customer findCustomerByName(String customerName);
+     public void deleteCustomerById(long customerId);
+     public List<Customer> findAllCustomers();
 }

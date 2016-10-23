@@ -24,6 +24,7 @@
             <h2>账户登陆</h2><br>
             <form class="loginForm" name="loginForm" id="login" method="post" action="/customer/login.do">
                 <span style="color: red">${error}</span>
+
                 <div class="row">
                     <div class="col-xs-10 col-xs-offset-1" style="height: 44px;">
                         <div class="col-xs-2" style="background-color:#adadad;height: 44px;">
@@ -34,7 +35,9 @@
                         </div>
                     </div>
                 </div>
+
                 <br>
+
                 <div class="row" >
                     <div class="col-xs-10 col-xs-offset-1" style="height: 44px;">
                         <div class="col-xs-2" style="background-color:#adadad;height: 44px;">
@@ -45,12 +48,15 @@
                         </div>
                     </div>
                 </div>
+
                 <br>
+
                 <div class="row">
                     <div class="col-xs-3 col-xs-offset-1">
                         <label><input type="checkbox">记住密码</label>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-xs-10 col-xs-offset-1">
                         <button type="submit" id="login-button" class="btn btn-block" style="background-color: orangered">
@@ -60,6 +66,7 @@
                 </div>
                 <br>
             </form>
+           <center> <h5><a href="../jsps/register.jsp">没有账户？注册</a> </h5></center>
         </div>
     </div>
 </div>
