@@ -16,6 +16,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -101,10 +102,12 @@ public class CustomerController  {
 
       @ResponseBody
       @RequestMapping(value = "/findcustomerbyid")
-      public Customer findCustomerById(HttpServletRequest request){
+      public List<Customer> findCustomerById(HttpServletRequest request){
             String id = request.getParameter("customerid");
+            List<Customer> customerList = new LinkedList<Customer>();
             Customer customer = authenticationService.findCustomerById(Integer.parseInt(id));
-            return customer;
+            customerList.add(customer);
+            return customerList;
       }
 
 

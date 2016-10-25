@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+
+我想要买：
+<div ng-app="myApp" ng-controller="costCtrl">
+    价格：<input type="number" ng-model="price"/>
+    数量：<input type="number" ng-model="quantity"/>
+    <p>总体={{(quantity*price)|currency}}</p>
+</div>
+<script type="text/javascript">
+    var app = angular.module('myApp',[]);
+    app.controller('costCtrl',function ($scope) {
+        $scope.quantity=1;
+        $scope.price=9.99;
+    });
+</script>
+</body>
+</html>

@@ -18,3 +18,5 @@ public interface BookService {
      void deleteBookById(long id);
      void deleteBookByName(String name);
 }
+
+

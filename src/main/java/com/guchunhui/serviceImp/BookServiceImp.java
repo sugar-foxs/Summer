@@ -31,9 +31,7 @@ public class BookServiceImp implements BookService {
         return bookMapper.findBooksByMessage(name);
     }
 
-    public List<Book> findAllBooks() {
-        return bookMapper.findAllBooks();
-    }
+    public List<Book> findAllBooks() { return bookMapper.findAllBooks(); }
 
     public List<Book> findBooksByClass(BookQuery bookQuery) {
         return bookMapper.findBooksByClass(bookQuery);

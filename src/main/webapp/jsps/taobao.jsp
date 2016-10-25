@@ -20,7 +20,7 @@
 				</ul>
 		   	</li>
 
-    		<li><a href="shoppingcar.html">购物车</a></li>
+    		<li><a href="#">购物车</a></li>
     		<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
 				<a href="favorite">收藏夹</a>
     		<ul>
@@ -28,7 +28,7 @@
     			<li><a href="#">收藏的店铺</a></li>
     		</ul>
     		</li>
-    		<li><a href="classify.html">商品分类</a></li>
+    		<li><a href="#">商品分类</a></li>
 
     		<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
 				<a href="seller">卖家中心</a>
@@ -54,23 +54,22 @@
     		</ul>
     		</div>
     	</div>
-   
+
     	<div class="box">
     		<div class="header">
     			<div class="logo">
     				<img src="../img/taobao.jpg" height="100" width="200">
     			</div>
-				<b>Hello:<%=request.getAttribute("username") %></b><br/>
-				<a href="../jsps/customerEdit.jsp">查询所有用户</a>
-				<a href="../jsps/findCustomer.jsp">通过id查找用户<br/>
-    			<div class="search">
-    				<input type="text" class="txt" placeholder="请输入关键字">
-    				<input type="button" class="btn" value="搜索">
-    			</div>
+				<b><h2>Hello:<%=request.getAttribute("username") %></h2></b><br/>
+
+				<a href="../jsps/customerEdit.jsp">查询所有用户</a><br/>
+
+				<a href="../jsps/findCustomer.jsp">通过id查找用户</a><br/>
+
     			<ul class="topmenu">
-    				<div class="toptitle">
-    				主题市场
-    				</div>
+    				<%--<div class="toptitle">--%>
+    				<%--主题市场--%>
+    				<%--</div>--%>
     				<li><a href="../jsps/jtemplate.jsp">图书、音像、数字商品</a></li>
     					<div class="submenu" id='div1'>
     						<div class="leftdiv">
@@ -97,38 +96,9 @@
             <li><a href="#">美食/生鲜装/男装/男</a></li>
             <li><a href="#">家用电器v装/男装/男</a></li>
             <li><a href="#">鲜花/宠物</a></li>
-             
-             
-             
 
-    					<!-- <a href="#">女装/男装</a>
-    					</li>
-    					<li class="two">
-    					<a href="#">鞋靴/箱包</a>
-    					</li>
-    					<li class="three">
-    					<a href="#">童装/玩具</a>
-    					</li>
-    					<li class="four">
-    					<a href="#">家电/数码</a>
-    					</li>
-    					<li class="five">
-    					<a href="#">美妆/洗护</a>
-    					</li>
-    					<li class="six">
-    					<a href="#">珠宝/眼镜</a>
-    					</li>
-    					<li class="seven">
-    					<a href="#">运动/户外</a>
-    					</li>
-    					<li class="eight">
-    					<a href="#">美食/生鲜</a>
-    					</li>
-    					<li class="nine">
-    					<a href="#">鲜花/宠物</a>
-    					</li> -->
-    			
     			</ul>
+				</a>
     		</div>
     	</div>
    </body>
