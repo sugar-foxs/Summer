@@ -5,101 +5,42 @@
 		<meta http-equiv="content-type" content="text/html charset=utf-8" >
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>首页</title>
-		<link href="../css/taobao.css" rel="stylesheet" />
-		<script src="../js/taobao.js"></script>
+        <link rel="stylesheet" href="../css/bootstrap.css"/>
+        <script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="../js/bootstrap.js"></script>
+        <style type="text/css">
+            #test{width:102px;height: 80px;margin: 20px;}
+            #canvas{
+                display: block;
+                border: 2px solid #000000;
+                margin: 50px auto;
+            }
+        </style>
     </head>
     <body>
-    <div class="nav">
-		<div>
-    		<ul>
-    		<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
-				<a href="mytaobao">我的淘宝</a>
-				<ul>
-					<li><a href="#">已买到的宝贝</a></li>
-					<li><a href="#">我的足迹</a></li>
-				</ul>
-		   	</li>
+    <div id="container">
+        <div class="row">
+            <div class="col-lg-1"><a href="../jsps/waterFall.jsp">我的宜居环境</a></div>
+            <div class="col-lg-2">
+                <%--小兔子特效--%>
+                <div id="test"></div>
+            </div>
+            <div class="col-lg-3">用户：<h2><%=request.getAttribute("username") %></h2></div>
+            <div class="col-lg-2"><a href="../jsps/customerEdit.jsp">查询所有用户</a></div>
+            <div class="col-lg-2"><a href="../jsps/findCustomer.jsp">通过id查找用户</a></div>
+            <div class="col-lg-2"> <a href="../jsps/jtemplate.jsp">成功励志类图书</a></div>
+        </div>
+    </div>
+    <div id="colorTime">
+        <%--彩色时钟特效--%>
+        <center><canvas id="canvas" width="1100" height="450"></canvas></center>
+    </div>
+    <div class="content2">
+        <center><h2>距离2016年圣诞节还有<span id="timeShow"></span>天</h2></center>
+    </div>
+    <div><center><a href="../jsps/PicChange.jsp"><h3>先去一睹为快吧！</h3></a></center></div>
 
-    		<li><a href="#">购物车</a></li>
-    		<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
-				<a href="favorite">收藏夹</a>
-    		<ul>
-    			<li><a href="#">收藏的宝贝</a></li>
-    			<li><a href="#">收藏的店铺</a></li>
-    		</ul>
-    		</li>
-    		<li><a href="#">商品分类</a></li>
-
-    		<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
-				<a href="seller">卖家中心</a>
-				<ul>
-					<li><a href="#">免费开店</a></li>
-					<li><a href="#">已卖出的宝贝</a></li>
-					<li><a href="#">出售中的宝贝</a></li>
-					<li><a href="#">卖家服务市场</a></li>
-					<li><a href="#">卖家培训中心</a></li>
-					<li><a href="#">体检中心</a></li>
-				</ul>
-    		</li>
-
-    		<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
-				<a href="service">联系客服</a>
-				<ul>
-					<li><a href="#">买家客服</a></li>
-					<li><a href="#">卖家客服</a></li>
-				</ul>
-    		</li>
-
-    		<li><a href="navigation">网站导航</a></li>
-    		</ul>
-    		</div>
-    	</div>
-
-    	<div class="box">
-    		<div class="header">
-    			<div class="logo">
-    				<img src="../img/taobao.jpg" height="100" width="200">
-    			</div>
-				<b><h2>Hello:<%=request.getAttribute("username") %></h2></b><br/>
-
-				<a href="../jsps/customerEdit.jsp">查询所有用户</a><br/>
-
-				<a href="../jsps/findCustomer.jsp">通过id查找用户</a><br/>
-
-    			<ul class="topmenu">
-    				<%--<div class="toptitle">--%>
-    				<%--主题市场--%>
-    				<%--</div>--%>
-    				<li><a href="../jsps/jtemplate.jsp">图书、音像、数字商品</a></li>
-    					<div class="submenu" id='div1'>
-    						<div class="leftdiv">
-    							<dl>
-    								<dt><a href="#">电子书</a></dt>
-    								<dd>
-    									<a href="#">免费</a><a href="#">小说</a>
-										<a href="#">励志与成功</a>
-										<a href="#">婚恋/两性</a>
-										<a href="#">文学</a>
-										<a href="#">经管</a>
-										<a href="#">畅读VIP</a>
-    								</dd>
-    							</dl>
-    						</div>
-                    	</div>
-            		</li>
-            <li><a href="#">美妆/洗护</a></li>
-            <li><a href="#">女装/男装装/男装/男装/男</a></li>
-            <li><a href="#">美妆/洗护</a></li>
-            <li><a href="#">童装/玩具</a></li>
-            <li><a href="#">鞋靴/箱包装/男装/男</a></li>
-            <li><a href="#">珠宝/眼镜</a></li>
-            <li><a href="#">美食/生鲜装/男装/男</a></li>
-            <li><a href="#">家用电器v装/男装/男</a></li>
-            <li><a href="#">鲜花/宠物</a></li>
-
-    			</ul>
-				</a>
-    		</div>
-    	</div>
-   </body>
+    <script type="text/javascript" src="../js/rabit.js"></script>
+    <script type="text/javascript" src="../js/colorTime.js"></script>
+    </body>
 </html>

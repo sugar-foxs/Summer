@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#magnify{
+    margin-left: 200px;
+    display: block;
+    width: 375px;
+    height: 255px;
+    position: relative;
+    border: 1px solid #ffffff;
+}
+#small-box{
+    position: relative;
+    z-index: 1;
+}
+#float-box{
+    display: none;
+    width: 140px;
+    height: 100px;
+    position: absolute;
+    background: #ffffff;
+    border: 1px solid #CCCCCC;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+#mark{
+    position: absolute;
+    display: block;
+    width: 400px;
+    height: 255px;
+    background-color: #ffffff;
+    filter:alpha(opacity=0);
+    opacity: 0;
+    z-index: 10;
+}
+#big-box{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 500px;
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    border: 1px solid #CCCCCC;
+    z-index: 1;
+}
+#big-box img{
+    position: absolute;
+    z-index: 5;
+}
+#time{
+    position: absolute;
+    overflow: hidden;
+    margin-left: 80px;
+}

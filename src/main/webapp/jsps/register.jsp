@@ -12,67 +12,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>用户注册</title>
     <link href="../css/bootstrap.css" rel="stylesheet" />
-    <script src="../js/jquery-3.0.0.min.js"></script>
-    <script src="../js/register.js"></script>
-    <script type="text/javascript" src="../js/angular.min.js"></script>
-    <script type="text/javascript">
-        var app=angular.module('myApp',[]);
-        app.controller('validateCtrl',function ($scope) {
-            $scope.username ='John Doe';
-            $scope.email = 'John.doe@gmail.com';
-        });
-    </script>
+    <link href="../css/autoComplete.css" rel="stylesheet"/>
+    <script src="../js/jquery-3.0.0.min.js" type="text/javascript"></script>
+    <script src="../js/register.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <%--自动完成邮箱--%>
+    <script type="text/javascript" src="../js/completer.min.js"></script>
+    <script type="text/javascript" src="../js/autoComplete.js"></script>
+    <%--welcome动画特效插件--%>
 </head>
 <body style="text-align: center">
+<%--welcome动画效果未实现--%>
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-xs-3 col-xs-offset-4" style="border: 1px solid #2c97de">
+          <form  name="form" role="form" id="register" method="post" action="/customer/register.do">
+              <span style="color: red">${error}</span>
+              <span style="color: red">${error2}</span>
+              <div class="row">
 
-<div style="margin: 0 auto;width: 70%">
-    <font style="color: #1a8cff;font-size: 200%">用户注册&nbsp;&nbsp;&nbsp;&nbsp;
-    </font><span style="color: red">*</span>必填
-</div>
-<div style="margin-top: 10px">
-    <form class="form" name="form" id="register" ng-app="myApp" ng-controller="validateCtrl"
-        novalidate  method="post" action="/customer/register.do">
+                  <h2>用户注册</h2>
+                  <div class="col-xs-10 col-xs-offset-1" style="height: 44px;">
+                      <div class="col-xs-2" style="background-color:#adadad;height: 44px;">
+                          <span style="font-size: 28px;line-height: 44px;color: white" class="glyphicon glyphicon-user"></span>
+                      </div>
+                      <div class="col-xs-10" style="height: 44px;border: 1px solid whitesmoke;">
+                          <input type="text" placeholder="用户名" id="username" class="form-control" name="username" style="border: 0;width:96%;height: 44px;">
+                      </div>
 
-        <h3><font style="color: red">*</font>姓名
-            <input type="text"  id="username" name="username"
-                   ng-model="username" required/>
-        </h3>
-        <span style="color: red" ng-show = "form.username.$dirty&&form.username.$invalid">
-            <span ng-show="form.username.$error.required">必须输入用户名。</span>
-        </span>
-        <h6 style="color: red">${error}</h6>
+                  </div>
+              </div>
 
+              <br>
+              <div class="row">
+                  <div class="col-xs-10 col-xs-offset-1" style="height: 44px;">
+                      <div class="col-xs-2" style="background-color:#adadad;height: 44px;">
+                          <span style="font-size: 28px;line-height: 44px;color: white" class="glyphicon glyphicon-lock"></span>
+                      </div>
+                      <div class="col-xs-10" style="height: 44px;border: 1px solid whitesmoke;">
+                          <input type="password" placeholder="密码" id="password" name="password" style="border: 0;width:96%;height: 44px;">
+                      </div>
 
+                  </div>
+              </div>
 
+              <br>
+              <div class="row">
+                  <div class="col-xs-10 col-xs-offset-1" style="height: 44px;">
+                      <div class="col-xs-2" style="background-color:#adadad;height: 44px;">
+                          <span style="font-size: 28px;line-height: 44px;color: white" class="glyphicon glyphicon-envelope"></span>
+                      </div>
+                      <div class="col-xs-10" style="height: 44px;border: 1px solid whitesmoke;">
+                          <input type="email" placeholder="邮箱" id="auto-complete-email" name="email" required style="border: 0;width:96%;height: 44px;">
+                      </div>
+                  </div>
+              </div>
 
-        <h3><font style="color: red">*</font>密码
-            <input type="password" placeholder="Password" id="password" name="password"/></h3>
-        <h6 style="color: red">${error2}</h6>
-        <h3>&nbsp;&nbsp;           电话
-            <input type="text" placeholder="Phone" id="phone" name="phone"/></h3>
+              <br>
+              <div class="row">
+                  <div class="col-xs-10 col-xs-offset-1" style="height: 44px;">
+                      <div class="col-xs-2" style="background-color:#adadad;height: 44px;">
+                          <span style="font-size: 28px;line-height: 44px;color: white" class="glyphicon glyphicon-info-sign"></span>
+                      </div>
+                      <div class="col-xs-10" style="height: 44px;border: 1px solid whitesmoke;">
+                          <input type="text" placeholder="编号" id="id" name="id" style="border: 0;width:96%;height: 44px;">
+                      </div>
+                  </div>
+              </div>
 
-        <h3>&nbsp;&nbsp;          地址
-            <input type="text" placeholder="Address" id="address" name="address"/></h3>
+              <br>
+              <div class="row">
+                  <div class="col-xs-10 col-xs-offset-1" style="height: 44px;">
+                      <div class="col-xs-2" style="background-color:#adadad;height: 44px;">
+                          <span style="font-size: 28px;line-height: 44px;color: white" class="glyphicon glyphicon-phone"></span>
+                      </div>
+                      <div class="col-xs-10" style="height: 44px;border: 1px solid whitesmoke;">
+                          <input type="text" placeholder="电话" id="phone" name="phone" style="border: 0;width:96%;height: 44px;">
+                      </div>
+                  </div>
+              </div>
+              <br>
 
-        <h3>&nbsp;&nbsp;          邮箱
-            <input type="email" id="email" name="email" ng-model="email" required/>
-        </h3>
-            <span style="color: red" ng-show="form.email.$dirty&&form.email.$invalid">
-            <span ng-show ="form.email.$error.required">必须输入邮箱</span>
-            <span ng-show="form.email.$error.email">非法打邮箱地址</span>
-        </span>
-        <h3><font style="color: red">*</font>编号
-            <input type="text" placeholder="Id" id="id" name="id"/></h3>
+           <%--<h3>邮箱</h3>--%>
+           <%--<input type="email" id="auto-complete-email" name="email" required/>--%>
+           <%--<h3>编号</h3>--%>
+           <%--<input type="text" placeholder="Id" id="id" name="id"/>--%>
 
         <%--<h3><font style="color: red">(*)</font>权限--%>
             <%--<input type="text" placeholder="0/1" id="authority" name="authority"/></h3>--%>
         <%--<h6 style="color: red">${error2}</h6>--%>
 
-        <button type="submit" id="adduser-button" onclick="return checkform(this.form);">提交</button>
-    </form>
+        <%--<button type="submit" id="adduser-button" >提交</button>--%>
+              <div class="row">
+                  <div class="col-xs-10 col-xs-offset-1">
+                      <button type="submit"  class="btn btn-block" id="adduser-button" onclick="return checkform(this.form);"  style="background-color: orangered">
+                          注&nbsp;&nbsp;&nbsp;&nbsp;册
+                      </button>
+                  </div>
+              </div>
+
+        </div>
+
+
+
+</form>
+
+    </div>
 </div>
-
-
 
 
 </body>

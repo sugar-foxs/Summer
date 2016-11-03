@@ -1,0 +1,32 @@
+.tipCon{
+    position: fixed;
+    background: #efefef;
+    color: #000;
+    font-size: 16px;
+    text-align: center;
+    bottom: 0;
+    right: 0;
+}
+.clickMe{
+    height: 24px;
+    background: #ccc;
+    line-height: 24px;
+}
+.showPic{
+    display: none;
+}
+.clickMe{
+    position: relative;
+}
+.clickMe a{
+    background: url("../img/icon.jpg") no-repeat -399px -19px;
+    width: 16px;
+    height: 16px;
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.clickMe a:hover{
+    background-position: -343px -19px;
+}

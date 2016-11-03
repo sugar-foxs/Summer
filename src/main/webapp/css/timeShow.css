@@ -1,0 +1,15 @@
+div{
+    margin:0;
+    padding:0;
+    border:0;
+}
+.content2 {
+    margin: 0 auto;
+    position: relative;
+}
+
+#timeShow{
+    color:#f00;
+    font-weight:bold;
+    font-size:24px;
+}

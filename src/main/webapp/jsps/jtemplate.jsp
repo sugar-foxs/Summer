@@ -13,6 +13,7 @@
     <script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="../js/bootstrap.js"></script>
     <script type="text/javascript" src="../js/jquery-jtemplates.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
     <link href="../css/bootstrap.css" rel="stylesheet" />
     <script type="text/javascript" src="../js/angular.min.js"></script>
     <script type="text/javascript">
@@ -37,6 +38,7 @@
             <div class="col-md-2">
                 书编号：{$T.row.bookId}<br/><br/>
                 书名：{$T.row.bookName}<br/><br/>
+
                 描述：{$T.row.description}<br/><br/>
             </div>
             <div class="col-md-43"></div>

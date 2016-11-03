@@ -1,0 +1,10 @@
+#btn {
+    width:40px;
+    height:40px;
+    display: none;
+    position:fixed;
+    right:1%;
+    bottom:15px;
+    background:url(../img/top_bg.png) no-repeat left top;}
+#btn:hover {
+    background:url(../img/top_bg.png) no-repeat 0 -40px;}
