@@ -7,16 +7,52 @@
     <script type="text/javascript">
         $(function () {
             $("#Button1").click(function () {
-                $.getJSON("/customer/findall.do",function (data) {
-                $("#divTip").empty();
-                var strHTML="";
+                $.getJSON("/book/findfather.do?father=1",function (data) {
+                    var strHTML="";
+//                    $.each(data,function (InfoIndex,Info) {
+//                        strHTML += "作者："+Info["author"]+"<br>";
+//                        strHTML += "书编号："+Info["bookId"]+"<br>";
+//                        strHTML += "书名："+Info["bookName"]+"<br>";
+//                    })
+
+                var strHTML1="";
+                var strHTML2="";
+                var strHTML3="";
+                var strHTML4="";
+                var strHTML5="";
+                var strHTML6="";
+                var strHTML7="";
+                var strHTML8="";
+
                 $.each(data,function (InfoIndex,Info) {
-                    strHTML+="邮箱："+Info["customerEmail"]+"<br>";
-                    strHTML+="账户："+Info["customerId"]+"<br>";
-                    strHTML+="用户名："+Info["customerName"]+"<br>";
-                    strHTML+="用户密码："+Info["customerPassword"]+"<br>";
-                    strHTML+="用户电话："+Info["customerPhone"]+"<br>";
+                    strHTML+="<p style='color: red'>"+"作者："+Info["author"]+"</p><br>";
+                    strHTML+="书编号："+Info["bookId"]+"<br>";
+                    strHTML+="书名："+Info["bookName"]+"<br>";
+                    strHTML+="封面："+  "<img src="+"../img/"+ Info["cover"] +" />"+"<br>";
+                    strHTML+="描述："+Info["description"]+"<br>";
+                    strHTML+="价格："+Info["price"]+"<br>";
+                    strHTML+="子类："+Info["sonClass"]+"<br>";
+                    strHTML+="出版年份："+Info["year"]+"<br>";
+//                    strHTML+=(strHTML1+strHTML2+strHTML3+strHTML4+strHTML5+strHTML6+strHTML7+strHTML8);
+//                    $("#bauthor").html(strHTML1);
+//                    $("#bid").html(strHTML2);
+//                    $("#bname").html(strHTML3);
+//                    $("#bcover").html(strHTML4);
+//                    $("#bdescription").html(strHTML5);
+//                    $("#bprice").html(strHTML6);
+//                    $("#bson").html(strHTML7);
+//                    $("#byear").html(strHTML8);
                      })
+
+//                    $.each(data,function (InfoIndex,Info) {
+//                        strHTML+="用户账户："+Info["customerAddress"]+"<br>";
+//                        strHTML+="用户密码："+Info["customerEmail"]+"<br>";
+//                        strHTML+="用户名："+Info["customerId"]+"<br>";
+//                        strHTML+="电话："+Info["customerName"]+"<br>";
+//                        strHTML+="邮箱："+Info["customerPassword"]+"<br>";
+//                        strHTML+="地址："+Info["customerPhone"]+"<br>";
+//
+//                    })
                     $("#divTip").html(strHTML);
                 })
             })
@@ -26,10 +62,21 @@
 <body>
     <div class="divFrame">
         <div class="divTitle">
-            <input type="button" class="btn" id="Button1" onclick="GetSendData()" value="获取数据"/>
+            <input type="button" class="btn" id="Button1" onclick="GetSendData()" value="获取成功励志类书籍"/>
         </div>
         <div class="divContent">
-            <div id="divTip"></div>
+            <div id="divTip">
+                <!--<span><img id="bcover" src="../img/11.jpg"></span>-->
+                <!--<span>-->
+                    <!--<div id="bauthor"></div>-->
+                    <!--<div id="bid"></div>-->
+                    <!--<div id="bname"></div>-->
+                    <!--<div id="bdescription"></div>-->
+                    <!--<div id="bprice"></div>-->
+                    <!--<div id="bson"></div>-->
+                    <!--<div id="byear"></div>-->
+                <!--</span>-->
+            </div>
         </div>
     </div>
 </body>

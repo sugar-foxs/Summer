@@ -13,17 +13,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>login</title>
     <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/popOut.css" rel="stylesheet"/>
     <script src="../js/jquery-1.9.1.js" type="text/javascript"></script>
     <script src="../js/bootstrap.js"></script>
-    <script src="../js/jquery.validate.min.js"></script>
+    <script src="../js/jquery.validate.js"></script>
+    <script type="text/javascript" src="../js/popOut.js"></script>
 </head>
 <body style="text-align: center">
 <div class="container">
+    <br><br><br>
     <div class="row">
-        <div class="col-xs-3 col-xs-offset-4" style="border: 1px solid red">
+        <div class="col-xs-3 col-xs-offset-4 " style="border: 1px solid red">
             <h2>账户登陆</h2><br>
             <form class="loginForm" name="loginForm" id="login" method="post" action="/login.do">
                 <span style="color: red">${error}</span>
+
                 <div class="row">
                     <div class="col-xs-10 col-xs-offset-1" style="height: 44px;">
                         <div class="col-xs-2" style="background-color:#adadad;height: 44px;">
@@ -34,7 +38,9 @@
                         </div>
                     </div>
                 </div>
+
                 <br>
+
                 <div class="row" >
                     <div class="col-xs-10 col-xs-offset-1" style="height: 44px;">
                         <div class="col-xs-2" style="background-color:#adadad;height: 44px;">
@@ -45,7 +51,9 @@
                         </div>
                     </div>
                 </div>
+
                 <br>
+
                 <div class="row">
                     <div class="col-xs-3 col-xs-offset-1">
                         <label><input type="checkbox">记住密码</label>
@@ -63,8 +71,16 @@
                 <a>忘记密码</a>
                 <a href="/goregister.do">免费注册</a>
             </form>
+           <center> <h5><a href="../jsps/register.jsp">没有账户？注册</a> </h5></center>
         </div>
     </div>
+</div>
+<div class="tipCon" id="tipCon">
+    <div class="clickMe" id="clickMe">
+        <p id="word">猜猜我有啥？</p>
+        <a href="javascript:void(0);" id="closeBtn"></a>
+    </div>
+    <div class="showPic" id="showPic"><img src="../img/snow.gif"></div>
 </div>
 </body>
 </html>

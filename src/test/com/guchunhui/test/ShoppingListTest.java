@@ -31,7 +31,7 @@ public class ShoppingListTest {
         shoppingList.setMobile("15751867658");
         shoppingList.setAddress("ffff");
         shoppingList.setOrderState("0");
-        shoppingList.setCustomer(new Customer(1));
+        shoppingList.setCustomer(new Customer());
         shoppingList.setCreateTime(new Date());
         shoppingListService.insertShoppingList(shoppingList);
     }

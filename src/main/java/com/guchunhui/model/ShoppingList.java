@@ -123,7 +123,7 @@ public class ShoppingList implements Serializable{
                 ", mobile='" + mobile + '\'' +
                 ", address='" + address + '\'' +
                 ", totalPrice=" + totalPrice +
-                ", creratTime=" + createTime +
+                ", creatTime=" + createTime +
                 ", paymentWay='" + paymentWay + '\'' +
                 ", orderState='" + orderState + '\'' +
                 ", bookIds='" + bookIds + '\'' +

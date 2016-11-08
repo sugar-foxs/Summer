@@ -34,5 +34,35 @@ public class BookUtilService {
         bookQuery.setFather(father);
         return bookService.findBooksByClass(bookQuery);
     }
+    public List<Book> findAllBooks() {
+        return bookService.findAllBooks();
+    }
+
+    public Book findBookById(Integer id)
+    {
+        return bookService.findBookById(id);
+    }
+
+    public List<Book> findBookByMessage(String name)
+    {
+        return bookService.findBooksByMessage(name);
+    }
+
+    public List<Book> findBookByClass(BookQuery bookQuery)
+    {
+        return bookService.findBooksByClass(bookQuery);
+    }
+
+    public void deleteBookByName(String name) {
+        bookService.deleteBookByName(name);
+    }
+
+    public void deleteBookById(long id) {
+        bookService.deleteBookById(id);
+    }
+    public void insertBook(Book book)
+    {
+        bookService.insertBook(book);
+    }
 
 }
