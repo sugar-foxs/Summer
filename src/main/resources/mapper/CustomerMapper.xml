@@ -24,6 +24,10 @@
         SELECT * FROM customer WHERE customer_id = #{customerId}
     </select>
 
+    <select id="findCustomerByName" resultMap="CustomerResult" parameterType="String">
+        SELECT * FROM customer WHERE customer_name = #{customerName}
+    </select>
+
     <delete id="deleteCustomerById" parameterType="long">
         DELETE FROM customer WHERE  customer_id = #{customerId}
     </delete>

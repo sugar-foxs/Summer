@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-xs-3 col-xs-offset-4" style="border: 1px solid red">
             <h2>账户登陆</h2><br>
-            <form class="loginForm" name="loginForm" id="login" method="post" action="/customer/login.do">
+            <form class="loginForm" name="loginForm" id="login" method="post" action="/login.do">
                 <span style="color: red">${error}</span>
                 <div class="row">
                     <div class="col-xs-10 col-xs-offset-1" style="height: 44px;">
@@ -41,7 +41,7 @@
                             <span style="font-size: 28px;line-height: 44px;color: white" class="glyphicon glyphicon-lock"></span>
                         </div>
                         <div class="col-xs-10" style="height: 44px;border: 1px solid whitesmoke;">
-                            <input type="password" id="password" name="password" style="border: 0;width:96%;height: 44px;">
+                            <input type="password" id="password" placeholder="密码" name="password" style="border: 0;width:96%;height: 44px;">
                         </div>
                     </div>
                 </div>
@@ -51,6 +51,7 @@
                         <label><input type="checkbox">记住密码</label>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-xs-10 col-xs-offset-1">
                         <button type="submit" id="login-button" class="btn btn-block" style="background-color: orangered">
@@ -59,6 +60,8 @@
                     </div>
                 </div>
                 <br>
+                <a>忘记密码</a>
+                <a href="/goregister.do">免费注册</a>
             </form>
         </div>
     </div>

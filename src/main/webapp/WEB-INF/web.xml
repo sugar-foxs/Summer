@@ -10,7 +10,7 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring-mybatis.xml</param-value>
+        <param-value>classpath:spring.xml</param-value>
     </context-param>
 
     <listener>
@@ -52,7 +52,8 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+
     <welcome-file-list>
-        <welcome-file>/html/6-2.html</welcome-file>
+        <welcome-file>/gologin.do</welcome-file>
     </welcome-file-list>
 </web-app>

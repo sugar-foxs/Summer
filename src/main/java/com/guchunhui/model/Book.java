@@ -107,4 +107,40 @@ public class Book  implements Serializable{
                 ", sonClass=" + sonClass +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Book book = (Book) o;
+
+        if (bookId != book.bookId) return false;
+        if (Double.compare(book.price, price) != 0) return false;
+        if (fatherClass != book.fatherClass) return false;
+        if (sonClass != book.sonClass) return false;
+        if (bookName != null ? !bookName.equals(book.bookName) : book.bookName != null) return false;
+        if (author != null ? !author.equals(book.author) : book.author != null) return false;
+        if (year != null ? !year.equals(book.year) : book.year != null) return false;
+        if (description != null ? !description.equals(book.description) : book.description != null) return false;
+        return cover != null ? cover.equals(book.cover) : book.cover == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = (int) (bookId ^ (bookId >>> 32));
+        result = 31 * result + (bookName != null ? bookName.hashCode() : 0);
+        result = 31 * result + (author != null ? author.hashCode() : 0);
+        result = 31 * result + (year != null ? year.hashCode() : 0);
+        temp = Double.doubleToLongBits(price);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (cover != null ? cover.hashCode() : 0);
+        result = 31 * result + fatherClass;
+        result = 31 * result + sonClass;
+        return result;
+    }
 }

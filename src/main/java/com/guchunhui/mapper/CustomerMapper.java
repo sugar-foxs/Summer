@@ -12,4 +12,5 @@ public interface CustomerMapper {
      Customer findCustomerById(long id);
      void deleteCustomerById(long id);
      List<Customer> findAllCustomers();
+     Customer findCustomerByName(String name);
 }

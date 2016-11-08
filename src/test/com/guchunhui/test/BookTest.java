@@ -1,7 +1,7 @@
 package com.guchunhui.test;
 
+import com.github.pagehelper.PageHelper;
 import com.guchunhui.model.Book;
-import com.guchunhui.queryCondition.BookQuery;
 import com.guchunhui.service.BookService;
 import com.guchunhui.utils.BookUtilService;
 import org.junit.Test;
@@ -16,7 +16,7 @@ import java.util.List;
  * Created by gch on 16-5-10.
  */
 @RunWith(SpringJUnit4ClassRunner.class)   //相当于继承了SpringJUnit4ClassRunner
-@ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
+@ContextConfiguration(locations = {"classpath:spring.xml"})
 public class BookTest {
 
 
@@ -89,5 +89,28 @@ public class BookTest {
     @Test
     public void deleteBookByName(){
         bookService.deleteBookByName("json");
+    }
+
+    @Test
+    public void gg(){
+        Integer a=1;
+        Integer b=2;
+        Integer c=3;
+        Integer d=3;
+        Integer e=321;
+        Integer f=321;
+        Long g = 3L;
+        System.out.println(c==d);
+        System.out.println(e==f);
+        System.out.println(c==(a+b));
+        System.out.println(c.equals(a+b));
+        System.out.println(g==(a+b));
+        System.out.println(g.equals(a+b));
+
+
+
+
+
+
     }
 }

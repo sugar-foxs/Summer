@@ -27,6 +27,14 @@ public class Customer implements Serializable{
     public Customer() {
     }
 
+    public Customer(String customerName, String customerPassword, String customerPhone, String customerEmail, String customerAddress) {
+        this.customerName = customerName;
+        this.customerPassword = customerPassword;
+        this.customerPhone = customerPhone;
+        this.customerEmail = customerEmail;
+        this.customerAddress = customerAddress;
+    }
+
     public Customer(long customerId) {
         this.customerId = customerId;
     }

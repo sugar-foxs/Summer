@@ -33,6 +33,9 @@ public class CustomerServiceImp implements CustomerService {
         customerMapper.deleteCustomerById(id);
     }
 
+    public Customer findCustomerByName(String name) {
+        return customerMapper.findCustomerByName(name);
+    }
 
 
     public Customer findCustomerById(long id){

@@ -33,7 +33,7 @@ public class ShoppingCarUtilService {
      * @param customerId
      * @return
      */
-    public ShoppingCar findShoppingCarById(long customerId){
+    public List<Book> findShoppingCarById(long customerId){
         ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(customerId);
         String booksIds = shoppingCar.getBooksIds();
         List<Book> bookList = null;
@@ -45,8 +45,7 @@ public class ShoppingCarUtilService {
                 bookList.add(book);
             }
         }
-        shoppingCar.setBooks(bookList);
-        return shoppingCar;
+        return bookList;
     }
 
     /**

@@ -17,7 +17,7 @@ import java.util.List;
  * Created by gch on 16-8-10.
  */
 @RunWith(SpringJUnit4ClassRunner.class)   //相当于继承了SpringJUnit4ClassRunner
-@ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
+@ContextConfiguration(locations = {"classpath:spring.xml"})
 public class ShoppingListTest {
 
     @Autowired

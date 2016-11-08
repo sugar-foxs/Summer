@@ -2,7 +2,6 @@ package com.guchunhui.test;
 
 import com.guchunhui.model.Book;
 import com.guchunhui.model.ShoppingCar;
-import com.guchunhui.service.ShoppingCarService;
 import com.guchunhui.utils.ShoppingCarUtilService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +15,7 @@ import java.util.List;
  * Created by gch on 16-7-21.
  */
 @RunWith(SpringJUnit4ClassRunner.class)   //相当于继承了SpringJUnit4ClassRunner
-@ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
+@ContextConfiguration(locations = {"classpath:spring.xml"})
 public class ShoppingCarUtilTest {
 
     @Autowired
@@ -40,8 +39,8 @@ public class ShoppingCarUtilTest {
 
     @Test
     public void findShoppingCarById(){
-        ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(4);
-        System.out.print(shoppingCar);
+        List<Book> bookList = shoppingCarUtilService.findShoppingCarById(4);
+        System.out.print(bookList);
     }
 
     @Test
