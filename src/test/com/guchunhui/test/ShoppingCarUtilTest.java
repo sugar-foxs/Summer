@@ -39,7 +39,7 @@ public class ShoppingCarUtilTest {
 
     @Test
     public void findShoppingCarById(){
-        List<Book> bookList = shoppingCarUtilService.findShoppingCarById(4);
+        List<Book> bookList = shoppingCarUtilService.findShoppingCarById(4).getBooks();
         System.out.print(bookList);
     }
 

@@ -1,7 +1,10 @@
 package com.guchunhui.controller;
 
+import com.guchunhui.model.Book;
 import com.guchunhui.model.Customer;
+import com.guchunhui.model.ShoppingCar;
 import com.guchunhui.service.CustomerService;
+import com.guchunhui.utils.ShoppingCarUtilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -11,11 +14,14 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,6 +35,8 @@ public class CustomerController{
       @Autowired
       private CustomerService customerService;
 
+      @Autowired
+      private ShoppingCarUtilService shoppingCarUtilService;
 
       //找到所有顾客
       @ResponseBody
@@ -59,7 +67,7 @@ public class CustomerController{
 
       //登陆请求
       @RequestMapping(value = "/login")
-      public String login(HttpServletRequest request,Model model,HttpSession httpSession) throws UnsupportedEncodingException {
+      public String login(HttpServletRequest request,Model model,HttpSession httpSession,HttpServletResponse response) throws UnsupportedEncodingException {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             List<Customer> customerList = customerService.findAllCustomers();
@@ -76,8 +84,32 @@ public class CustomerController{
                         if(customer.getCustomerName().equals(username)){
                               if(customer.getCustomerPassword().equals(password)){
                                     model.addAttribute("customer",customer);
+
                                     httpSession.setAttribute("customer",customer);
                                     httpSession.setMaxInactiveInterval(30*60);
+
+                                    ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(customer.getCustomerId());
+//                                    HashMap<String ,Long> map =new HashMap<String, Long>();
+//                                    for(Book book:bookList){
+//                                          map.put(String.valueOf(book.getBookId()),map.containsKey(String.valueOf(book.getBookId()))?map.get(String.valueOf(book.getBookId()))+1:1);
+//                                    }
+//                                    String booksId = "";
+//                                    String counts = "";
+//                                    for(Map.Entry<String, Long> entry:map.entrySet()){
+//                                          booksId += entry.getKey()+",";
+//                                          counts += entry.getValue()+",";
+//                                    }
+//                                    Cookie cookie = new Cookie(customer.getCustomerName()+"_books",booksId.trim());
+//                                    Cookie cookie2 = new Cookie(customer.getCustomerName()+"_counts",counts.trim());
+
+                                    Cookie cookie1 = new Cookie("shop",shoppingCar.serialize());
+                                    response.addCookie(cookie1);
+//                                    cookie.setMaxAge(30*60);
+//                                    cookie2.setMaxAge(30*60);
+//
+//                                    response.addCookie(cookie);
+//                                    response.addCookie(cookie2);
+
                                     return "forward:loginSuccess/"+username+".do";
                               }else{
                                     model.addAttribute("error","密码错误");

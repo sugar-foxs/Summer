@@ -30,17 +30,27 @@ public class ShoppingCarController {
     @RequestMapping(value = "/findbooksinshoppingcar")
     public List<Book> findbooksinshoppingcar(HttpServletRequest request){
         String customerId=request.getParameter("customerId");
-        return shoppingCarUtilService.findShoppingCarById(Integer.parseInt(customerId));
+        return shoppingCarUtilService.findShoppingCarById(Integer.parseInt(customerId)).getBooks();
     }
 
+    @ResponseBody
     @RequestMapping(value = "/addBook")
-    public void addBook(HttpServletRequest request, HttpSession session){
+    public String addBook(HttpServletRequest request, HttpSession session,HttpServletResponse response){
         String bookId = request.getParameter("bookId");
         String num = request.getParameter("num");
         Customer customer = (Customer) session.getAttribute("customer");
+        List<Book> bookList = shoppingCarUtilService.findShoppingCarById(customer.getCustomerId()).getBooks();
+        String value="";
+        for(Book book:bookList){
+             value+=String.valueOf(book.getBookId())+",";
+        }
+        Cookie cookie = new Cookie("shopCar",value);
+        cookie.setMaxAge(30*60);
+        response.addCookie(cookie);
         if(bookId!=null && num!=null){
             shoppingCarUtilService.addBookIntoCar(Long.valueOf(bookId),Integer.valueOf(num),customer.getCustomerId());
         }
+        return "succeed";
     }
 
     @ResponseBody
@@ -48,7 +58,7 @@ public class ShoppingCarController {
     public HashMap<Book,Long> getALlBooks(HttpSession session){
         Customer customer = (Customer) session.getAttribute("customer");
         HashMap<Book,Long> map = new HashMap<Book,Long>();
-        List<Book> books = shoppingCarUtilService.findShoppingCarById(customer.getCustomerId());
+        List<Book> books = shoppingCarUtilService.findShoppingCarById(customer.getCustomerId()).getBooks();
         for(Book book:books){
             map.put(book,map.get(book)==null?1:map.get(book)+1);
         }

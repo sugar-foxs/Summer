@@ -14,10 +14,10 @@ import java.io.IOException;
 /**
  * Created by gch on 16-10-20.
  */
-@WebFilter(filterName = "LoginFilter",urlPatterns = "/*",
-        initParams = {@WebInitParam(name = "forbid",value = "jsps"),
-                      @WebInitParam(name = "pass",value = "gologin;goregister;login;register")}
-)
+//@WebFilter(filterName = "LoginFilter",urlPatterns = "/*",
+//        initParams = {@WebInitParam(name = "forbid",value = "jsps"),
+//                      @WebInitParam(name = "pass",value = "gologin;goregister;login;register")}
+//)
 public class LoginFilter implements Filter{
 
     String forbid ;

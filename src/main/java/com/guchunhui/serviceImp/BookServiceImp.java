@@ -4,9 +4,12 @@ import com.guchunhui.mapper.BookMapper;
 import com.guchunhui.model.Book;
 import com.guchunhui.queryCondition.BookQuery;
 import com.guchunhui.service.BookService;
+import org.apache.ibatis.transaction.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,8 +22,16 @@ public class BookServiceImp implements BookService {
     @Autowired
     private BookMapper bookMapper;
 
+    @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
     public void insertBook(Book book) {
-        bookMapper.insertBook(book);
+
+
+            bookMapper.insertBook(book);
+        try {
+            throw new Exception("throw exception");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public Book findBookById(long id) {

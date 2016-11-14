@@ -72,6 +72,8 @@
     </style>
     <script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
     <script src="../js/jquery.fly.min.js"></script>
+    <script src="../js/DisplayBook.js"></script>
+
     <!-- [if lte IE 9]> -->
     <%--<script src="requestAnimationFrame.js"></script>--%>
     <!-- <![endif] -->
@@ -99,11 +101,24 @@
                         this.destory();
                     }
                 });
-                var url = "/shopCart/addBook.do?bookId="+${book.bookId}+"&num="+document.getElementById("num").value;
-                $.post(url);
+                ajax();
+
             });
 
         });
+        function ajax(){
+            $.ajax({
+                url: '/shopCart/addBook.do',
+                type:"POST",
+                data:{
+                    bookId: ${book.bookId},
+                    num: document.getElementById("num").value
+                },
+                dataType:"json",
+                timeout: 1000
+            })
+
+        }
         function addnum() {
             document.getElementById("num").value++;
         }
@@ -126,7 +141,7 @@
             出版时间：${book.year}<br/>
             ￥${book.price}<br/>
             <input id="num" value="1" /><button onclick="addnum()">+</button><button onclick="subnum()">-</button>
-            <a href="/shopCart/tocar.do" class="button orange addcar">加入购物车</a>
+            <button class="button orange addcar">加入购物车</button>
             <a href="#" class="button orange">立即购买</a>
         </div>
     </div>

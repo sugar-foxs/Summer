@@ -95,18 +95,16 @@ public class Book  implements Serializable{
 
     @Override
     public String toString() {
-        return "Book{" +
-                "bookId=" + bookId +
-                ", bookName='" + bookName + '\'' +
-                ", author='" + author + '\'' +
-                ", year='" + year + '\'' +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                ", cover='" + cover + '\'' +
-                ", fatherClass=" + fatherClass +
-                ", sonClass=" + sonClass +
-                '}';
+        return
+                bookId +"|"+
+                bookName +"|"+
+                author +"|"+
+                year +"|"+
+                price +"|"+
+                cover
+                ;
     }
+
 
     @Override
     public boolean equals(Object o) {

@@ -13,11 +13,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>login</title>
     <link href="../css/bootstrap.css" rel="stylesheet" />
-    <link href="../css/popOut.css" rel="stylesheet"/>
+    <%--<link href="../css/popOut.css" rel="stylesheet"/>--%>
     <script src="../js/jquery-1.9.1.js" type="text/javascript"></script>
     <script src="../js/bootstrap.js"></script>
-    <script src="../js/jquery.validate.js"></script>
-    <script type="text/javascript" src="../js/popOut.js"></script>
+    <%--<script src="../js/jquery.validate.js"></script>--%>
+    <%--<script type="text/javascript" src="../js/popOut.js"></script>--%>
 </head>
 <body style="text-align: center">
 <div class="container">
@@ -75,12 +75,12 @@
         </div>
     </div>
 </div>
-<div class="tipCon" id="tipCon">
-    <div class="clickMe" id="clickMe">
-        <p id="word">猜猜我有啥？</p>
-        <a href="javascript:void(0);" id="closeBtn"></a>
-    </div>
-    <div class="showPic" id="showPic"><img src="../img/snow.gif"></div>
-</div>
+<%--<div class="tipCon" id="tipCon">--%>
+    <%--<div class="clickMe" id="clickMe">--%>
+        <%--<p id="word">猜猜我有啥？</p>--%>
+        <%--<a href="javascript:void(0);" id="closeBtn"></a>--%>
+    <%--</div>--%>
+    <%--<div class="showPic" id="showPic"><img src="../img/snow.gif"></div>--%>
+<%--</div>--%>
 </body>
 </html>
