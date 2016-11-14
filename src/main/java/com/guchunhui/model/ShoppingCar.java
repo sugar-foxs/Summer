@@ -1,8 +1,6 @@
 package com.guchunhui.model;
 
 import java.io.Serializable;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -61,16 +59,6 @@ public class ShoppingCar implements Serializable{
                 '}';
     }
 
-    public String serialize() throws UnsupportedEncodingException {
-        StringBuilder buffer = new StringBuilder();
-        for(int i = 0;i<books.size();i++){
-            String item = books.get(i).toString();
-            buffer.append(item);
-            buffer.append("#");
-        }
-        if (buffer.length() > 0)
-            buffer.deleteCharAt(buffer.length() - 1);
-        return buffer.toString();
-    }
+
 
 }

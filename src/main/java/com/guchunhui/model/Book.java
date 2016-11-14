@@ -94,18 +94,32 @@ public class Book  implements Serializable{
         this.sonClass = sonClass;
     }
 
-    @Override
-    public String toString() {
+    public String toCookieString() {
         return
-                bookId +"|"+
-                bookName +"|"+
-                author +"|"+
-                year +"|"+
-                price +"|"+
-                cover
+                bookId +"&"+
+                bookName +"&"+
+                author +"&"+
+                year +"&"+
+                price +"&"+
+                cover +"&"
                 ;
     }
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookChangeId=" + bookChangeId +
+                ", bookId=" + bookId +
+                ", bookName='" + bookName + '\'' +
+                ", author='" + author + '\'' +
+                ", year='" + year + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", cover='" + cover + '\'' +
+                ", fatherClass=" + fatherClass +
+                ", sonClass=" + sonClass +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {

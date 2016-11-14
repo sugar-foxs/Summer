@@ -2,8 +2,9 @@ package com.guchunhui.controller;
 
 import com.guchunhui.model.Book;
 import com.guchunhui.model.Customer;
+import com.guchunhui.model.ShoppingCar;
+import com.guchunhui.utils.CookieUtilService;
 import com.guchunhui.utils.ShoppingCarUtilService;
-import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by gch on 16-10-10.
@@ -25,6 +25,9 @@ import java.util.Map;
 public class ShoppingCarController {
     @Autowired
     private ShoppingCarUtilService shoppingCarUtilService;
+
+    @Autowired
+    private CookieUtilService cookieUtilService;
 
     @ResponseBody
     @RequestMapping(value = "/findbooksinshoppingcar")
@@ -39,17 +42,16 @@ public class ShoppingCarController {
         String bookId = request.getParameter("bookId");
         String num = request.getParameter("num");
         Customer customer = (Customer) session.getAttribute("customer");
-        List<Book> bookList = shoppingCarUtilService.findShoppingCarById(customer.getCustomerId()).getBooks();
-        String value="";
-        for(Book book:bookList){
-             value+=String.valueOf(book.getBookId())+",";
-        }
-        Cookie cookie = new Cookie("shopCar",value);
-        cookie.setMaxAge(30*60);
-        response.addCookie(cookie);
+
         if(bookId!=null && num!=null){
             shoppingCarUtilService.addBookIntoCar(Long.valueOf(bookId),Integer.valueOf(num),customer.getCustomerId());
         }
+        ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(customer.getCustomerId());
+        Cookie cookie = new Cookie(customer.getCustomerName()+"_shop",cookieUtilService.toCookieString(shoppingCar));
+        cookie.setHttpOnly(true);
+        cookie.setMaxAge(-1);
+        cookie.setPath("/");
+        response.addCookie(cookie);
         return "succeed";
     }
 
@@ -64,6 +66,8 @@ public class ShoppingCarController {
         }
         return map;
     }
+
+
 
     @RequestMapping("/tocar")
     public String toCar(){

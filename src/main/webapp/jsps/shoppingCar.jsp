@@ -15,41 +15,24 @@
     <link href="../css/main.css" rel="stylesheet" />
     <script  type="text/javascript" src="../js/jquery-jtemplates.js"></script>
     <script src="../js/shoppingCar.js"></script>
+    <%--<script>--%>
+        <%--$(function() {--%>
+            <%--alert(getCookie("gch_shop"));--%>
+        <%--})--%>
+        <%--function getCookie(cookieName){--%>
+            <%--var cookieContent = '';--%>
+            <%--var cookieAry = document.cookie.split("; ");//得到Cookie数组--%>
+            <%--for(var i=0;i<cookieAry.length;i++){--%>
+                <%--var temp = cookieAry[i].split("=");--%>
+                <%--if(temp[0] == cookieName){--%>
+                    <%--cookieContent = temp[1];--%>
+                <%--}--%>
+            <%--}--%>
+            <%--return cookieContent;--%>
+        <%--}--%>
+    <%--</script>--%>
 </head>
 <body>
-<!-- 模板内容 -->
-    <textarea id="template" style="display:none">
-       {#foreach $T as record}
-          <div style="width: 50%;margin-left: 35%">
-              <table>
-                  <tr>
-                          <td>
-                              <a href="/book/{$T.record.bookId}.do">
-                                <img src="../img/{$T.record.cover}"  width="200"/>
-                              </a>
-                          </td>
-                          <td>
-                              <ul style="list-style-type: none">
-                                  <li><p style="color: blue">{$T.record.bookName}</p></li>
-                                  <li>{$T.record.author}/{$T.record.year}</li>
-                                  <li>{$T.record.description}</li>
-                                  <li>书价：￥{$T.record.price}
-                                  <a style="color:blue;">我要购买</a>|
-                                  <a style="color:blue;">加入收藏</a>|
-                                  <a style="color:blue;">我要出售</a></li>
-                              </ul>
-                          </td>
-                  </tr>
-                  <br/>
-              </table>
-          </div>
-       {#/for}
-    </textarea>
-<!-- 输出元素 -->
-<div id="result"></div>
-<%--<div>--%>
-    <%--<img id="loading" style="margin:0 auto;display: none" src="/img/loading.gif"/>--%>
-    <%--<span id="span1" style=";display: none">---哥，这回真没有了---</span>--%>
-<%--</div>--%>
+jjj
 </body>
 </html>

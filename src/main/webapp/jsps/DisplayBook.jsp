@@ -8,20 +8,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
-    <%--<link rel="stylesheet" type="text/css" href="../css/main.css" />--%>
+    <title>单个商品页面</title>
     <style type="text/css">
-        .demo{width:820px; margin:60px auto 10px auto}
+        .demo{width:820px; margin:120px auto 10px auto}
         .m-sidebar{position: fixed;top: 0;right: 0;background: #000;z-index: 2000;width: 35px;height: 100%;font-size: 12px;color: #fff;}
         .cart{color: #fff;text-align:center;line-height: 20px;padding: 200px 0 0 0px;}
         .cart span{display:block;width:20px;margin:0 auto;}
         .cart i{width:35px;height:35px;display:block; background:url(../img/car.png) no-repeat;}
         #msg{position:fixed; top:300px; right:35px; z-index:10000; width:1px; height:52px; line-height:52px; font-size:20px; text-align:center; color:#fff; background:#360; display:none}
 
-        .box{float:left; width:198px; height:320px; margin-left:5px; border:1px solid #e0e0e0; text-align:center}
+        .box{float:left; width:498px; height:320px; margin-left:5px; border:1px solid #e0e0e0; }
         .box p{line-height:20px; padding:4px 4px 10px 4px; text-align:left}
         .box:hover{border:1px solid #f90}
-        .box h4{line-height:32px; font-size:14px; color:#f30;font-weight:500}
+        .box h4{line-height:20px; font-size:18px; color:#f30;font-weight:500}
         .box h4 span{font-size:20px}
         .u-flyer{display: block;width: 50px;height: 50px;border-radius: 50px;position: fixed;z-index: 9999;}
 
@@ -72,7 +71,7 @@
     </style>
     <script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
     <script src="../js/jquery.fly.min.js"></script>
-    <script src="../js/DisplayBook.js"></script>
+    <%--<script src="../js/DisplayBook.js"></script>--%>
 
     <!-- [if lte IE 9]> -->
     <%--<script src="requestAnimationFrame.js"></script>--%>
@@ -82,12 +81,12 @@
             var offset = $("#end").offset();
             $(".addcar").click(function(event){
                 var addcar = $(this);
-                var img = addcar.parent().find('img').attr('src');
+                var img = addcar.parent().parent().find('img').attr('src');
                 var flyer = $('<img class="u-flyer" src="'+img+'">');
                 flyer.fly({
                     start: {
                         left: event.pageX,
-                        top: event.pageY-30,
+                        top: event.pageY-30
                     },
                     end: {
                         left: offset.left+10,
@@ -101,48 +100,62 @@
                         this.destory();
                     }
                 });
+
                 ajax();
 
             });
+            function ajax(){
+                $.ajax({
+                    url: '/shopCart/addBook.do',
+                    type: "POST",
+                    data:{
+                        bookId: document.getElementById("bookid").innerText,
+                        num: document.getElementById("num").value
+                    },
+//                    dataType:"json",
+                    timeout: 1000
+                })
 
+            }
         });
-        function ajax(){
-            $.ajax({
-                url: '/shopCart/addBook.do',
-                type:"POST",
-                data:{
-                    bookId: ${book.bookId},
-                    num: document.getElementById("num").value
-                },
-                dataType:"json",
-                timeout: 1000
-            })
 
-        }
+
+
         function addnum() {
             document.getElementById("num").value++;
         }
+
         function subnum() {
             document.getElementById("num").value--;
             if(document.getElementById("num").value<1){
                 document.getElementById("num").value=1;
             }
         }
+
     </script>
 </head>
 <body>
 <div id="main">
     <div class="demo">
-        <input class="box" style="float: left">
-            <img src="../img/${book.cover}"  width="200"/>
-            ${book.bookName}<br>
-            ${book.description}<br>
-            作者：<a href="#" style="color: #5bc0de;text-decoration: none">${book.author}</a>
-            出版时间：${book.year}<br/>
-            ￥${book.price}<br/>
-            <input id="num" value="1" /><button onclick="addnum()">+</button><button onclick="subnum()">-</button>
-            <button class="button orange addcar">加入购物车</button>
-            <a href="#" class="button orange">立即购买</a>
+        <div class="box">
+            <div style="float: left;margin-left:5px;margin-top: 5px;">
+                <img src="../img/${book.cover}"  width="200"/>
+            </div>
+            <div style="float: left;margin-left: 10px;margin-top: 5px;">
+                <h4 id="bookid" style="display: none">${book.bookId}</h4>
+                <h4>${book.bookName}</h4>
+                <p>${book.description}</p>
+                <p>
+                    作者：<a href="#" style="color: #5bc0de;text-decoration: none">${book.author}</a>
+                    出版时间：${book.year}
+                </p>
+                <p>￥${book.price}</p>
+                <input id="num" value="1" style="width:40px" />
+                <button onclick="addnum()">+</button>
+                <button onclick="subnum()">-</button>
+                <br/><button class="button orange addcar">加入购物车</button>
+                <a href="#" class="button orange">立即购买</a>
+            </div>
         </div>
     </div>
 
@@ -150,7 +163,7 @@
     <div class="m-sidebar">
         <div class="cart">
             <i id="end"></i>
-            <span>购物车</span><br/><br/><br/><br/>
+            <a href="/shopCart/tocar.do"><span>购物车</span></a><br/><br/><br/><br/>
             <span>返回顶部</span>
         </div>
     </div>
