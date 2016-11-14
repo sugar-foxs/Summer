@@ -93,8 +93,7 @@ public class CustomerController{
                                     if(!have){
                                           ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(customer.getCustomerId());
                                           Cookie cookie1 = new Cookie(customer.getCustomerName()+"_shop",cookieUtilService.toCookieString(shoppingCar));
-                                          cookie1.setHttpOnly(true);
-                                          cookie1.setMaxAge(-1);
+                                          cookie1.setMaxAge(7*24*60*60);
                                           cookie1.setPath("/");
                                           response.addCookie(cookie1);
                                     }
