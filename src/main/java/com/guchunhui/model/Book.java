@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 public class Book  implements Serializable{
     private static final long serialVersionUID = 854276895268L;
+    private long bookChangeId;
     private long bookId;
     private String bookName;
     private String author;
