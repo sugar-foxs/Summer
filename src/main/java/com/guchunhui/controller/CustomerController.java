@@ -5,6 +5,10 @@ import com.guchunhui.model.ShoppingCar;
 import com.guchunhui.service.CustomerService;
 import com.guchunhui.utils.CookieUtilService;
 import com.guchunhui.utils.ShoppingCarUtilService;
+import org.codehaus.jackson.JsonEncoding;
+import org.codehaus.jackson.JsonGenerator;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +20,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -66,7 +72,7 @@ public class CustomerController{
 
       //登陆请求
       @RequestMapping(value = "/login")
-      public String login(HttpServletRequest request,Model model,HttpSession httpSession,HttpServletResponse response) throws UnsupportedEncodingException {
+      public String login(HttpServletRequest request,Model model,HttpSession httpSession,HttpServletResponse response) throws IOException {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             List<Customer> customerList = customerService.findAllCustomers();
@@ -92,13 +98,14 @@ public class CustomerController{
                                     boolean have = cookieUtilService.haveThisCookie(request,customer.getCustomerName()+"_shop");
                                     if(!have){
                                           ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(customer.getCustomerId());
-                                          Cookie cookie1 = new Cookie(customer.getCustomerName()+"_shop",cookieUtilService.toCookieString(shoppingCar));
+
+
+                                          String cookieValue = URLEncoder.encode(cookieUtilService.toCookieString(shoppingCar),"utf-8");
+                                          Cookie cookie1 = new Cookie(customer.getCustomerName()+"_cart", cookieValue);
                                           cookie1.setMaxAge(7*24*60*60);
                                           cookie1.setPath("/");
                                           response.addCookie(cookie1);
                                     }
-
-
                                     return "forward:loginSuccess/"+username+".do";
                               }else{
                                     model.addAttribute("error","密码错误");

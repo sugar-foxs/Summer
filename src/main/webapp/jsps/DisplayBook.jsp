@@ -109,7 +109,7 @@
                     url: '/shopCart/addBook.do',
                     type: "POST",
                     data:{
-                        bookId: document.getElementById("bookid").innerText,
+                        bookId: document.getElementById("bookid").innerHTML,
                         num: document.getElementById("num").value
                     },
 //                    dataType:"json",

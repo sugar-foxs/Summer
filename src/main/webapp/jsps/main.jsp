@@ -121,7 +121,7 @@
                                   <li><p style="color: blue">{$T.record.bookName}</p></li>
                                   <li>{$T.record.author}/{$T.record.year}</li>
                                   <li>{$T.record.description}</li>
-                      Book            <li>书价：￥{$T.record.price}
+                                  <li>书价：￥{$T.record.price}
                                   <a style="color:blue;">我要购买</a>|
                                   <a style="color:blue;">加入收藏</a>|
                                   <a style="color:blue;">我要出售</a></li>

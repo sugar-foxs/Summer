@@ -14,6 +14,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 
@@ -38,7 +40,7 @@ public class ShoppingCarController {
 
     @ResponseBody
     @RequestMapping(value = "/addBook")
-    public String addBook(HttpServletRequest request, HttpSession session,HttpServletResponse response){
+    public String addBook(HttpServletRequest request, HttpSession session,HttpServletResponse response) throws IOException {
         String bookId = request.getParameter("bookId");
         String num = request.getParameter("num");
         Customer customer = (Customer) session.getAttribute("customer");
@@ -47,7 +49,8 @@ public class ShoppingCarController {
             shoppingCarUtilService.addBookIntoCar(Long.valueOf(bookId),Integer.valueOf(num),customer.getCustomerId());
         }
         ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(customer.getCustomerId());
-        Cookie cookie = new Cookie(customer.getCustomerName()+"_shop",cookieUtilService.toCookieString(shoppingCar));
+        String cookieValue = URLEncoder.encode(cookieUtilService.toCookieString(shoppingCar),"utf-8");
+        Cookie cookie = new Cookie(customer.getCustomerName()+"_cart", cookieValue);
         cookie.setMaxAge(7*24*60*60);
         cookie.setPath("/");
         response.addCookie(cookie);

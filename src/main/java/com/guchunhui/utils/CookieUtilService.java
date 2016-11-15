@@ -2,13 +2,17 @@ package com.guchunhui.utils;
 
 import com.guchunhui.model.Book;
 import com.guchunhui.model.ShoppingCar;
+import org.codehaus.jackson.JsonEncoding;
+import org.codehaus.jackson.JsonGenerator;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by gch on 16-11-14.
@@ -63,23 +67,10 @@ public class CookieUtilService {
      * @param shoppingCar
      * @return
      */
-    public String toCookieString(ShoppingCar shoppingCar){
-        StringBuilder buffer = new StringBuilder();
+    public String toCookieString(ShoppingCar shoppingCar) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
         List<Book> books = shoppingCar.getBooks();
-        HashMap<Book,Long> map = new HashMap<Book, Long>();
-        for(Book book:books){
-
-            map.put(book,map.containsKey(book)?map.get(book)+1:1);
-
-        }
-        for(Map.Entry<Book,Long> entry:map.entrySet()){
-            buffer.append(entry.getKey().toCookieString());
-            buffer.append(entry.getValue());
-            buffer.append("#");
-        }
-        if (buffer.length() > 0)
-            buffer.deleteCharAt(buffer.length() - 1);
-        return buffer.toString();
+        return objectMapper.writeValueAsString(books);
     }
 
     /**
