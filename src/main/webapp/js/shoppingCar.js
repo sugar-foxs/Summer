@@ -3,7 +3,8 @@
  */
 $(function() {
        // document.getElementById("main").textContent = getCookie("cxh_shop");
-    var value = getCookie("cxh_cart");
+    
+    var value = getCookie(getCookie("customer")+"_cart");
     getBooks(value);
 })
 
@@ -20,18 +21,18 @@ function getCookie(cookieName){
 }
 function getBooks(cookieValue) {
     $("#main").append("<p>"+cookieValue+"</p>");
-    var yData = [];//Y轴数据
-    var xData = [];//X轴数据
-    var data =cookieValue;
-    $(data.rows).each(function(i){
-
-        var obj = data.rows[i];
-        yData.push(obj.key); //动态取值
-        alert(obj.key);
-        xData.push(obj.value); //动态取值
-        alert(obj.value);
-
-    });
+    // var yData = [];//Y轴数据
+    // var xData = [];//X轴数据
+    // var data =cookieValue;
+    // $(data.rows).each(function(i){
+    //
+    //     var obj = data.rows[i];
+    //     yData.push(obj.key); //动态取值
+    //     alert(obj.key);
+    //     xData.push(obj.value); //动态取值
+    //     alert(obj.value);
+    //
+    // });
     // var books = cookieValue.split("#");
     // var fatherObj = $("#main");
     // for(var i=0;i<books.length;i++){

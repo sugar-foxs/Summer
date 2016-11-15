@@ -9,9 +9,18 @@ import java.util.List;
 public class ShoppingCar implements Serializable{
     private static final long serialVersionUID = 9999858983295L;
     private long shoppingCarId;
-    private List<Book> books;
-    private String booksIds;
-    private Customer customer;
+    private List<Book> books;//书的种类链表,不重复
+    private String booksIds;//所有的书的id串，以；分隔
+    private Customer customer;//所属顾客
+    private List<Long> counts;//存放每种书的数量
+
+    public List<Long> getCounts() {
+        return counts;
+    }
+
+    public void setCounts(List<Long> counts) {
+        this.counts = counts;
+    }
 
     public String getBooksIds() {
         return booksIds;
@@ -56,9 +65,7 @@ public class ShoppingCar implements Serializable{
                 ", books=" + books +
                 ", booksIds='" + booksIds + '\'' +
                 ", customer=" + customer +
+                ", counts=" + counts +
                 '}';
     }
-
-
-
 }

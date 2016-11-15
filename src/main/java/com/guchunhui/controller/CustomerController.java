@@ -95,7 +95,7 @@ public class CustomerController{
                                     httpSession.setMaxInactiveInterval(30*60);
 
                                     //cookie
-                                    boolean have = cookieUtilService.haveThisCookie(request,customer.getCustomerName()+"_shop");
+                                    boolean have = cookieUtilService.haveThisCookie(request,customer.getCustomerName()+"_cart");
                                     if(!have){
                                           ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(customer.getCustomerId());
 
@@ -104,6 +104,11 @@ public class CustomerController{
                                           Cookie cookie1 = new Cookie(customer.getCustomerName()+"_cart", cookieValue);
                                           cookie1.setMaxAge(7*24*60*60);
                                           cookie1.setPath("/");
+
+                                          Cookie cookie = new Cookie("customer",customer.getCustomerName());
+                                          cookie.setMaxAge(7*24*60*60);
+                                          cookie.setPath("/");
+                                          response.addCookie(cookie);
                                           response.addCookie(cookie1);
                                     }
                                     return "forward:loginSuccess/"+username+".do";
@@ -164,7 +169,6 @@ public class CustomerController{
                         return "register";
                   }
             }
-//            System.out.print(customer.getCustomerName());
             customerService.insertCustomer(customer);
             return "registersuccessfully";
       }

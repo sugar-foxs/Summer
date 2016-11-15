@@ -8,28 +8,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by gch on 16-6-12.
  */
 @Service("shoppingCarUtilService")
 public class ShoppingCarUtilService {
+    @Autowired
     private ShoppingCarService shoppingCarService;
+
+    @Autowired
     private BookService bookService;
 
     @Autowired
-    public void setShoppingCarService(ShoppingCarService shoppingCarService) {
-        this.shoppingCarService = shoppingCarService;
-    }
-
-    @Autowired
-    public void setBookService(BookService bookService) {
-        this.bookService = bookService;
-    }
+    private MyUtilService myUtilService;
 
     /**
-     *
+     *从数据库中找出商品，及每种商品的数量
      * @param customerId
      * @return
      */
@@ -45,7 +43,17 @@ public class ShoppingCarUtilService {
                 bookList.add(book);
             }
         }
-        shoppingCar.setBooks(bookList);
+        Map<Book,Long> map = myUtilService.checkDuplicate(bookList);
+        List<Book> books = new ArrayList<Book>();
+        List<Long> count = new ArrayList<Long>();
+        if(map!=null){
+            for(Map.Entry<Book,Long> entry:map.entrySet()){
+                books.add(entry.getKey());
+                count.add(entry.getValue());
+            }
+        }
+        shoppingCar.setBooks(books);
+        shoppingCar.setCounts(count);
         return shoppingCar;
     }
 
@@ -118,6 +126,7 @@ public class ShoppingCarUtilService {
         }
         shoppingCarService.updateShoppingCar(shoppingCar);
     }
+
 
 
 

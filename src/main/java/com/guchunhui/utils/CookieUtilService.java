@@ -1,6 +1,7 @@
 package com.guchunhui.utils;
 
 import com.guchunhui.model.Book;
+import com.guchunhui.model.Customer;
 import com.guchunhui.model.ShoppingCar;
 import org.codehaus.jackson.JsonEncoding;
 import org.codehaus.jackson.JsonGenerator;
@@ -69,8 +70,9 @@ public class CookieUtilService {
      */
     public String toCookieString(ShoppingCar shoppingCar) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        List<Book> books = shoppingCar.getBooks();
-        return objectMapper.writeValueAsString(books);
+//        List<Book> books = shoppingCar.getBooks();
+        String result = objectMapper.writeValueAsString(shoppingCar);
+        return result;
     }
 
     /**
