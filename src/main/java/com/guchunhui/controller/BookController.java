@@ -30,7 +30,7 @@ public class BookController {
     @RequestMapping(value = "/findall")
     public List<Book> findAllBooks(HttpServletRequest request){
         String page = request.getParameter("page");
-        PageHelper.startPage(Integer.parseInt(page),7,true,false);
+        PageHelper.startPage(Integer.parseInt(page),20,true,false);
         return bookService.findAllBooks();
     }
 

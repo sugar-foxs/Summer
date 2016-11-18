@@ -35,7 +35,7 @@ public class BookTest {
 
     @Test
     public void insertBook(){
-//        for(int i=0;i<5;i++){
+        for(int i=0;i<100;i++){
             Book book = new Book();
             book.setBookName("javascript");
             book.setAuthor("gggg");
@@ -46,7 +46,7 @@ public class BookTest {
             book.setFatherClass(2);
             book.setSonClass(1);
             bookService.insertBook(book);
-//        }
+        }
 
     }
 

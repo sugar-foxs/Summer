@@ -2,12 +2,16 @@ package com.guchunhui.test;
 
 import com.guchunhui.model.Customer;
 import com.guchunhui.service.CustomerService;
+import com.guchunhui.utils.MD5Service;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 
@@ -21,13 +25,15 @@ public class CustomerTest {
     @Autowired
     private CustomerService customerService;
 
+    @Autowired
+    private MD5Service md5Service;
 
 
     @Test
-    public void insertCustomer(){
+    public void insertCustomer() throws UnsupportedEncodingException, NoSuchAlgorithmException {
         Customer customer = new Customer();
         customer.setCustomerName("cxh");
-        customer.setCustomerPassword("123456");
+        customer.setCustomerPassword(md5Service.EncoderByMd5("#123456$"));
         customer.setCustomerPhone("18251825790");
         customer.setCustomerEmail("2290584780@qq.com");
         customerService.insertCustomer(customer);

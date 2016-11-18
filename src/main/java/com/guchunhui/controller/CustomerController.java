@@ -4,6 +4,8 @@ import com.guchunhui.model.Customer;
 import com.guchunhui.model.ShoppingCar;
 import com.guchunhui.service.CustomerService;
 import com.guchunhui.utils.CookieUtilService;
+import com.guchunhui.utils.CustomerUtilService;
+import com.guchunhui.utils.MD5Service;
 import com.guchunhui.utils.ShoppingCarUtilService;
 import org.codehaus.jackson.JsonEncoding;
 import org.codehaus.jackson.JsonGenerator;
@@ -36,7 +38,11 @@ public class CustomerController{
 
       @Autowired
       private CustomerService customerService;
+      @Autowired
+      private CustomerUtilService customerUtilService;
 
+      @Autowired
+      private MD5Service md5Service;
       @Autowired
       private ShoppingCarUtilService shoppingCarUtilService;
 
@@ -74,7 +80,7 @@ public class CustomerController{
       @RequestMapping(value = "/login")
       public String login(HttpServletRequest request,Model model,HttpSession httpSession,HttpServletResponse response) throws IOException {
             String username = request.getParameter("username");
-            String password = request.getParameter("password");
+            String password = md5Service.EncoderByMd5("#"+request.getParameter("password")+"$");
             List<Customer> customerList = customerService.findAllCustomers();
             if(username.length() == 0){
                   model.addAttribute("error","用户名为空");
@@ -92,7 +98,7 @@ public class CustomerController{
 
                                     //session
                                     httpSession.setAttribute("customer",customer);
-                                    httpSession.setMaxInactiveInterval(30*60);
+                                    httpSession.setMaxInactiveInterval(2*60);
 
                                     //cookie
                                     boolean have = cookieUtilService.haveThisCookie(request,customer.getCustomerName()+"_cart");
@@ -169,7 +175,7 @@ public class CustomerController{
                         return "register";
                   }
             }
-            customerService.insertCustomer(customer);
+            customerUtilService.registerCustomer(customer);
             return "registersuccessfully";
       }
 

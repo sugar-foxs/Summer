@@ -11,7 +11,259 @@
     overflow: hidden;
 }
 a:hover{
-
     text-decoration: none;
+}
 
+.classify{
+    height:436px;
+    width: 900px;
+    margin: 3px auto;
+    border: 1px solid darkgray;
+}
+.search{
+    height:200px;
+    width:900px;
+}
+textarea{
+    display: none;
+}
+.template{
+    width:25%;
+    height:320px;
+    /*border: 1px solid gray;*/
+    float:left;
+}
+.image{
+    width: 180px;
+    margin: 0 auto;
+}
+.message{
+    width: 180px;
+    /*border: 1px solid gray;*/
+
+    margin: auto;
+}
+ul{
+    list-style-type: none;
+    margin:0px;
+    padding:0px;
+}
+li:nth-child(1),li:nth-child(3){
+    font-size: large;
+    color: red;
+    font-weight: 200;
+}
+.template img{
+    width:180px;
+    height:180px;
+    align-content: center;
+}
+#result{
+    width: 900px;
+    height:auto;
+    margin: auto;
+    display: table;
+    border: 1px solid darkgray;
+}
+#loading{
+    margin:0 auto;
+    display: none;
+}
+#span1{
+    display: none;
+    text-align: center;
+}
+
+
+
+
+
+.topmenu
+{
+    display: block;
+    width: 220px;
+    border: 2px solid #e4393c;
+    margin: 0;
+    padding: 0;
+    z-index: 4;
+}
+.toptitle
+{
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    font-size: 11pt;
+    font-weight: bold;
+    color: White;
+    background: #e4393c;
+    padding-left: 20px;
+}
+.topmenu li
+{
+    height: 30px;
+    line-height: 30px;
+    font-size: 11pt;
+    list-style-type: none;
+    text-align: left;
+    padding-left: 8px;
+    z-index: 3;
+    background-image: url(1.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.topmenu li a
+{
+    text-decoration: none;
+    color: #313131;
+}
+.topmenu li a:hover
+{
+    text-decoration: underline;
+    font-weight: bold;
+    color: #e4393c;
+}
+/*.topmenu .lihover !*鼠标移动到上面时，应用的样式*!*/
+/*{*/
+    /*border: 1px solid #DDD;*/
+    /*border-right: 0;*/
+    /*box-shadow: 0 0 8px #DDD;*/
+    /*-moz-box-shadow: 0 0 8px #DDD;*/
+    /*-webkit-box-shadow: 0 0 8px #DDD;*/
+    /*background-image: none;*/
+    /*height:60px;*/
+    /*border-left:4px solid #e4393c;*/
+/*}*/
+.topmenu .lihover .submenu /*悬浮层*/
+{
+    display: block;
+}
+
+/*.topmenu .lihover span !*白色小方框*!*/
+/*{*/
+    /*background: white;*/
+    /*display: inline-block;*/
+    /*z-index: 20;*/
+    /*width: 10px;*/
+    /*height: 60px;*/
+    /*float: right;*/
+    /*position: relative;*/
+
+/*}*/
+
+/*.topmenu .lihover b*/
+/*{*/
+    /*display:block;*/
+    /*height:30px;*/
+    /*line-height:30px;*/
+    /*font-weight:normal;*/
+    /*font-size:10pt;*/
+/*}*/
+.submenu
+{
+    display: none;
+    width: 515px;
+    height:435px;
+    position: absolute;
+    left: 451px;
+    top: 236px;
+
+    border-style: solid solid solid none;
+    border-color: red;
+    border-width: 1px;
+    /*z-index: 4;*/
+    background: white;
+    box-shadow: 0 0 8px #DDD;
+    -moz-box-shadow: 0 0 8px #DDD;
+    -webkit-box-shadow: 0 0 8px #DDD;
+}
+.leftdiv
+{
+    float: left;
+    width: 490px;
+    margin: 5px;
+}
+.rightdiv
+{
+    float: left;
+    width: 200px;
+    margin: 5px;
+}
+
+.leftdiv dl
+{
+    display: block;
+    border-bottom: 1px solid #EEE;
+    padding-bottom: 6px;
+    overflow: hidden;
+}
+.leftdiv dl dt
+{
+    display: block;
+    float: left;
+    width: 70px;
+    text-align: right;
+    height: 22px;
+    line-height: 22px;
+    padding-right: 6px;
+}
+
+.leftdiv dl dt a
+{
+    color: #e4393c;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 10pt;
+}
+.leftdiv dl dd
+{
+    display: block;
+    overflow: hidden;
+}
+.leftdiv dl dd a
+{
+    display: block;
+    float: left;
+    border-left: 1px solid #CCC;
+    color: #737373;
+    font-size: 9pt;
+    padding: 0 8px;
+    height: 14px;
+    line-height: 14px;
+    margin: 4px 0;
+}
+
+.rightdiv dl dd
+{
+    margin: 3px 0;
+}
+
+.rightdiv dl dt
+{
+    color: #e4393c;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+.rightdiv dl dd a
+{
+    font-size: 9pt;
+    color: #737373;
+    line-height: 22px;
+}
+.rightdiv dl dd a:hover
+{
+    color: #737373;
+    font-weight: normal;
+}
+
+.topmenu li b
+{
+    display:none;
+}
+
+.rightPic
+{
+    position:relative;
+    right:-35px;
+    bottom:-20px;
 }
