@@ -9,7 +9,7 @@
         <result property="bookName" column="book_name"/>
         <result property="author" column="author"/>
         <result property="year" column="year"/>
-        <result property="price" column="price"/>
+        <result property="price" column="price" />
         <result property="description" column="description"/>
         <result property="cover" column="cover"/>
         <result property="fatherClass" column="fatherclass"/>

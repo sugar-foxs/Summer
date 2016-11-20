@@ -1,6 +1,10 @@
 package com.guchunhui.model;
 
+import org.codehaus.jackson.annotate.JsonPropertyOrder;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
 import java.io.Serializable;
+import java.text.DecimalFormat;
 
 /**
  * Created by gch on 16-5-9.
@@ -11,6 +15,7 @@ public class Book  implements Serializable{
     private String bookName;
     private String author;
     private String year;
+    @JsonSerialize(using = BookDoubleSerializer.class)
     private double price;
     private String description;
     private String cover;
@@ -106,6 +111,8 @@ public class Book  implements Serializable{
 
     @Override
     public String toString() {
+//        DecimalFormat    df   = new DecimalFormat("#.00");
+
         return "Book{" +
                 "  bookId=" + bookId +
                 ", bookName='" + bookName + '\'' +

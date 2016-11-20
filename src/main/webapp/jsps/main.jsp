@@ -50,35 +50,12 @@
         </c:choose>
     </div>
 
-    <div class="col-xs-5 ">
-        <div class="dropdown" style="float: left">
-            <button type="button" class="btn dropdown-toggle"
-                    data-toggle="dropdown">
-                我的书城<span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu1" aria-labelledby="dropdownMenu1">
-                <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#">已买到的宝贝</a>
-                </li>
-                <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#">我的足迹</a>
-                </li>
-            </ul>
-        </div>
-        <div class="dropdown" style="float: left">
-            <button type="button" class="btn dropdown-toggle" id="dropdownMenu2"
-                    data-toggle="dropdown">
-                收藏夹<span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu2" aria-labelledby="dropdownMenu2">
-                <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#">收藏的宝贝</a>
-                </li>
-                <li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#">收藏的店铺</a>
-                </li>
-            </ul>
-        </div>
+    <div class="col-xs-4" >
+        <ul class="summer_head_ul">
+            <li><a href="/shopCart/tocar.do">购物车</a></li>
+            <li><a>我的订单</a></li>
+        </ul>
+
     </div>
 </div>
 <%--<div class="search">--%>
@@ -905,15 +882,16 @@
           </div>
           <div class="message">
               <ul>
-                  <li>{$T.record.bookName}</li>
-                  <%--<li>{$T.record.author}/{$T.record.year}</li>--%>
-                  <li>{$T.record.description}</li>
+                  <a href="/book/{$T.record.bookId}.do">
+                      <li>{$T.record.bookName}</li>
+                      <li>{$T.record.description}</li>
+                  </a>
                   <li>￥{$T.record.price}</li>
-                  <li>
-                    <a>我要购买</a>|
-                    <a>加入收藏</a>|
-                    <a>我要出售</a>
-                  </li>
+                  <%--<li>--%>
+                    <%--<a>我要购买</a>--%>
+                    <%--<a>加入收藏</a>|--%>
+                    <%--<a>我要出售</a>--%>
+                  <%--</li>--%>
               </ul>
           </div>
 

@@ -20,21 +20,16 @@ function a_onmouseout(id,id2)
 }
 function getbook() {
     $.ajax({
-        url:'/book/findall.do?page='+page,
+        url:'/book/findall.do',
         type:"GET",
+        data:{
+            page:page
+        },
         dataType: 'json',
         timeout: 1000,
         cache: false,
-        beforeSend: LoadFunction, //加载执行方法
-        error: erryFunction,  //错误执行方法
         success: succFunction //成功执行方法
-    })
-    function LoadFunction() {
-        // $("#result").html('加载中...');
-    }
-    function erryFunction() {
-        // alert("error");
-    }
+    });
     function succFunction(tt) {
         if(tt!=""){
             var data = eval(tt);
@@ -49,9 +44,7 @@ function getbook() {
             document.getElementById("loading").style.display="none";
             document.getElementById("span1").style.display="block";
         }
-
-
-    };
+    }
 }
 $(document).ready(function(){
     getbook();
@@ -78,7 +71,7 @@ window.onload = function () {
             }
         }
 
-    }
+};
 function show() {
     page++;
     getbook();

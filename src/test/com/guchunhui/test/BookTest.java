@@ -35,18 +35,18 @@ public class BookTest {
 
     @Test
     public void insertBook(){
-        for(int i=0;i<100;i++){
+//        for(int i=0;i<100;i++){
             Book book = new Book();
             book.setBookName("javascript");
-            book.setAuthor("gggg");
+            book.setAuthor("yy");
             book.setYear("2012");
-            book.setPrice(18.8);
+            book.setPrice(18.00);
             book.setDescription("etre");
             book.setCover("gfg.jpg");
             book.setFatherClass(2);
             book.setSonClass(1);
             bookService.insertBook(book);
-        }
+//        }
 
     }
 

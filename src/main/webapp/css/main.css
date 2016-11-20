@@ -1,23 +1,38 @@
-.images-content{
-    position: absolute;
-    z-index: 1;
-    left: 88%;
-    top:0;
-    width: 100%;
-    color: #fff;
-    /*background: rgba(0,0,0,.7);*/
-    height: 34px;
-    line-height: 34px;
-    overflow: hidden;
+/*.images-content{*/
+    /*position: absolute;*/
+    /*z-index: 1;*/
+    /*left: 88%;*/
+    /*top:0;*/
+    /*width: 100%;*/
+    /*color: #fff;*/
+    /*!*background: rgba(0,0,0,.7);*!*/
+    /*height: 34px;*/
+    /*line-height: 34px;*/
+    /*overflow: hidden;*/
+/*}*/
+
+.summer_head_ul{
+    list-style-type: none;
+    float: right;
+    padding-top: 5px;
+
 }
-a:hover{
-    text-decoration: none;
+.summer_head_ul li{
+    display: inline;
+
+}
+.summer_head_ul li a{
+    color: grey;
+}
+.summer_head_ul li a:hover{
+    color: red;
 }
 
 .classify{
     height:436px;
     width: 900px;
     margin: 3px auto;
+    position: relative;
     border: 1px solid darkgray;
 }
 .search{
@@ -29,13 +44,13 @@ textarea{
 }
 .template{
     width:25%;
-    height:320px;
-    /*border: 1px solid gray;*/
+    height:260px;
+    border:1px solid gainsboro;
     float:left;
 }
 .image{
     width: 180px;
-    margin: 0 auto;
+    margin: 5px auto;
 }
 .message{
     width: 180px;
@@ -43,15 +58,22 @@ textarea{
 
     margin: auto;
 }
-ul{
+.message ul{
     list-style-type: none;
-    margin:0px;
-    padding:0px;
+    margin:0;
+    padding:0;
 }
-li:nth-child(1),li:nth-child(3){
-    font-size: large;
+/*li:nth-child(1){*/
+    /*color: gray;*/
+/*}*/
+.message ul li:nth-child(2){
+    font-size: larger;
     color: red;
     font-weight: 200;
+}
+a:hover{
+    /*text-decoration: none;*/
+    color:red;
 }
 .template img{
     width:180px;
@@ -107,7 +129,7 @@ li:nth-child(1),li:nth-child(3){
     text-align: left;
     padding-left: 8px;
     z-index: 3;
-    background-image: url(1.png);
+    /*background-image: url(1.png);*/
     background-repeat: no-repeat;
     background-position: right;
 }
@@ -164,8 +186,8 @@ li:nth-child(1),li:nth-child(3){
     width: 515px;
     height:435px;
     position: absolute;
-    left: 451px;
-    top: 236px;
+    left: 220px;
+    top: 0;
 
     border-style: solid solid solid none;
     border-color: red;

@@ -5,6 +5,7 @@ import com.guchunhui.model.Book;
 import com.guchunhui.service.BookService;
 import com.guchunhui.service.CustomerService;
 import com.guchunhui.utils.BookUtilService;
+import org.codehaus.jackson.map.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,7 +32,8 @@ public class BookController {
     public List<Book> findAllBooks(HttpServletRequest request){
         String page = request.getParameter("page");
         PageHelper.startPage(Integer.parseInt(page),20,true,false);
-        return bookService.findAllBooks();
+        List<Book> books = bookService.findAllBooks();
+        return books;
     }
 
     @ResponseBody
