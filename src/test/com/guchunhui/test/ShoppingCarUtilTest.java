@@ -29,7 +29,7 @@ public class ShoppingCarUtilTest {
 
     @Test
     public void deleteBookFromCar(){
-        shoppingCarUtilService.deleteBookFromCar(1,1);
+        shoppingCarUtilService.deleteBookFromCar(2,2);
     }
 
     @Test

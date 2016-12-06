@@ -53,7 +53,8 @@
     <div class="col-xs-4" >
         <ul class="summer_head_ul">
             <li><a href="/shopCart/tocar.do">购物车</a></li>
-            <li><a>我的订单</a></li>
+            <li><a href="http://www.baidu.com">我的订单</a></li>
+            <li><a href="/gopay.do">去付款</a></li>
         </ul>
 
     </div>

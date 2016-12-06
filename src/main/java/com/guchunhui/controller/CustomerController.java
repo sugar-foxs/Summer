@@ -98,7 +98,7 @@ public class CustomerController{
 
                                     //session
                                     httpSession.setAttribute("customer",customer);
-                                    httpSession.setMaxInactiveInterval(2*60);
+                                    httpSession.setMaxInactiveInterval(30*60);
 
                                     //cookie
                                     boolean have = cookieUtilService.haveThisCookie(request,customer.getCustomerName()+"_cart");

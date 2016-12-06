@@ -47,16 +47,12 @@ public class ShoppingCarController {
         if(bookId!=null && num!=null){
             shoppingCarUtilService.addBookIntoCar(Long.valueOf(bookId),Integer.valueOf(num),customer.getCustomerId());
         }
-
         ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(customer.getCustomerId());
         String cookieValue = URLEncoder.encode(cookieUtilService.toCookieString(shoppingCar),"utf-8");
         Cookie cookie = new Cookie(customer.getCustomerName()+"_cart", cookieValue);
         cookie.setMaxAge(7*24*60*60);
         cookie.setPath("/");
         response.addCookie(cookie);
-
-
-
         return "succeed";
     }
 

@@ -20,7 +20,7 @@ function a_onmouseout(id,id2)
 }
 function getbook() {
     $.ajax({
-        url:'/book/findall.do',
+        url:'http://127.0.0.1:8080/book/findall.do',
         type:"GET",
         data:{
             page:page
