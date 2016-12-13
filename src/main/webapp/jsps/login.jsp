@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-xs-3 col-xs-offset-4 " style="border: 1px solid red">
             <h2>账户登陆</h2><br>
-            <form class="loginForm" name="loginForm" id="login" method="post" action="/login.do">
+            <form class="loginForm" name="loginForm" autocomplete="on" id="login" method="post" action="/login.do">
                 <span style="color: red">${error}</span>
 
                 <div class="row">
@@ -34,20 +34,20 @@
                                 <span style="font-size: 28px;line-height: 44px;color: white" class="glyphicon glyphicon-user"></span>
                         </div>
                         <div class="col-xs-10" style="height: 44px;border: 1px solid whitesmoke;">
-                            <input type="text" placeholder="用户名" id="username" name="username" style="border: 0;width:96%;height: 44px;">
+                            <input type="text" placeholder="用户名" required="required" autofocus="autofocus" id="username" name="username" style="border: 0;width:96%;height: 44px;">
                         </div>
                     </div>
                 </div>
 
                 <br>
 
-                <div class="row" >
+                <div class="row">
                     <div class="col-xs-10 col-xs-offset-1" style="height: 44px;">
                         <div class="col-xs-2" style="background-color:#adadad;height: 44px;">
                             <span style="font-size: 28px;line-height: 44px;color: white" class="glyphicon glyphicon-lock"></span>
                         </div>
                         <div class="col-xs-10" style="height: 44px;border: 1px solid whitesmoke;">
-                            <input type="password" id="password" placeholder="密码" name="password" style="border: 0;width:96%;height: 44px;">
+                            <input type="password" id="password" required="required" placeholder="密码" name="password" style="border: 0;width:96%;height: 44px;">
                         </div>
                     </div>
                 </div>

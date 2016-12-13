@@ -3,14 +3,11 @@ package com.guchunhui.controller;
 import com.guchunhui.model.Customer;
 import com.guchunhui.model.ShoppingCar;
 import com.guchunhui.service.CustomerService;
+import com.guchunhui.service.ShoppingCarService;
 import com.guchunhui.utils.CookieUtilService;
 import com.guchunhui.utils.CustomerUtilService;
 import com.guchunhui.utils.MD5Service;
 import com.guchunhui.utils.ShoppingCarUtilService;
-import org.codehaus.jackson.JsonEncoding;
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,6 +45,8 @@ public class CustomerController{
 
       @Autowired
       private CookieUtilService cookieUtilService;
+      @Autowired
+      private ShoppingCarService shoppingCarService;
 
       //找到所有顾客
       @ResponseBody
@@ -103,7 +102,7 @@ public class CustomerController{
                                     //cookie
                                     boolean have = cookieUtilService.haveThisCookie(request,customer.getCustomerName()+"_cart");
                                     if(!have){
-                                          ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(customer.getCustomerId());
+                                          ShoppingCar shoppingCar = shoppingCarService.findCarByCustomerId(customer.getCustomerId());
 
 
                                           String cookieValue = URLEncoder.encode(cookieUtilService.toCookieString(shoppingCar),"utf-8");
@@ -205,11 +204,11 @@ public class CustomerController{
             return "register";
       }
 
-    /**
-     * 注销
-     * @param session
-     * @return
-     */
+      /**
+       * 注销
+       * @param session
+       * @return
+       */
       @RequestMapping(value = "/logout")
       public String logout(HttpSession session){
             session.invalidate();

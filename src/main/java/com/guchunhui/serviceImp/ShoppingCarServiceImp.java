@@ -15,19 +15,16 @@ public class ShoppingCarServiceImp implements ShoppingCarService {
     @Autowired
     private ShoppingCarMapper shoppingCarMapper;
 
-    public ShoppingCar findShoppingCarById(long id) {
-        return shoppingCarMapper.findShoppingCarById(id);
+    public ShoppingCar findCarByCustomerId(long id) {
+        return shoppingCarMapper.findCarByCustomerId(id);
     }
 
     public void insertShoppingCar(ShoppingCar shoppingCar) {
         shoppingCarMapper.insertShoppingCar(shoppingCar);
     }
 
-    public void deleteShoppingCarById(long id) {
-        shoppingCarMapper.deleteShoppingCarById(id);
+    public void deleteCarByCustomerId(long id) {
+        shoppingCarMapper.deleteCarByCustomerId(id);
     }
 
-    public void updateShoppingCar(ShoppingCar shoppingCar) {
-        shoppingCarMapper.updateShoppingCar(shoppingCar);
-    }
 }

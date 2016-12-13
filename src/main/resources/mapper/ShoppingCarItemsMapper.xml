@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guchunhui.mapper.ShoppingCarItemsMapper">
+
+    <resultMap type="com.guchunhui.model.ShoppingCarItems" id="ShoppingCarItemsMap">
+        <id property="id" column="id"/>
+        <result property="shoppingCarId" column="shoppingcar_id"/>
+        <result property="bookId" column="book_id"/>
+        <result property="quantity" column="quantity"/>
+        <association property="book" column="book_id" select="com.guchunhui.mapper.BookMapper.findBookById"/>
+    </resultMap>
+
+
+    <select id="getShoppingCarItemsById" resultMap="ShoppingCarItemsMap" parameterType="long">
+        SELECT * FROM shoppingcar_items WHERE shoppingcar_id = #{shoppingCarId}
+    </select>
+
+    <select id="getShoppingCarItemsByTwoId" resultMap="ShoppingCarItemsMap" parameterType="long">
+        SELECT * FROM shoppingcar_items WHERE shoppingcar_id = #{shoppingCarId} AND book_id = #{bookId}
+    </select>
+
+    <insert id="insertCartItem" parameterType="ShoppingCarItems" useGeneratedKeys="true" keyProperty="id" >
+        INSERT INTO shoppingcar_items(shoppingcar_id,book_id,quantity) VALUE (
+                    #{shoppingCarId},#{bookId},#{quantity}
+        )
+    </insert>
+
+    <delete id="deleteCarItemById">
+        DELETE FROM shoppingcar_items WHERE shoppingcar_id = #{shoppingCarId} AND book_id = #{bookId}
+    </delete>
+
+    <delete id="deleteCarAllItems">
+        DELETE FROM shoppingcar_items WHERE shoppingcar_id = #{shoppingCarId}
+    </delete>
+
+    <update id="updateItem">
+        UPDATE shoppingcar_items SET quantity = #{quantity} WHERE shoppingcar_id = #{shoppingCarId} AND book_id = #{bookId}
+    </update>
+
+</mapper>

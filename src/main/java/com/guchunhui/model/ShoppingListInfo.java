@@ -7,21 +7,71 @@ import java.util.List;
 /**
  * Created by gch on 16-6-10.
  */
-public class ShoppingList implements Serializable{
+public class ShoppingListInfo implements Serializable{
     private static final long serialVersionUID = 565436536098L;
 
+    private long id;
     private long shoppingListId;    //订单id
-    private String shoppingListName;//订单名字
+    private String name;//收货人姓名
     private String mobile;          //联系方式
     private String address;         //送货地址
     private float totalPrice;       //总价
     private Date createTime;        //创建日期
     private String paymentWay;      //支付方式
     private String orderState;      //订单状态
-    private String bookIds;
-    private List<Book>  books;
+    private Date payTime;//付款时间
+    private Date sendTime;//发货日期
+    private Date successTime;//成交时间
+    private ShoppingListItem shoppingListItem;
     private Customer customer;      //所属顾客
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Date getPayTime() {
+        return payTime;
+    }
+
+    public void setPayTime(Date payTime) {
+        this.payTime = payTime;
+    }
+
+    public Date getSendTime() {
+        return sendTime;
+    }
+
+    public void setSendTime(Date sendTime) {
+        this.sendTime = sendTime;
+    }
+
+    public Date getSuccessTime() {
+        return successTime;
+    }
+
+    public void setSuccessTime(Date successTime) {
+        this.successTime = successTime;
+    }
+
+    public ShoppingListItem getShoppingListItem() {
+        return shoppingListItem;
+    }
+
+    public void setShoppingListItem(ShoppingListItem shoppingListItem) {
+        this.shoppingListItem = shoppingListItem;
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -35,13 +85,6 @@ public class ShoppingList implements Serializable{
         this.shoppingListId = shoppingListId;
     }
 
-    public String getShoppingListName() {
-        return shoppingListName;
-    }
-
-    public void setShoppingListName(String shoppingListName) {
-        this.shoppingListName = shoppingListName;
-    }
 
     public String getMobile() {
         return mobile;
@@ -91,21 +134,8 @@ public class ShoppingList implements Serializable{
         this.orderState = orderState;
     }
 
-    public String getBookIds() {
-        return bookIds;
-    }
 
-    public void setBookIds(String bookIds) {
-        this.bookIds = bookIds;
-    }
 
-    public List<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
 
     public Customer getCustomer() {
         return customer;
@@ -115,19 +145,23 @@ public class ShoppingList implements Serializable{
         this.customer = customer;
     }
 
+
     @Override
     public String toString() {
-        return "ShoppingList{" +
-                "shoppingListId=" + shoppingListId +
-                ", shoppingListName='" + shoppingListName + '\'' +
+        return "ShoppingListInfo{" +
+                "id=" + id +
+                ", shoppingListId=" + shoppingListId +
+                ", name='" + name + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", address='" + address + '\'' +
                 ", totalPrice=" + totalPrice +
-                ", creatTime=" + createTime +
+                ", createTime=" + createTime +
                 ", paymentWay='" + paymentWay + '\'' +
                 ", orderState='" + orderState + '\'' +
-                ", bookIds='" + bookIds + '\'' +
-                ", books=" + books +
+                ", payTime=" + payTime +
+                ", sendTime=" + sendTime +
+                ", successTime=" + successTime +
+                ", shoppingListItem=" + shoppingListItem +
                 ", customer=" + customer +
                 '}';
     }

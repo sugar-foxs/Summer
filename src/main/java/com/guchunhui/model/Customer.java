@@ -1,9 +1,6 @@
 package com.guchunhui.model;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * Created by gch on 16-4-13.
@@ -23,6 +20,8 @@ public class Customer implements Serializable{
     private String customerEmail;     //邮箱
 
     private String customerAddress;   //地址
+
+    private ShoppingCar shoppingCar;//购物车
 
     public Customer() {
     }
@@ -91,6 +90,14 @@ public class Customer implements Serializable{
         this.customerAddress = customerAddress;
     }
 
+    public ShoppingCar getShoppingCar() {
+        return shoppingCar;
+    }
+
+    public void setShoppingCar(ShoppingCar shoppingCar) {
+        this.shoppingCar = shoppingCar;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
@@ -99,7 +106,8 @@ public class Customer implements Serializable{
                 ", customerPassword='" + customerPassword + '\'' +
                 ", customerPhone='" + customerPhone + '\'' +
                 ", customerEmail='" + customerEmail + '\'' +
-                ", address='" + customerAddress + '\'' +
+                ", customerAddress='" + customerAddress + '\'' +
+                ", shoppingCar=" + shoppingCar +
                 '}';
     }
 }

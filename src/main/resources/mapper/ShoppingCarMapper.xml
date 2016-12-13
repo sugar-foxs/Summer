@@ -4,44 +4,26 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.guchunhui.mapper.ShoppingCarMapper">
 
-    <resultMap type="com.guchunhui.model.Customer" id="CustomerResult">
-        <id property="customerId" column="customer_id"/>
-        <result property="customerName" column="customer_name"/>
-        <result property="customerPassword" column="customer_password"/>
-        <result property="customerPhone" column="phone"/>
-        <result property="customerEmail" column="email"/>
-        <result property="customerAddress" column="address"/>
-
-    </resultMap>
-
-    <select id="findCustomerById" resultMap="CustomerResult" parameterType="long">
-        SELECT * FROM customer WHERE customer_id = #{customerId}
-    </select>
-
     <resultMap type="com.guchunhui.model.ShoppingCar" id="ShoppingCarResult">
         <id property="shoppingCarId" column="shoppingcar_id"/>
-        <result property="booksIds" column="books_ids"/>
-        <association property="customer" column="customer_id" select="findCustomerById"/>
-
+        <result property="customerId" column="customer_id"/>
+        <collection property="shoppingCarItemsList" column="shoppingcar_id" fetchType="eager" select="com.guchunhui.mapper.ShoppingCarItemsMapper.getShoppingCarItemsById"/>
     </resultMap>
 
 
     <insert id="insertShoppingCar" parameterType="ShoppingCar" useGeneratedKeys="true" keyProperty="shoppingcar_id">
-        INSERT INTO shoppingcar(shoppingcar_id,books_ids,customer_id) VALUE (
-        #{shoppingCarId},#{booksIds},#{customer.customerId}
+        INSERT INTO shoppingcar(customer_id) VALUE (
+        #{customerId}
         )
     </insert>
 
-    <select id="findShoppingCarById" resultMap="ShoppingCarResult" parameterType="long">
-        SELECT * FROM shoppingcar WHERE customer_id = #{customer.customerId}
+    <select id="findCarByCustomerId" resultMap="ShoppingCarResult" parameterType="long">
+        SELECT * FROM shoppingcar WHERE customer_id = #{customerId}
     </select>
 
-    <delete id="deleteShoppingCarById" parameterType="long">
-        DELETE FROM shoppingcar WHERE  customer_id = #{customer.customerId}
+    <delete id="deleteCarByCustomerId" parameterType="long">
+        DELETE FROM shoppingcar WHERE  customer_id = #{customerId}
     </delete>
 
-    <update id="updateShoppingCar" parameterType="ShoppingCar" >
-        UPDATE shoppingcar SET books_ids = #{booksIds} WHERE customer_id = #{customer.customerId}
-    </update>
 
 </mapper>

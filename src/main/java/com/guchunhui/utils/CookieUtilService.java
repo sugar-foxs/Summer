@@ -1,19 +1,12 @@
 package com.guchunhui.utils;
 
-import com.guchunhui.model.Book;
-import com.guchunhui.model.Customer;
 import com.guchunhui.model.ShoppingCar;
-import org.codehaus.jackson.JsonEncoding;
-import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by gch on 16-11-14.
