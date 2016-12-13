@@ -1,9 +1,11 @@
 package com.guchunhui.model;
 
+import java.io.Serializable;
+
 /**
  * Created by gch on 16-12-13.
  */
-public class ShoppingCarItems {
+public class ShoppingCarItems implements Serializable {
     private long id;
     private long shoppingCarId;
     private Book book;

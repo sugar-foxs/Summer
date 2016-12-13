@@ -11,6 +11,7 @@
         <result property="quantity" column="quantity"/>
         <association property="book" column="book_id" select="com.guchunhui.mapper.BookMapper.findBookById"/>
     </resultMap>
+    <cache/>
 
 
     <select id="getShoppingCarItemsById" resultMap="ShoppingCarItemsMap" parameterType="long">

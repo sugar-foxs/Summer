@@ -23,6 +23,7 @@ public class ShoppingListItemServiceTest {
     public void getItems() throws Exception {
         List<ShoppingListItem> listItems = shoppingListItemService.getItems(1);
         System.out.print(listItems);
+
     }
 
     @Test

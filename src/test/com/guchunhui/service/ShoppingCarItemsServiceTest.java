@@ -18,6 +18,8 @@ public class ShoppingCarItemsServiceTest {
     @Test
     public void getShoppingCarItemsById() throws Exception {
         System.out.print(shoppingCarItemsService.getShoppingCarItemsById(1));
+        System.out.print(shoppingCarItemsService.getShoppingCarItemsById(1));
+
     }
 
     @Test

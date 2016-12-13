@@ -1,9 +1,11 @@
 package com.guchunhui.model;
 
+import java.io.Serializable;
+
 /**
  * Created by gch on 16-12-10.
  */
-public class ShoppingListItem {
+public class ShoppingListItem implements Serializable {
     private long id;
     private long shoppingListId;    //订单id
     private long bookId;//bookId

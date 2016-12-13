@@ -18,6 +18,7 @@
 
     </resultMap>
 
+    <cache/>
     <insert id="insertBook" parameterType="Book" useGeneratedKeys="true" keyProperty="book_id">
         INSERT INTO book(book_name,author,year,price,description,cover,fatherclass,sonclass) VALUE (
         #{bookName},#{author},#{year},#{price},#{description},#{cover},#{fatherClass},#{sonClass}

@@ -10,6 +10,7 @@
         <result property="bookId" column="book_id"/>
         <result property="quantity" column="quantity"/>
     </resultMap>
+    <cache/>
 
     <insert id="insertItem" parameterType="ShoppingListItem" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO shoppinglistitem(shoppinglist_id,book_id,quantity) VALUE (
