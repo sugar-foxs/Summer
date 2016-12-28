@@ -79,7 +79,7 @@ public class CustomerController{
       @RequestMapping(value = "/login")
       public String login(HttpServletRequest request,Model model,HttpSession httpSession,HttpServletResponse response) throws IOException {
             String username = request.getParameter("username");
-            String password = md5Service.EncoderByMd5("#"+request.getParameter("password")+"$");
+            String password = md5Service.EncoderByMd5(request.getParameter("password"));
             List<Customer> customerList = customerService.findAllCustomers();
             if(username.length() == 0){
                   model.addAttribute("error","用户名为空");
