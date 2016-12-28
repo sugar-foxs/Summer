@@ -41,7 +41,7 @@ public class ShoppingCarController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/addBook")
+    @RequestMapping(value = "/addBook" )
     public String addBook(HttpServletRequest request, HttpSession session, HttpServletResponse response) throws IOException {
         String bookId = request.getParameter("bookId");
         String num = request.getParameter("num");
