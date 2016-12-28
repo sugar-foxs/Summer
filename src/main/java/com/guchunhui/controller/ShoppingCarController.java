@@ -1,6 +1,8 @@
 package com.guchunhui.controller;
 
-import com.guchunhui.model.*;
+import com.guchunhui.model.Customer;
+import com.guchunhui.model.ShoppingCar;
+import com.guchunhui.model.ShoppingCarItems;
 import com.guchunhui.service.ShoppingCarService;
 import com.guchunhui.utils.CookieUtilService;
 import com.guchunhui.utils.ShoppingCarUtilService;
@@ -15,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -49,7 +50,7 @@ public class ShoppingCarController {
             long shoppingCarId = shoppingCarService.findCarByCustomerId(customer.getCustomerId()).getShoppingCarId();
             shoppingCarUtilService.addBookIntoCar(shoppingCarId,Long.valueOf(bookId),Integer.valueOf(num));
         }
-        ShoppingCar shoppingCar = shoppingCarService.findCarByCustomerId(customer.getCustomerId());
+        ShoppingCar shoppingCar = shoppingCarUtilService.getShoppingCarByCustomerId(customer.getCustomerId());
         String cookieValue = URLEncoder.encode(cookieUtilService.toCookieString(shoppingCar),"utf-8");
         Cookie cookie = new Cookie(customer.getCustomerName()+"_cart", cookieValue);
         cookie.setMaxAge(7*24*60*60);

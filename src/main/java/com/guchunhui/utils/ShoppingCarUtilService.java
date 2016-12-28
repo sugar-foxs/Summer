@@ -1,9 +1,10 @@
 package com.guchunhui.utils;
 
+import com.guchunhui.model.Book;
 import com.guchunhui.model.ShoppingCar;
 import com.guchunhui.model.ShoppingCarItems;
-import com.guchunhui.service.CustomerService;
 import com.guchunhui.service.ShoppingCarItemsService;
+import com.guchunhui.service.ShoppingCarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +19,12 @@ public class ShoppingCarUtilService {
     private ShoppingCarItemsService shoppingCarItemsService;
 
 
+
     @Autowired
-    private CustomerService customerService;
+    private ShoppingCarService shoppingCarService;
+
+    @Autowired
+    private BookUtilService bookUtilService;
 
     /**
      *从数据库中找出商品，及每种商品的数量
@@ -27,9 +32,32 @@ public class ShoppingCarUtilService {
      * @return
      */
     public List<ShoppingCarItems> getItemsFromCarByCustomerId(long customerId){
-        ShoppingCar shoppingCar = customerService.findCustomerById(customerId).getShoppingCar();
-        return shoppingCar.getShoppingCarItemsList();
+        ShoppingCar shoppingCar = shoppingCarService.findCarByCustomerId(customerId);
+
+        List<ShoppingCarItems> list=shoppingCarItemsService.getShoppingCarItemsById(shoppingCar.getShoppingCarId());
+        for(ShoppingCarItems shoppingCarItems:list){
+            long bookId = shoppingCarItems.getBookId();
+            Book book = bookUtilService.findBookById(bookId);
+            shoppingCarItems.setBook(book);
+        }
+
+        return list;
     }
+
+    public ShoppingCar getShoppingCarByCustomerId(long customerId){
+        ShoppingCar shoppingCar = shoppingCarService.findCarByCustomerId(customerId);
+
+        List<ShoppingCarItems> list = shoppingCarItemsService.getShoppingCarItemsById(shoppingCar.getShoppingCarId());
+        for(ShoppingCarItems shoppingCarItems:list){
+            long bookId = shoppingCarItems.getBookId();
+            Book book = bookUtilService.findBookById(bookId);
+            shoppingCarItems.setBook(book);
+        }
+        shoppingCar.setShoppingCarItemsList(list);
+        return shoppingCar;
+    }
+
+
 
     /**
      * 清空购物车

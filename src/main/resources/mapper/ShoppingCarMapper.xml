@@ -2,12 +2,12 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.guchunhui.mapper.ShoppingCarMapper">
+<mapper namespace="com.guchunhui.dao.ShoppingCarMapper">
 
     <resultMap type="com.guchunhui.model.ShoppingCar" id="ShoppingCarResult">
         <id property="shoppingCarId" column="shoppingcar_id"/>
         <result property="customerId" column="customer_id"/>
-        <collection property="shoppingCarItemsList" column="shoppingcar_id" fetchType="eager" select="com.guchunhui.mapper.ShoppingCarItemsMapper.getShoppingCarItemsById"/>
+        <!--<collection property="shoppingCarItemsList" column="shoppingcar_id" fetchType="eager" select="com.guchunhui.dao.ShoppingCarItemsMapper.getShoppingCarItemsById"/>-->
     </resultMap>
 
 

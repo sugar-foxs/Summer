@@ -38,7 +38,7 @@ public class BookUtilService {
         return bookService.findAllBooks();
     }
 
-    public Book findBookById(Integer id)
+    public Book findBookById(long id)
     {
         return bookService.findBookById(id);
     }

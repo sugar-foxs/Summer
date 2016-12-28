@@ -6,6 +6,8 @@ import java.io.Serializable;
  * Created by gch on 16-12-13.
  */
 public class ShoppingCarItems implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private long id;
     private long shoppingCarId;
     private Book book;

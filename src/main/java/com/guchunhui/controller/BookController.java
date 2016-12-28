@@ -3,18 +3,16 @@ package com.guchunhui.controller;
 import com.github.pagehelper.PageHelper;
 import com.guchunhui.model.Book;
 import com.guchunhui.service.BookService;
-import com.guchunhui.service.CustomerService;
 import com.guchunhui.utils.BookUtilService;
-import org.codehaus.jackson.map.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -28,10 +26,9 @@ public class BookController {
     @Autowired
     private BookUtilService bookUtilService;
 
-    @CrossOrigin
     @ResponseBody
     @RequestMapping(value = "/findall")
-    public List<Book> findAllBooks(HttpServletRequest request){
+    public List<Book> findAllBooks(HttpServletRequest request, HttpServletResponse response){
         String page = request.getParameter("page");
         PageHelper.startPage(Integer.parseInt(page),20,true,false);
         List<Book> books = bookService.findAllBooks();

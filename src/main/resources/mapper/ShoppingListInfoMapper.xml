@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.guchunhui.mapper.ShoppingListInfoMapper">
+<mapper namespace="com.guchunhui.dao.ShoppingListInfoMapper">
 
     <resultMap type="com.guchunhui.model.Customer" id="CustomerResult">
         <id property="customerId" column="customer_id"/>

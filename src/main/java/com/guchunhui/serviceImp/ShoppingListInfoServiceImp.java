@@ -1,6 +1,6 @@
 package com.guchunhui.serviceImp;
 
-import com.guchunhui.mapper.ShoppingListInfoMapper;
+import com.guchunhui.dao.ShoppingListInfoMapper;
 import com.guchunhui.model.ShoppingListInfo;
 import com.guchunhui.queryCondition.ShoppingListQuery;
 import com.guchunhui.service.ShoppingListInfoService;

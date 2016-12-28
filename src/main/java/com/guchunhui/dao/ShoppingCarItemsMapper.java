@@ -1,4 +1,4 @@
-package com.guchunhui.mapper;
+package com.guchunhui.dao;
 
 import com.guchunhui.model.ShoppingCarItems;
 import org.apache.ibatis.annotations.Param;

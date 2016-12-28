@@ -2,6 +2,7 @@ package com.guchunhui.test;
 
 import com.guchunhui.model.ShoppingCar;
 import com.guchunhui.service.ShoppingCarService;
+import com.guchunhui.utils.ShoppingCarUtilService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +18,18 @@ public class ShoppingCarTest {
 
     @Autowired
     private ShoppingCarService shoppingCarService;
+    @Autowired
+    private ShoppingCarUtilService shoppingCarUtilService;
 
     @Test
     public void findShoppingCarById(){
         ShoppingCar shoppingCar = shoppingCarService.findCarByCustomerId(1);
         System.out.print(shoppingCar);
+    }
+
+    @Test
+    public void getItemsFromCarByCustomerId(){
+        System.out.print(shoppingCarUtilService.getItemsFromCarByCustomerId(2));
     }
 
     @Test

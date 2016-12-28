@@ -17,8 +17,8 @@ public class ShoppingCarItemsServiceTest {
     private ShoppingCarItemsService shoppingCarItemsService;
     @Test
     public void getShoppingCarItemsById() throws Exception {
-        System.out.print(shoppingCarItemsService.getShoppingCarItemsById(1));
-        System.out.print(shoppingCarItemsService.getShoppingCarItemsById(1));
+        System.out.print(shoppingCarItemsService.getShoppingCarItemsById(2));
+//        System.out.print(shoppingCarItemsService.getShoppingCarItemsById(2));
 
     }
 

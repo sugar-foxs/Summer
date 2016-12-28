@@ -100,22 +100,21 @@ public class CustomerController{
                                     httpSession.setMaxInactiveInterval(30*60);
 
                                     //cookie
-                                    boolean have = cookieUtilService.haveThisCookie(request,customer.getCustomerName()+"_cart");
-                                    if(!have){
-                                          ShoppingCar shoppingCar = shoppingCarService.findCarByCustomerId(customer.getCustomerId());
+//                                    boolean have = cookieUtilService.haveThisCookie(request,customer.getCustomerName()+"_cart");
+//                                    if(!have){
+                                    ShoppingCar shoppingCar = shoppingCarUtilService.getShoppingCarByCustomerId(customer.getCustomerId());
 
+                                    String cookieValue = URLEncoder.encode(cookieUtilService.toCookieString(shoppingCar),"utf-8");
+                                    Cookie cookie1 = new Cookie(customer.getCustomerName()+"_cart", cookieValue);
+                                    cookie1.setMaxAge(7*24*60*60);
+                                    cookie1.setPath("/");
+                                    response.addCookie(cookie1);
 
-                                          String cookieValue = URLEncoder.encode(cookieUtilService.toCookieString(shoppingCar),"utf-8");
-                                          Cookie cookie1 = new Cookie(customer.getCustomerName()+"_cart", cookieValue);
-                                          cookie1.setMaxAge(7*24*60*60);
-                                          cookie1.setPath("/");
-
-                                          Cookie cookie = new Cookie("customer",customer.getCustomerName());
-                                          cookie.setMaxAge(7*24*60*60);
-                                          cookie.setPath("/");
-                                          response.addCookie(cookie);
-                                          response.addCookie(cookie1);
-                                    }
+                                    Cookie cookie = new Cookie("customer",customer.getCustomerName());
+                                    cookie.setMaxAge(7*24*60*60);
+                                    cookie.setPath("/");
+                                    response.addCookie(cookie);
+//                                    }
                                     return "forward:loginSuccess/"+username+".do";
                               }else{
                                     model.addAttribute("error","密码错误");

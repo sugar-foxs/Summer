@@ -1,6 +1,6 @@
 package com.guchunhui.serviceImp;
 
-import com.guchunhui.mapper.CustomerMapper;
+import com.guchunhui.dao.CustomerMapper;
 import com.guchunhui.model.Customer;
 import com.guchunhui.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
