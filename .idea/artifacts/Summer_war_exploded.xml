@@ -10,7 +10,6 @@
           <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
           <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:4.1.4" />
           <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:0.9.5" />
-          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.2.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.2.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.2.2.RELEASE" />
