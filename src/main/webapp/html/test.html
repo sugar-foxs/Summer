@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<input type="image" src="../img/fz.jpg" width="300" height="150" />
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;">
+    Your browser does not support the canvas element.
+</canvas>
+<script type="text/javascript">
+
+    var c=document.getElementById("myCanvas");
+    var cxt=c.getContext("2d");
+    var img=new Image();
+    img.src="../img/fz.jpg";
+    cxt.drawImage(img,0,0);
+
+</script>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="190">
+    <polygon points="100,10 40,180 190,60 10,60 160,180"
+             style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" />
+</svg>
+<p id="demo">点击这个按钮，获得您的坐标：</p>
+<button onclick="getLocation()">试一下</button>
+<script>
+    var x=document.getElementById("demo");
+    function getLocation()
+    {
+        if (navigator.geolocation)
+        {
+            navigator.geolocation.getCurrentPosition(showPosition,showError);
+        }
+        else{x.innerHTML="Geolocation is not supported by this browser.";}
+    }
+    function showPosition(position)
+    {
+        x.innerHTML="Latitude: " + position.coords.latitude +
+                "<br />Longitude: " + position.coords.longitude;
+    }
+    function showError(error)
+    {
+        switch(error.code)
+        {
+            case error.PERMISSION_DENIED:
+                x.innerHTML="User denied the request for Geolocation."
+                break;
+            case error.POSITION_UNAVAILABLE:
+                x.innerHTML="Location information is unavailable."
+                break;
+            case error.TIMEOUT:
+                x.innerHTML="The request to get user location timed out."
+                break;
+            case error.UNKNOWN_ERROR:
+                x.innerHTML="An unknown error occurred."
+                break;
+        }
+    }
+</script>
+<div id="result"></div>
+
+<script>
+    // Check browser support
+    if (typeof(Storage) !== "undefined") {
+        // Store
+        localStorage.setItem("lastname", "gch");
+        // Retrieve
+        document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+    } else {
+        document.getElementById("result").innerHTML = "抱歉！您的浏览器不支持 Web Storage ...";
+    }
+</script>
+
+
+<script type="text/javascript">
+
+    if (localStorage.pagecount)
+    {
+        localStorage.pagecount=Number(localStorage.pagecount) +1;
+    }
+    else
+    {
+        localStorage.pagecount=1;
+    }
+    document.write("Visits: " + localStorage.pagecount + " time(s).");
+
+</script>
+
+<p>刷新页面会看到计数器在增长。</p>
+
+<p>请关闭浏览器窗口，然后再试一次，计数器会继续计数。</p>
+
+<p><button onclick="clickCounter()" type="button">请点击这里</button></p>
+<p><button onclick="clickCounter()" type="button">请点击这里</button></p>
+
+<div id="result2"></div>
+<p>请点击按钮使计数器递增。</p>
+<p>请关闭浏览器或标签页，然后再试一次，计数器会重置。</p>
+<script>
+    function clickCounter() {
+        if(typeof(Storage) !== "undefined") {
+            if (sessionStorage.clickcount) {
+                sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+            } else {
+                sessionStorage.clickcount = 1;
+            }
+            document.getElementById("result2").innerHTML = "在本 session 中，您已经点击这个按钮 " + sessionStorage.clickcount + " 次。";
+        } else {
+            document.getElementById("result2").innerHTML = "抱歉！您的浏览器不支持 Web Storage ...";
+        }
+    }
+</script>
+</body>
+</html>

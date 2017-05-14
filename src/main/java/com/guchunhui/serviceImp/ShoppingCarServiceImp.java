@@ -1,6 +1,6 @@
 package com.guchunhui.serviceImp;
 
-import com.guchunhui.mapper.ShoppingCarMapper;
+import com.guchunhui.dao.ShoppingCarMapper;
 import com.guchunhui.model.ShoppingCar;
 import com.guchunhui.service.ShoppingCarService;
 import org.springframework.beans.factory.annotation.Autowired;

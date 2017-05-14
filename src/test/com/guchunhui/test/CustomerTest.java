@@ -54,7 +54,7 @@ public class CustomerTest {
 
     @Test
     public void deleteCustomerById(){
-        customerService.deleteCustomerById(3);
+        customerService.deleteCustomerById(2);
     }
 
 

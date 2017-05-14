@@ -52,8 +52,11 @@ public class BookTest {
 
     @Test
     public void findBookById(){
+        //测试二级缓存
         Book book = bookService.findBookById(3);
         System.out.println(book);
+        Book book2 = bookService.findBookById(3);
+        System.out.println(book2);
     }
 
     @Test

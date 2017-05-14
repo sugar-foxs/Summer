@@ -1,4 +1,4 @@
-package com.guchunhui.mapper;
+package com.guchunhui.dao;
 
 import com.guchunhui.model.Book;
 import com.guchunhui.queryCondition.BookQuery;
