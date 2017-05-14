@@ -6,7 +6,6 @@ import com.guchunhui.utils.MD5Service;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -41,8 +40,8 @@ public class CustomerTest {
 
     @Test
     public void findCustomerById(){
-        Customer customer = customerService.findCustomerById(2);
-        System.out.print(customer);
+        Customer customer = customerService.findCustomerById(1);
+        System.out.print(customer.getShoppingCar().getShoppingCarItemsList());
     }
 
     @Test

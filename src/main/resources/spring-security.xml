@@ -1,0 +1,32 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+               http://www.springframework.org/schema/security  
+               http://www.springframework.org/schema/security/spring-security.xsd">
+    <http auto-config="true" use-expressions="true" access-denied-page="/jsps/accessDenied.jsp">
+        <form-login login-processing-url="/login.do"
+                    login-page="/gologin.do"
+                    authentication-failure-url="/gologin.do"
+                    default-target-url="/loginSuccess.do"/>
+
+        <!--退出-->
+        <logout logout-url="/logout.do" logout-success-url="/gologin.do"/>
+        <!--记住功能,一周-->
+        <remember-me key="shopKey" token-validity-seconds="60475"/>
+        <!--<intercept-url pattern="/gopay.do" requires-channel="https"/>-->
+
+    </http>
+
+    <global-method-security pre-post-annotations="enabled" />
+    <!--内存用户库-->
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider>
+            <user-service>
+                <user name="admin" password="admin" authorities="ROLE_ADMIN"/>
+                <user name="gchx" password="123" authorities="ROLE_USER"/>
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+</beans:beans>

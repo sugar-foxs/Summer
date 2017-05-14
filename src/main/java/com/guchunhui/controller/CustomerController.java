@@ -1,17 +1,13 @@
 package com.guchunhui.controller;
 
 import com.guchunhui.model.Customer;
-import com.guchunhui.model.ShoppingCar;
 import com.guchunhui.service.CustomerService;
 import com.guchunhui.utils.CookieUtilService;
 import com.guchunhui.utils.CustomerUtilService;
 import com.guchunhui.utils.MD5Service;
 import com.guchunhui.utils.ShoppingCarUtilService;
-import org.codehaus.jackson.JsonEncoding;
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,7 +20,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -84,11 +79,11 @@ public class CustomerController{
             List<Customer> customerList = customerService.findAllCustomers();
             if(username.length() == 0){
                   model.addAttribute("error","用户名为空");
-                  return "login";
+                  return "/login.jsp";
             }
             if(password.length() == 0){
                   model.addAttribute("error","密码为空");
-                  return "login";
+                  return "/login.jsp";
             }
             if(customerList != null){
                   for(Customer customer : customerList){
@@ -103,32 +98,32 @@ public class CustomerController{
                                     //cookie
                                     boolean have = cookieUtilService.haveThisCookie(request,customer.getCustomerName()+"_cart");
                                     if(!have){
-                                          ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(customer.getCustomerId());
+//                                          ShoppingCar shoppingCar = shoppingCarUtilService.findShoppingCarById(customer.getCustomerId());
 
 
-                                          String cookieValue = URLEncoder.encode(cookieUtilService.toCookieString(shoppingCar),"utf-8");
-                                          Cookie cookie1 = new Cookie(customer.getCustomerName()+"_cart", cookieValue);
-                                          cookie1.setMaxAge(7*24*60*60);
-                                          cookie1.setPath("/");
+//                                          String cookieValue = URLEncoder.encode(cookieUtilService.toCookieString(shoppingCar),"utf-8");
+//                                          Cookie cookie1 = new Cookie(customer.getCustomerName()+"_cart", cookieValue);
+//                                          cookie1.setMaxAge(7*24*60*60);
+//                                          cookie1.setPath("/");
 
                                           Cookie cookie = new Cookie("customer",customer.getCustomerName());
                                           cookie.setMaxAge(7*24*60*60);
                                           cookie.setPath("/");
                                           response.addCookie(cookie);
-                                          response.addCookie(cookie1);
+//                                          response.addCookie(cookie1);
                                     }
                                     return "forward:loginSuccess/"+username+".do";
                               }else{
                                     model.addAttribute("error","密码错误");
-                                    return "login";
+                                    return "/login";
                               }
                         }
                   }
                   model.addAttribute("error","用户名不存在");
-                  return "login";
+                  return "/login";
             }else{
                   model.addAttribute("error","无用户");
-                  return "login";
+                  return "/login";
             }
       }
 
@@ -184,18 +179,20 @@ public class CustomerController{
       public String loginSuccess(@PathVariable String username,Model model) throws UnsupportedEncodingException {
             Customer customer = customerService.findCustomerByName(username);
             model.addAttribute(customer);
-//            System.out.print(customer);
             return "main";
       }
-
+      //去主页面
+      @RequestMapping(value = "/loginSuccess")
+      public String loginSuccess2() throws UnsupportedEncodingException {
+            return "main";
+      }
       //去登陆页面
       @RequestMapping(value = "/gologin")
-      public String login(HttpSession session) {
-            Customer customer = (Customer) session.getAttribute("customer");
-            if(customer!=null){
-                  return "forward:loginSuccess/"+customer.getCustomerName()+".do";
+      public String goLogin() {
+            if(!SecurityContextHolder.getContext().getAuthentication().getName().equals("anonymousUser")){
+                  return "forward:loginSuccess.do";
             }else{
-                  return "login";
+                  return "/login";
             }
       }
 
@@ -213,6 +210,6 @@ public class CustomerController{
       @RequestMapping(value = "/logout")
       public String logout(HttpSession session){
             session.invalidate();
-            return "login";
+            return "/login";
       }
 }

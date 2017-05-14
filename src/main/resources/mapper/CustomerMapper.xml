@@ -11,7 +11,7 @@
         <result property="customerPhone" column="phone"/>
         <result property="customerEmail" column="email"/>
         <result property="customerAddress" column="address"/>
-
+        <association property="shoppingCar" column="customer_id" fetchType="lazy" select="com.guchunhui.mapper.ShoppingCarMapper.findCarByCustomerId"/>
     </resultMap>
 
     <insert id="insertCustomer" parameterType="Customer" useGeneratedKeys="true" keyProperty="customer_id">

@@ -2,25 +2,11 @@
  * Created by gch on 16-7-25.
  */
 var page=1;
+var need=true;//是否还有数据
 
-function a_onmouseover(id,id2)
-{
-    var bookStoreDiv = document.getElementById(id);
-    bookStoreDiv.style.display="block";
-    var button = document.getElementById(id2);
-    button.style.backgroundColor="white";
-}
-
-function a_onmouseout(id,id2)
-{
-    var bookStoreDiv = document.getElementById(id);
-    bookStoreDiv.style.display="none";
-    var button = document.getElementById(id2);
-    button.style.backgroundColor="whitesmoke";
-}
 function getbook() {
     $.ajax({
-        url:'http://127.0.0.1:8080/book/findall.do',
+        url:'/book/findall.do',
         type:"GET",
         data:{
             page:page
@@ -28,9 +14,9 @@ function getbook() {
         dataType: 'json',
         timeout: 1000,
         cache: false,
-        success: succFunction //成功执行方法
+        success: getSuccessFully //成功执行方法
     });
-    function succFunction(tt) {
+    function getSuccessFully(tt) {
         if(tt!=""){
             var data = eval(tt);
             var divObj = $("<div></div>");
@@ -39,13 +25,17 @@ function getbook() {
             // 给模板加载数据
             divObj.processTemplate(data);
             divObj.appendTo($("#result"));
-            document.getElementById("loading").style.display="block";
+            // document.getElementById("loading").style.display="block";
         }else{
-            document.getElementById("loading").style.display="none";
+            // document.getElementById("loading").style.display="none";
             document.getElementById("span1").style.display="block";
+            need=false;
         }
     }
 }
+/**
+ * 滚动条滚动到最下方,触发ajax事件
+ */
 $(document).ready(function(){
     getbook();
     window.onscroll=function(){
@@ -53,36 +43,23 @@ $(document).ready(function(){
         var theight=getScrollTop();
         var rheight=getScrollHeight();
         var bheight=rheight-theight-height;
-        if(bheight==0){
+        console.log(bheight);
+        if(need && bheight < 0.1){
             page++;
             getbook();
         }
     }
 });
-window.onload = function () {
-        var Lis = document.getElementsByTagName("li");
-        for (i = 0; i < Lis.length; i++) {
-            Lis[i].onmouseover = function () {
-                this.className = "lihover";
-            }
 
-            Lis[i].onmouseout = function () {
-                this.className = "";
-            }
-        }
 
-};
-function show() {
-    page++;
-    getbook();
-}
+
 //取窗口可视范围的高度
 function getClientHeight(){
     var clientHeight=0;
     if(document.body.clientHeight&&document.documentElement.clientHeight){
-        var clientHeight=(document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+        clientHeight=(document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
     }else{
-        var clientHeight=(document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+        clientHeight=(document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
     }
     return clientHeight;
 }
@@ -100,4 +77,7 @@ function getScrollTop(){
 function getScrollHeight(){
     return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
 }
+
+
+
 

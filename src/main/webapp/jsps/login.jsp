@@ -34,7 +34,7 @@
                                 <span style="font-size: 28px;line-height: 44px;color: white" class="glyphicon glyphicon-user"></span>
                         </div>
                         <div class="col-xs-10" style="height: 44px;border: 1px solid whitesmoke;">
-                            <input type="text" placeholder="用户名" id="username" name="username" style="border: 0;width:96%;height: 44px;">
+                            <input type="text" placeholder="用户名" id="username" name="j_username" style="border: 0;width:96%;height: 44px;">
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                             <span style="font-size: 28px;line-height: 44px;color: white" class="glyphicon glyphicon-lock"></span>
                         </div>
                         <div class="col-xs-10" style="height: 44px;border: 1px solid whitesmoke;">
-                            <input type="password" id="password" placeholder="密码" name="password" style="border: 0;width:96%;height: 44px;">
+                            <input type="password" id="password" placeholder="密码" name="j_password" style="border: 0;width:96%;height: 44px;">
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
 
                 <div class="row">
                     <div class="col-xs-3 col-xs-offset-1">
-                        <label><input type="checkbox">记住密码</label>
+                        <label><input name="_spring_security_remember_me" type="checkbox">记住密码</label>
                     </div>
                 </div>
 
@@ -71,7 +71,8 @@
                 <a>忘记密码</a>
                 <a href="/goregister.do">免费注册</a>
             </form>
-           <center> <h5><a href="../jsps/register.jsp">没有账户？注册</a> </h5></center>
+           <center> <h5><a href="/goregister.do">没有账户？注册</a> </h5></center>
+            <center> <h5><a href="/loginSuccess.do">游客登录</a> </h5></center>
         </div>
     </div>
 </div>

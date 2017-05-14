@@ -9,26 +9,9 @@ import java.util.List;
 public class ShoppingCar implements Serializable{
     private static final long serialVersionUID = 9999858983295L;
     private long shoppingCarId;
-    private List<Book> books;//书的种类链表,不重复
-    private String booksIds;//所有的书的id串，以；分隔
-    private Customer customer;//所属顾客
-    private List<Long> counts;//存放每种书的数量
+    private long customerId;//所属顾客
+    private List<ShoppingCarItems> shoppingCarItemsList;//书的种类链表,不重复
 
-    public List<Long> getCounts() {
-        return counts;
-    }
-
-    public void setCounts(List<Long> counts) {
-        this.counts = counts;
-    }
-
-    public String getBooksIds() {
-        return booksIds;
-    }
-
-    public void setBooksIds(String booksIds) {
-        this.booksIds = booksIds;
-    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -42,30 +25,28 @@ public class ShoppingCar implements Serializable{
         this.shoppingCarId = shoppingCarId;
     }
 
-    public List<Book> getBooks() {
-        return books;
+    public List<ShoppingCarItems> getShoppingCarItemsList() {
+        return shoppingCarItemsList;
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
+    public void setShoppingCarItemsList(List<ShoppingCarItems> shoppingCarItemsList) {
+        this.shoppingCarItemsList = shoppingCarItemsList;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public long getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomerId(long customerId) {
+        this.customerId = customerId;
     }
 
     @Override
     public String toString() {
         return "ShoppingCar{" +
                 "shoppingCarId=" + shoppingCarId +
-                ", books=" + books +
-                ", booksIds='" + booksIds + '\'' +
-                ", customer=" + customer +
-                ", counts=" + counts +
+                ", customerId=" + customerId +
+                ", shoppingCarItemsList=" + shoppingCarItemsList +
                 '}';
     }
 }

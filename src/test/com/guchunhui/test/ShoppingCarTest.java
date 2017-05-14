@@ -1,6 +1,5 @@
 package com.guchunhui.test;
 
-import com.guchunhui.model.Customer;
 import com.guchunhui.model.ShoppingCar;
 import com.guchunhui.service.ShoppingCarService;
 import org.junit.Test;
@@ -21,28 +20,28 @@ public class ShoppingCarTest {
 
     @Test
     public void findShoppingCarById(){
-        ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(4);
+        ShoppingCar shoppingCar = shoppingCarService.findCarByCustomerId(1);
         System.out.print(shoppingCar);
     }
 
     @Test
     public void insertShoppingCar(){
         ShoppingCar shoppingCar = new ShoppingCar();
-        shoppingCar.setCustomer(new Customer());
+        shoppingCar.setCustomerId(2);
         shoppingCarService.insertShoppingCar(shoppingCar);
     }
 
     @Test
     public void deleteShoppingCarById(){
-        shoppingCarService.deleteShoppingCarById(6);
+        shoppingCarService.deleteCarByCustomerId(9);
     }
 
-    @Test
-    public void updateShoppingCar(){
-        ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(6);
-        shoppingCar.setBooksIds("1;2;3;");
-        shoppingCarService.updateShoppingCar(shoppingCar);
-    }
+//    @Test
+//    public void updateShoppingCar(){
+//        ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById(6);
+//        shoppingCar.setBooksIds("1;2;3;");
+//        shoppingCarService.updateShoppingCar(shoppingCar);
+//    }
 
 
 }
