@@ -1,47 +1,37 @@
-package com.guchunhui.test;
+package com.guchunhui.utils;
 
-import com.guchunhui.utils.ShoppingCarUtilService;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * Created by gch on 16-7-21.
+ * Created by gch on 16-12-13.
  */
 @RunWith(SpringJUnit4ClassRunner.class)   //相当于继承了SpringJUnit4ClassRunner
 @ContextConfiguration(locations = {"classpath:spring.xml"})
-public class ShoppingCarUtilTest {
-
+public class ShoppingCarUtilServiceTest {
     @Autowired
     private ShoppingCarUtilService shoppingCarUtilService;
+    @Test
+    public void getItemsFromCar() throws Exception {
+        System.out.print(shoppingCarUtilService.getItemsFromCarByCustomerId(1));
+    }
 
+    @Test
+    public void cleanCar(){
+        shoppingCarUtilService.cleanShoppingCarById(1);
+    }
 
-//    @Test
-//    public void addBookToCar(){
-//        shoppingCarUtilService.addBookIntoCar(1,2,1);
-//    }
-//
-//    @Test
-//    public void deleteBookFromCar(){
-//        shoppingCarUtilService.deleteBookFromCar(2,2);
-//    }
-//
-//    @Test
-//    public void deleteThisBookFromCar(){
-//        shoppingCarUtilService.deleteThisBookFromCar(2,1);
-//    }
-//
-//    @Test
-//    public void findShoppingCarById(){
-//        List<Book> bookList = shoppingCarUtilService.findShoppingCarById(4).getBooks();
-//        System.out.print(bookList);
-//    }
-//
-//    @Test
-//    public void cleanShoppingCarById(){
-//        shoppingCarUtilService.cleanShoppingCarById(1);
-//    }
-//
+    @Test
+    public void addBookToCar(){
+        shoppingCarUtilService.addBookIntoCar(2,3,2);
+    }
+
+    @Test
+    public void deleteThisBookFromCar(){
+        shoppingCarUtilService.deleteThisBookFromCar(2,2);
+    }
 
 }

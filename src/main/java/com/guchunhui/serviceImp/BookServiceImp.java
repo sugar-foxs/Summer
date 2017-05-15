@@ -1,6 +1,6 @@
 package com.guchunhui.serviceImp;
 
-import com.guchunhui.mapper.BookMapper;
+import com.guchunhui.dao.BookMapper;
 import com.guchunhui.model.Book;
 import com.guchunhui.queryCondition.BookQuery;
 import com.guchunhui.service.BookService;

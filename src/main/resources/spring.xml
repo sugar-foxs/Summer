@@ -75,9 +75,12 @@
                   value="com.guchunhui.model.Customer,
                   com.guchunhui.model.Book,
                   com.guchunhui.model.ShoppingCar,
-                  com.guchunhui.model.ShoppingList,
-                  com.guchunhui.model.ShoppingCarItems"/>
+                  com.guchunhui.model.ShoppingListInfo,
+                  com.guchunhui.model.ShoppingListItem,
+                  com.guchunhui.model.ShoppingCarItems
+                  "/>
         <!-- 自动扫描mapping.xml文件 -->
+        <!--<property name="mapperLocations" value="classpath:mapper/*.xml" />-->
         <property name="mapperLocations" value="classpath:mapper/*.xml" />
 
         <property name="configLocation" value="classpath:mybatis-config.xml" />
@@ -85,7 +88,7 @@
 
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.guchunhui.mapper" />
+        <property name="basePackage" value="com.guchunhui.dao" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
 
